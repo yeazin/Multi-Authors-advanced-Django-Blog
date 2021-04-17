@@ -1,0 +1,382 @@
+{% extends 'home/base/base.html' %}
+
+{% block body %}
+
+    <!-- Slider -->
+    <section id="mt_banner">
+        <div class="swiper-container">
+ 
+            <div class="swiper-wrapper">
+                {% for post in featured %}
+                <div class="swiper-slide">
+                    <div class="slide-inner" style="background-image: url ({{ post.image_url }} );"> </div>
+                    <div class="banner_caption_text">
+                        <div class="post-category">
+                            <ul>
+                                {% for cat in post.catagories.all %}
+                                <li class="cat-yellow"><a href="#" class="white">{{ cat }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <h1><a href="#">{{ post.title }}</a></h1>
+                        <div class="item-meta">
+                            <span>by</span>
+                            <a href="author.html">{{ post.author.author.username }}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+                
+                <div class="swiper-slide">
+            </div>
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+        </div>
+    </section>
+    <!-- End Slider -->
+
+    <!--* Blog*-->
+    <section id="mt_blog" class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 width70">
+                    <div class="blog_post_sec blog_post_inner">
+                        <div class="row">
+                            {% for post in post %}
+                            {% if forloop.counter|divisibleby:2 %}
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">
+                                <div class="blog-post_wrapper image-wrapper">
+                                    <div class="blog-post-image">
+                                        <img src="{{ post.image_url }}" style="background-size: cover;" alt="image" class="img-responsive center-block post_img" />
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-category">
+                                            <ul>
+                                                {% for cat in post.catagories.all %}
+                                                <li class="cat-yellow"><a href="#" class="white">{{cat}}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                        <div class="post-date">
+                                            <p><a href="#">{{post.created_at | timesince}} ago </a></p>
+                                        </div>
+                                        <h2 class="entry-title">
+                                            <a href="blog-details.html" class="white">{{post.title}}</a>
+                                        </h2>
+                                        <div class="item-meta white">
+                                            <span>by</span>
+                                            <a class="author-name white" href="author.html">{{post.author.author.username}}</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                                {% else %}
+
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">                            
+                                <div class="blog-post_wrapper image-wrapper blog-wrapper-list">
+                                    <div class="blog-post-image">
+                                        <img src="{{post.image_url }}"  style="background-size: cover;" alt="image" class="img-responsive center-block post_img" />
+                                        <div class="post-category">
+                                            <ul>
+                                                {% for cat in post.catagories.all %}
+                                                <li class="cat-blue mar-0"><a href="#" class="white">{{cat}}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="post-content">
+                                        <div class="post-date">
+                                            <p><a href="#">{{post.created_at|timesince}} ago </a></p>
+                                        </div>
+                                        <h2 class="entry-title">
+                                            <a href="blog-details.html" class="">{{post.title}}</a>
+                                        </h2>
+                                        
+                                        <div class="item-meta">
+                                            <span>by</span>
+                                            <a class="author-name" href="author.html">{{post.author.author.username }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% endfor %}
+
+
+                            <!-- 
+
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">                            
+                                <div class="blog-post_wrapper front-wrapper bg-gray">
+                                    <div class="post-content">
+                                        <div class="post-category">
+                                            <ul>
+                                                <li class="cat-pink"><a href="#" class="white">Fashion</a></li>
+                                                <li class="cat-green"><a href="#" class="white">Health</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="post-date">
+                                            <p><a href="#">15th August 2019</a></p>
+                                        </div>
+                                        <h2 class="entry-title">
+                                            <a href="blog-details.html">Architecture belongs to culture, not to civilization</a>
+                                        </h2>
+                                        <div class="item-meta">
+                                            <span>by</span>
+                                            <a class="author-name" href="author.html">Patricia Jenkins</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">
+                                <div class="blog-post_wrapper image-wrapper">
+                                    <div class="blog-post-image">
+                                        <img src="images/blog-listing/blog_10.jpg" alt="image" class="img-responsive center-block post_img" />
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-category">
+                                            <ul>
+                                                <li class="cat-green"><a href="#" class="white">Health</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="post-date">
+                                            <p><a href="#">15th August 2019</a></p>
+                                        </div>
+                                        <h2 class="entry-title white">
+                                            <a href="blog-details.html" class="white">I think it's the responsibility of a designer to try to break rules and barriers</a>
+                                        </h2>
+                                        <div class="item-meta white">
+                                            <span>by</span>
+                                            <a class="author-name white" href="author.html">Patricia Jenkins</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">
+                                <div class="blog-post_wrapper image-wrapper blog-wrapper-list">
+                                    <div class="blog-post-image">
+                                        <img src="images/blog-listing/blog_101.jpg" alt="image" class="img-responsive center-block post_img" />
+                                        <div class="post-category">
+                                            <ul>
+                                                <li class="cat-blue mar-0"><a href="#" class="white">Technology</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="post-content">
+                                        <div class="post-date">
+                                            <p><a href="#">15th August 2019</a></p>
+                                        </div>
+                                        <h2 class="entry-title">
+                                            <a href="blog-details.html" class="">Designer to try to break rules and barriers</a>
+                                        </h2>
+                                        
+                                        <div class="item-meta">
+                                            <span>by</span>
+                                            <a class="author-name" href="author.html">Admin Jackson</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">                            
+                                <div class="blog-post_wrapper front-wrapper bg-green">
+                                    <div class="post-content">
+                                        <div class="post-category">
+                                            <ul>
+                                                <li class="cat-blue"><a href="#" class="white">Technology</a></li>
+                                                <li class="cat-yellow"><a href="#" class="white">Popular</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="post-date">
+                                            <p><a href="#">15th August 2019</a></p>
+                                        </div>
+                                        <h2 class="entry-title">
+                                            <a href="blog-details.html" class="white">The future of architecture is culture</a>
+                                        </h2>
+                                        <div class="item-meta white">
+                                            <span>by</span>
+                                            <a class="author-name white" href="author.html">Patricia Jenkins</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">
+                                <div class="blog-post_wrapper image-wrapper">
+                                    <div class="blog-post-image">
+                                        <img src="images/blog-listing/blog_09.jpg" alt="image" class="img-responsive center-block post_img" />
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-category">
+                                            <ul>
+                                                <li class="cat-yellow"><a href="#" class="white">Popular</a></li>
+                                                <li class="cat-blue"><a href="#" class="white">Technology</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="post-date">
+                                            <p><a href="#">15th August 2019</a></p>
+                                        </div>
+                                        <h2 class="entry-title">
+                                            <a href="blog-details.html" class="white">I'm passionate about food, the tradition of it, cooking it, sharing it</a>
+                                        </h2>
+                                        <div class="item-meta white">
+                                            <span>by</span>
+                                            <a class="author-name white" href="author.html">Patricia Jenkins</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">
+                                <div class="blog-post_wrapper image-wrapper">
+                                    <div class="blog-post-image">
+                                        <img src="images/blog-listing/blog_07.jpg" alt="image" class="img-responsive center-block post_img" />
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-date">
+                                            <p><a href="#">15th August 2019</a></p>
+                                        </div>
+                                        <h2 class="entry-title white">
+                                            <a href="blog-details.html" class="white">Look at life with the eyes of a child</a>
+                                        </h2>
+                                        <div class="item-meta white">
+                                            <span>by</span>
+                                            <a class="author-name white" href="author.html">Patricia Jenkins</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">                            
+                                <div class="blog-post_wrapper front-wrapper bg-red">
+                                    <div class="post-content">
+                                        <div class="post-date">
+                                            <p><a href="#">15th August 2019</a></p>
+                                        </div>
+                                        <h2 class="entry-title white">
+                                            <a href="blog-details.html" class="white">Architecture belongs to culture, not to civilization</a>
+                                        </h2>
+                                        <div class="item-meta">
+                                            <span class="white">by</span>
+                                            <a class="author-name white" href="author.html">Patricia Jenkins</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">
+                                <div class="blog-post_wrapper image-wrapper">
+                                    <div class="blog-post-image">
+                                        <img src="images/blog-listing/blog_08.jpg" alt="image" class="img-responsive center-block post_img" />
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-date">
+                                            <p><a href="#">15th August 2019</a></p>
+                                        </div>
+                                        <h2 class="entry-title">
+                                            <a href="blog-details.html" class="white">I think it's the responsibility of a designer to try to break rules and barriers</a>
+                                        </h2>
+                                        <div class="item-meta white">
+                                            <span>by</span>
+                                            <a class="author-name white" href="author.html">Patricia Jenkins</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">
+                                <div class="blog-post_wrapper image-wrapper">
+                                    <div class="blog-post-image">
+                                        <img src="images/blog-listing/blog_13.jpg" alt="image" class="img-responsive center-block post_img" />
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-date">
+                                            <p><a href="#">15th August 2019</a></p>
+                                        </div>
+                                        <h2 class="entry-title white">
+                                            <a href="blog-details.html" class="white">Look at life with the eyes of a child</a>
+                                        </h2>
+                                        <div class="item-meta white">
+                                            <span>by</span>
+                                            <a class="author-name white" href="author.html">Patricia Jenkins</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12 mar-bottom-30">
+                                <div class="blog-post_wrapper image-wrapper">
+                                    <div class="blog-post-image">
+                                        <img src="images/blog-listing/blog_15.jpg" alt="image" class="img-responsive center-block post_img" />
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-date">
+                                            <p><a href="#">15th August 2019</a></p>
+                                        </div>
+                                        <h2 class="entry-title">
+                                            <a href="blog-details.html" class="white">I think it's the responsibility of a designer to try to break rules and barriers</a>
+                                        </h2>
+                                        <div class="item-meta white">
+                                            <span>by</span>
+                                            <a class="author-name white" href="author.html">Patricia Jenkins</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+
+                            <div class="pagination__wrapper">
+                              <ul class="pagination">
+                                    {% if post.has_previous %}
+                                <li> <button class="prev" title="previous page"> <a href="?page={{ post.previous_page_number }"> &#10094; </a></button> </li>
+                                    {% endif %}
+                                    {% for i in post.paginator.page_range %}
+                                    {% if post.number == i %}
+                                <li><button title="first page - page 1"><a href="?page={{ i }}">{{ i }}</a></button></li>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% if post.has_next %}
+                                <li>  <button class="next" title="next page"><a href="?page={{ post.next_page_number }"> &#10095; </a></button></li>
+                                    {% endif %}
+                              </ul>
+                            </div> 
+                        </div>    
+                    </div>
+                </div>
+                <div class="col-md-3 width30">
+                    <div class="sidebar">
+
+ 
+
+
+
+
+
+
+{% include 'home/base/sidebar.html' %}
+
+    <div class="mt_instagram">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_01.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_02.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_03.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_04.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_05.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_06.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_07.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_08.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_09.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_10.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_11.jpg" alt="Image"></a></div>
+                <div class="col-sm-2 col-xs-6"><a href="#"><img src="images/insta/insta_12.jpg" alt="Image"></a></div>
+            </div>
+            <div class="sectio-title">
+                <h3 class="mar-0"><a href="#">Follow @ Instagram</a></h3>
+            </div>
+        </div> 
+    </div>
+
+    {% endblock %}
+ 

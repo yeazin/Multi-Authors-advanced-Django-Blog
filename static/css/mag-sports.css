@@ -1,0 +1,147 @@
+
+
+/* ====================== */
+/*         Header         */
+/* ====================== */
+
+
+/* ============================= */
+/*          Banner         */
+/* ============================= */
+
+#mt_banner {
+    position: relative;
+    padding: 0;
+    height: 530px!important;
+}
+
+ #mt_banner .half-slide, #mt_banner .pre-half-slide{
+  width: 50%;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  overflow: hidden; 
+  border: 0px;
+  border: none;
+}
+
+#mt_banner .pre-half-slide{
+  left: 50%;
+}
+
+#mt_banner .pre-half-slide .banner_caption_text, #mt_banner .half-slide .banner_caption_text{
+  width: 90%;
+} 
+
+@media(max-width: 767px){
+  #mt_banner .half-slide{width: 100%;}
+  #mt_banner .pre-half-slide{display: none;}
+
+  #mt_banner .half-slide .banner_caption_text{width: 80%;}
+}
+
+/* ============================= */
+/*          blog post        */
+/* ============================= */
+
+#mt_blog .blog-post_wrapper {
+    border-radius: 0; 
+    height: 285px;
+}
+
+#mt_blog .slider-sports .blog-post_wrapper {
+    height: 600px;
+}
+
+#mt_blog .blog-post_wrapper.image-wrapper .post-content{
+  top: inherit;
+  bottom: 0;
+  height: auto;
+}
+
+section#mt_blog.category-list{
+  background: url(../images/sports/sliders/bg5.jpg) no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  background-attachment: fixed;
+}
+
+section#mt_blog.category-list:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #00000070;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+section#mt_blog .row.slider-sports,  section#mt_blog .row.slider-foods{
+    margin: 0 -15px;
+}
+
+section#mt_blog .row.slider-sports .slick-prev, section#mt_blog .row.slider-sports .slick-next{
+  top: 5%;
+}
+
+section#mt_blog .row.slider-sports .slick-prev{left: inherit; right: 70px;}
+
+section#mt_blog .row.slider-sports .slick-next{right: 30px;}
+
+.ads-banner-img img{border: none; border-radius: 0;}
+
+.post-list-main .thumb-wrap, .category-item .thumb-wrap{border-radius: 0px;}
+
+.post-list-main .entry-thumb{width: 100px;}
+
+.post-list-main .content-entry-wrap a, .category-item .content-entry-wrap a{
+  background-image: none;
+}
+
+@media(max-width: 1100px){
+  #mt_blog .blog-post_wrapper{height: 250px;}
+
+  #mt_blog .slider-sports .blog-post_wrapper{height: 530px;}
+}
+@media(max-width: 991px){
+  #mt_blog.latest-post{padding-bottom: 20px;}
+}
+
+@media(max-width: 639px){
+  #mt_blog .slider-sports .blog-post_wrapper{height: 450px;}
+}
+
+
+
+/* ============================= */
+/*          Instagram        */
+/* ============================= */
+
+.mt_instagram .col-sm-2{padding: 0;}
+
+.mt_instagram img{border-radius: 0;}
+
+/* ============================= */
+/*          Footer        */
+/* ============================= */
+
+#mt_footer {
+    background: url(../images/sports/sliders/bg3.jpg) no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+#mt_footer .container{position: relative; z-index: 1;}
+
+#mt_footer:before {
+    content: '';
+    background: #0b0e1ca8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,331 @@
+
+
+/* ====================== */
+/*         Header         */
+/* ====================== */
+#inner-navigation .navbar{background: transparent;}
+
+#inner-navigation .navbar.navbar-default .navbar-collapse ul.nav.navbar-nav li a, #inner-navigation .nav.navbar-nav > li > a{
+    color: #fff;
+}
+
+#inner-navigation .navbar-default .navbar-nav>.active>a, 
+#inner-navigation .navbar-default .navbar-nav>.active>a:focus, 
+#inner-navigation .navbar-default .navbar-nav>.active>a:hover{
+    color: #f7c068!important;
+}
+
+#inner-navigation .navbar.navbar-sticky-in{background: #fff;}
+
+#inner-navigation .navbar.navbar-sticky-in .navbar-collapse ul.nav.navbar-nav li a, 
+#inner-navigation .navbar.navbar-sticky-in .nav.navbar-nav > li > a{
+    color: #777;
+}
+
+#inner-navigation .navbar-default.navbar-sticky-in .navbar-nav>.active>a, 
+#inner-navigation .navbar-default.navbar-sticky-in .navbar-nav>.active>a:focus, 
+#inner-navigation .navbar-default.navbar-sticky-in .navbar-nav>.active>a:hover {
+    color: #333a65!important;
+}
+
+/* ============================= */
+/*          Banner         */
+/* ============================= */
+
+#mt_banner {
+    position: relative;
+    padding: 0;
+    height: 650px!important;
+    margin-top: 0px;
+    background: url(../images/travel/sliders/bg5.jpg) no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+section#mt_banner:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #00000073;
+    left: 0;
+    right: 0;
+}
+
+#mt_banner .banner-title{
+    width: 50%;
+    margin: 0 auto;
+}
+
+#mt_banner .swiper-container {
+    top: 130px;
+   } 
+
+ #mt_banner .half-slide, #mt_banner .pre-half-slide{
+  width: 40%;
+  top: 0;
+  left: 8%;
+  border-radius:26px;
+  overflow: hidden; 
+  border:2px solid #fff;
+  height: 300px;
+}
+
+#mt_banner .half-slide{
+  left: 52%;
+}
+
+#mt_banner .pre-half-slide .banner_caption_text, #mt_banner .half-slide .banner_caption_text{
+  width: 90%;
+} 
+
+#mt_banner .swiper-button-next, #mt_banner .swiper-button-prev{top: 43%;}
+
+@media(max-width: 1100px){
+  #mt_banner .banner-title{width: 96%;}
+}
+
+@media(max-width: 991px){
+  #mt_banner .swiper-container{top: 90px;}
+
+  #mt_banner .half-slide{
+    width: 90%;
+    left: 5%;
+  }
+
+  #mt_banner .pre-half-slide{display: none;}
+}
+
+@media(max-width: 567px){
+  #mt_banner{background:#333a65; height: 680px!important;}
+  #mt_banner .swiper-container{top: 50px;}
+}
+
+@media(max-width: 360px){
+  #mt_banner .banner_caption_text h1{font-size: 28px;}
+}
+
+/* ============================= */
+/*          blog post        */
+/* ============================= */
+
+.row.slider-foods{
+  margin: 0 -15px;
+}
+
+
+#mt_blog .fullwidth .blog-post_wrapper{
+    display: flex;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    height: inherit;
+    box-shadow: 0 0 15px #cccccc30;
+    border: 5px solid #fff;
+}
+
+#mt_blog .fullwidth .blog-post_wrapper h2{max-height: 3em;}
+
+#mt_blog .fullwidth .blog-post_wrapper .blog-post-image{
+    width: 45%;
+    position: relative;
+    overflow: hidden;
+}
+
+#mt_blog .fullwidth .blog-post_wrapper .post-content {
+    width: 55%;
+    padding:30px 30px 22px;
+}
+
+#mt_blog .fullwidth .blog-post_wrapper .post-content.post-blank{
+  width: 100%;
+}
+
+#mt_blog .fullwidth .blog-post_wrapper .post-date p a{color: #333a65;}
+
+@media(max-width: 1100px) and (min-width: 991px){
+   #mt_blog .fullwidth .blog-post_wrapper .blog-post-image{width: 60%;}
+}
+
+@media(max-width: 991px){
+  section#mt_blog.category-list{padding-bottom: 50px;}
+  section#mt_blog.hot-travel .blog-post_wrapper{margin-bottom: 0;}
+  section#mt_blog.travel-list {padding-bottom: 20px;}
+}
+
+@media(max-width: 735px){
+  #mt_blog .fullwidth .blog-post_wrapper{display: block;}
+  #mt_blog .fullwidth .blog-post_wrapper .blog-post-image,
+  #mt_blog .fullwidth .blog-post_wrapper .post-content{width: 100%;}
+}
+
+
+/*widget category*/
+
+.widget-category ul li{
+  padding: 13px 15px; 
+  border-bottom: 1px dashed #f1f1f1; 
+  width: 100%; 
+  margin:0;
+  position: relative;
+}
+
+.widget-category ul li:last-child{border: none;}
+
+.widget-category ul li:before{
+  content: '\f101';
+  font-family: 'fontawesome';
+  padding-right: 8px;
+}
+
+/* ============================= */
+/*          Stay Connected        */
+/* ============================= */
+
+.stay-connected {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 0 20px;
+    list-style-type: none;
+    text-align: center;
+    background: #f5f6fa;
+    border-radius: 0 26px;
+}
+
+.stay-connected li {
+    width: 24%;
+    margin: 0;
+}
+
+.stay-connected li a {
+    padding: 15px;
+    border-left: 1px solid #eeeeee;
+    color: #232323;
+    display: inline-table;
+}
+
+.stay-connected li a:hover{background-size: inherit; background-image:none; opacity: 0.8; } 
+
+.stay-connected li:first-child a {
+    border-left: 0;
+}
+
+.stay-connected li a i {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #d72924;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 19px;
+    display: inline-block;
+}
+
+.stay-connected li a i.fa-facebook {
+    background-color: #3b5998;
+}
+
+.stay-connected li a i.fa-twitter {
+    background-color: #0091ea;
+}
+
+.stay-connected li a i.fa-linkedin {
+    background-color: #1976d2;
+}
+
+.stay-connected li a i.fa-rss {
+    background-color: #ef6c00;
+}
+
+.stay-connected li a b {
+    display: block;
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+.stay-connected li a span {
+    display: block;
+    color: #8a8a8a;
+}
+
+
+ul.twitter-widget-inner {
+    background: #fbfbfb;
+    padding: 15px;
+    border-radius: 0 26px;
+    border: 1px solid #f1f1f1;
+}
+
+ul.twitter-widget-inner li{
+  border-bottom: 1px dashed #f1f1f1;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+ul.twitter-widget-inner li:last-child{border: none; padding-bottom: 0; margin-bottom: 0;}
+
+@media(max-width: 1100px) and (min-width: 991px){
+
+  .stay-connected li a {
+    padding: 15px 10px;
+  }
+
+  .stay-connected li a i {
+    width: 35px;
+    height: 35px;
+    line-height: 40px;
+  }
+
+  .stay-connected li a span{font-size: 12px;}
+}
+
+@media(max-width: 567px){
+    .stay-connected li a{padding: 10px 5px;}
+    .stay-connected li a i {
+        width: 35px;
+        height: 35px;
+        line-height: 38px;
+    }
+
+    .stay-connected li a span{font-size: 12px;}
+}
+
+
+/* ============================= */
+/*          Instagram        */
+/* ============================= */
+
+.mt_instagram .col-sm-2{padding: 0;}
+
+.mt_instagram img{border-radius: 0;}
+
+/* ============================= */
+/*          Footer        */
+/* ============================= */
+
+#mt_footer {
+    position: relative;
+    padding: 50px 0 0;
+    background: url(../images/travel/sliders/bg3.jpg) no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+#mt_footer .container{position: relative; z-index: 1;}
+
+#mt_footer:before {
+    content: '';
+    background: #0b0e1ca8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}

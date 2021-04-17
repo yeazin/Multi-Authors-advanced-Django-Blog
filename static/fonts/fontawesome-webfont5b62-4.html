@@ -1,0 +1,722 @@
+<!doctype html>
+
+<html lang="en-US">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<title>Page not found - CycloneThemes</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v12.5 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="noindex,follow"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="object" />
+<meta property="og:title" content="Page not found - CycloneThemes" />
+<meta property="og:site_name" content="CycloneThemes" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Page not found - CycloneThemes" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://cyclonethemes.com/#organization","name":"Cyclone Themes","url":"https://cyclonethemes.com/","sameAs":["https://www.facebook.com/cyclonetheme/","https://www.instagram.com/CycloneThemes/"],"logo":{"@type":"ImageObject","@id":"https://cyclonethemes.com/#logo","url":"https://i2.wp.com/cyclonethemes.com/wp-content/uploads/2018/06/logo-new.png?fit=234%2C46&ssl=1","width":234,"height":46,"caption":"Cyclone Themes"},"image":{"@id":"https://cyclonethemes.com/#logo"}},{"@type":"WebSite","@id":"https://cyclonethemes.com/#website","url":"https://cyclonethemes.com/","name":"CycloneThemes","publisher":{"@id":"https://cyclonethemes.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://cyclonethemes.com/?s={search_term_string}","query-input":"required name=search_term_string"}}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="CycloneThemes &raquo; Feed" href="https://cyclonethemes.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="CycloneThemes &raquo; Comments Feed" href="https://cyclonethemes.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/cyclonethemes.com\/wp-includes\/js\/wp-emoji.js","twemoji":"https:\/\/cyclonethemes.com\/wp-includes\/js\/twemoji.js"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for Transgender flag compatibility. This flag is shortlisted for the Emoji 13 spec,
+				 * but has landed in Twemoji early, so we can add support for it, too.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + transgender symbol).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F ],
+					[ 0x1F3F3, 0xFE0F, 0x200B, 0x26A7, 0xFE0F ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://cyclonethemes.com/wp-includes/css/dist/block-library/style.css'  media='all' />
+<link rel='stylesheet' id='bbp_private_replies_style-css'  href='https://cyclonethemes.com/wp-content/plugins/bbpress-private-replies/css/frond-end.css'  media='all' />
+<link rel='stylesheet' id='bbp-default-css'  href='https://cyclonethemes.com/wp-content/plugins/bbpress/templates/default/css/bbpress.css'  media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://cyclonethemes.com/wp-content/plugins/contact-form-7/includes/css/styles.css'  media='all' />
+<link rel='stylesheet' id='edd-styles-css'  href='https://cyclonethemes.com/wp-content/plugins/easy-digital-downloads/templates/edd.css'  media='all' />
+<link rel='stylesheet' id='wpsm_ac-font-awesome-front-css'  href='https://cyclonethemes.com/wp-content/plugins/responsive-accordion-and-collapse/css/font-awesome/css/font-awesome.min.css'  media='all' />
+<link rel='stylesheet' id='wpsm_ac_bootstrap-front-css'  href='https://cyclonethemes.com/wp-content/plugins/responsive-accordion-and-collapse/css/bootstrap-front.css'  media='all' />
+<link rel='stylesheet' id='edd-free-downloads-css'  href='https://cyclonethemes.com/wp-content/plugins/edd-free-downloads/assets/css/style.css'  media='all' />
+<link rel='stylesheet' id='spu-public-css-css'  href='https://cyclonethemes.com/wp-content/plugins/popups/public/assets/css/public.css'  media='all' />
+<link rel='stylesheet' id='edd_all_access_css-css'  href='https://cyclonethemes.com/wp-content/plugins/edd-all-access/assets/css/frontend/src/styles.css'  media='all' />
+<link rel='stylesheet' id='edd-recurring-css'  href='https://cyclonethemes.com/wp-content/plugins/edd-recurring/assets/css/styles.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-style-css'  href='https://cyclonethemes.com/wp-content/themes/cyclone-themes/style.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-bootstrap-css'  href='https://cyclonethemes.com/wp-content/themes/cyclone-themes/css/bootstrap.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-style2-css'  href='https://cyclonethemes.com/wp-content/themes/cyclone-themes/css/style.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-plugin-css'  href='https://cyclonethemes.com/wp-content/themes/cyclone-themes/css/plugin.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-slick-css'  href='https://cyclonethemes.com/wp-content/themes/cyclone-themes/css/slick.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-font-css'  href='https://cyclonethemes.com/wp-content/themes/cyclone-themes/css/font-awesome.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-awesome-css'  href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-slicknav-css'  href='https://cyclonethemes.com/wp-content/themes/cyclone-themes/css/slicknav.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-gallery-css'  href='https://cyclonethemes.com/wp-content/themes/cyclone-themes/css/flex-gallery.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-hover-css'  href='https://cyclonethemes.com/wp-content/themes/cyclone-themes/css/hover-min.css'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-family-css'  href='https://fonts.googleapis.com/css?family=Ubuntu'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-Oswald-css'  href='https://fonts.googleapis.com/css?family=Josefin+Sans%7CWork+Sans%7CRoboto%7COswald'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-googleapis-css'  href='https://fonts.googleapis.com/css?family=PT+Serif'  media='all' />
+<link rel='stylesheet' id='cyclone-themes-Open+Sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans'  media='all' />
+<script  src='https://cyclonethemes.com/wp-includes/js/jquery/jquery.js'></script>
+<script  src='https://cyclonethemes.com/wp-includes/js/jquery/jquery-migrate.js'></script>
+<link rel='https://api.w.org/' href='https://cyclonethemes.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://cyclonethemes.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://cyclonethemes.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.3" />
+<meta name="generator" content="Easy Digital Downloads v2.9.19" />
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<link rel='dns-prefetch' href='//i0.wp.com'/>
+<link rel='dns-prefetch' href='//i1.wp.com'/>
+<link rel='dns-prefetch' href='//i2.wp.com'/>
+<style type='text/css'>img#wpstats{display:none}</style><link rel="icon" href="https://i2.wp.com/cyclonethemes.com/wp-content/uploads/2018/05/m-logo-1.png?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i2.wp.com/cyclonethemes.com/wp-content/uploads/2018/05/m-logo-1.png?fit=80%2C80&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://i2.wp.com/cyclonethemes.com/wp-content/uploads/2018/05/m-logo-1.png?fit=80%2C80&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i2.wp.com/cyclonethemes.com/wp-content/uploads/2018/05/m-logo-1.png?fit=80%2C80&#038;ssl=1" />
+			<style type="text/css" id="wp-custom-css">
+				.google_ads_container {
+  width: 100%;
+  margin-bottom: 40px;
+  text-align: center;
+  /* For accordion */
+}
+.wpsm_panel-body ul, .wpsm_panel-body ol {
+  padding-left: 20px;
+  margin-left: 0;
+  text-align: left;
+}
+.wpsm_panel-body ul li {
+  list-style-type: none;
+  list-style-position: outside;
+  margin-bottom: 15px;
+}
+.wpsm_panel-body ol li {
+  list-style-type: decimal;
+  margin-bottom: 15px;
+  list-style-position: inside;
+}
+.wpsm_panel-body li a img {
+  padding-top: 10px;
+  display: block;
+}
+.wpsm_panel-body table ol {
+  padding-top: 15px;
+  padding-bottom: 0;
+}
+.wpsm_panel-body table ol li {
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+.postid-3859 .wpsm_panel-body a {
+  text-decoration: underline !important;
+  color: #eaa200;
+}
+.pea_cook_wrapper p {
+  color: #fff;
+}
+.pea_cook_wrapper p a {
+  color: #eaa200 !important;
+}
+#back-to-top, .grecaptcha-badge {
+  display: none !important;
+}
+			</style>
+		<style id="kirki-inline-styles">section.home-support{background-image:url("https://cyclonethemes.com/wp-content/uploads/2018/05/pexels-photo-1068523.jpeg");}</style><style type="text/css">#wpadminbar, #wpadminbar .menupop .ab-sub-wrapper, .ab-sub-secondary, #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,#wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {background:#fff}#wpadminbar a.ab-item, #wpadminbar>#wp-toolbar span.ab-label, #wpadminbar>#wp-toolbar span.noticon, #wpadminbar .ab-icon:before,#wpadminbar .ab-item:before {color:#94979B}#wpadminbar .quicklinks .menupop ul li a, #wpadminbar .quicklinks .menupop ul li a strong, #wpadminbar .quicklinks .menupop.hover ul li a,#wpadminbar.nojs .quicklinks .menupop:hover ul li a {color:#94979B; font-size:13px !important }#wpadminbar .ab-top-menu>li.hover>.ab-item,#wpadminbar.nojq .quicklinks .ab-top-menu>li>.ab-item:focus,#wpadminbar:not(.mobile) .ab-top-menu>li:hover>.ab-item,#wpadminbar:not(.mobile) .ab-top-menu>li>.ab-item:focus{background:#f4f4f4; color:#474747}#wpadminbar:not(.mobile)>#wp-toolbar a:focus span.ab-label,#wpadminbar:not(.mobile)>#wp-toolbar li:hover span.ab-label,#wpadminbar>#wp-toolbar li.hover span.ab-label, #wpadminbar.mobile .quicklinks .hover .ab-icon:before,#wpadminbar.mobile .quicklinks .hover .ab-item:before, #wpadminbar .quicklinks .menupop .ab-sub-secondary>li .ab-item:focus a,#wpadminbar .quicklinks .menupop .ab-sub-secondary>li>a:hover {color:#474747}#wpadminbar .quicklinks .ab-sub-wrapper .menupop.hover>a,#wpadminbar .quicklinks .menupop ul li a:focus,#wpadminbar .quicklinks .menupop ul li a:focus strong,#wpadminbar .quicklinks .menupop ul li a:hover,#wpadminbar .quicklinks .menupop ul li a:hover strong,#wpadminbar .quicklinks .menupop.hover ul li a:focus,#wpadminbar .quicklinks .menupop.hover ul li a:hover,#wpadminbar li #adminbarsearch.adminbar-focused:before,#wpadminbar li .ab-item:focus:before,#wpadminbar li a:focus .ab-icon:before,#wpadminbar li.hover .ab-icon:before,#wpadminbar li.hover .ab-item:before,#wpadminbar li:hover #adminbarsearch:before,#wpadminbar li:hover .ab-icon:before,#wpadminbar li:hover .ab-item:before,#wpadminbar.nojs .quicklinks .menupop:hover ul li a:focus,#wpadminbar.nojs .quicklinks .menupop:hover ul li a:hover, #wpadminbar .quicklinks .ab-sub-wrapper .menupop.hover>a .blavatar,#wpadminbar .quicklinks li a:focus .blavatar,#wpadminbar .quicklinks li a:hover .blavatar{color:#474747}#wpadminbar .menupop .ab-sub-wrapper, #wpadminbar .shortlink-input {background:#f4f4f4}#wpadminbar .ab-submenu .ab-item, #wpadminbar .quicklinks .menupop ul.ab-submenu li a,#wpadminbar .quicklinks .menupop ul.ab-submenu li a.ab-item {color:#666666}#wpadminbar .ab-submenu .ab-item:hover, #wpadminbar .quicklinks .menupop ul.ab-submenu li a:hover,#wpadminbar .quicklinks .menupop ul.ab-submenu li a.ab-item:hover {color:#333333}.quicklinks li.wpshapere_site_title a{ outline:none; border:none;}.quicklinks li.wpshapere_site_title {width:180px !important;}.quicklinks li.wpshapere_site_title a{outline:none; border:none;}.quicklinks li.wpshapere_site_title a, .quicklinks li.wpshapere_site_title a:hover, .quicklinks li.wpshapere_site_title a:focus {background-size:contain!important;}</style>
+</head>
+
+<body class="error404 wp-custom-logo hfeed no-sidebar">
+	
+	<header>
+
+		<div class="offer clearfix">
+			<div class="container">
+
+				
+				<p class="pull-left product_caption">BLACKFRIDAY SALE 30% OFF. Use discount code to get 30% discount on all our premium themes. Discount Code : BLACKFRIDAY </p>
+
+				<div class="btn-purple pull-right">
+
+					
+					
+
+									
+				</div>
+			</div>
+		</div>
+
+		<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function navbar-arrow clearfix">
+
+			<div class="container">
+
+					<!-- Logo -->
+					<div class="logo pull-left">
+
+								<a href="https://cyclonethemes.com"><img loading="lazy" src="https://i2.wp.com/cyclonethemes.com/wp-content/uploads/2018/06/logo-new.png?fit=234%2C46&#038;ssl=1" alt=""></a>
+		
+					</div> <!-- Logo Ends -->
+
+					<!-- Logo -->
+					<div class="mobile-logo pull-left">
+
+						<a loading="lazy" href="https://cyclonethemes.com"><img src="https://cyclonethemes.com/wp-content/themes/cyclone-themes/img/m-logo.png" alt="mobile-logo"></a>
+
+					</div> <!-- Logo Ends -->
+
+				<div class="menu pull-right">
+
+					<!-- Navbar -->
+					<div id="slicknav-mobile">
+						<div id="navbar" class="navbar-nav-wrapper">
+
+							<ul id="responsive-menu" class="nav navbar-nav"><li id="menu-item-2011" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-2011"><a href="https://cyclonethemes.com/">Home</a></li>
+<li id="menu-item-2022" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2022"><a href="https://cyclonethemes.com/products/">Themes</a>
+<ul class="sub-menu">
+	<li id="menu-item-2012" class="menu-item menu-item-type-taxonomy menu-item-object-download_category menu-item-2012"><a href="https://cyclonethemes.com/downloads/category/premium-themes/">Premium Themes</a></li>
+	<li id="menu-item-2013" class="menu-item menu-item-type-taxonomy menu-item-object-download_category menu-item-2013"><a href="https://cyclonethemes.com/downloads/category/free-themes/">Free Themes</a></li>
+</ul>
+</li>
+<li id="menu-item-2014" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2014"><a href="https://cyclonethemes.com/cn-support/">Support</a></li>
+<li id="menu-item-2023" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2023"><a href="https://cyclonethemes.com/pricing/">Pricing</a></li>
+</ul>						
+							<div class="buttons">
+								<div class="nav-btn btn-white main-menu-profile-btn">
+
+									<a href="https://cyclonethemes.com/account" class="hvr-pop">Login/Register</a>
+								</div>
+								<div class="cart-btn">
+
+									
+									<a href="https://cyclonethemes.com/checkout/" class="hvr-pop">
+
+										<i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+										<span class="cart-quantity">0</span>
+
+									</a>
+
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</nav>																		
+	</header>
+
+	
+		<div class="details-banner text-center clearfix">
+			<div class="banner-overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="banner-desc">
+
+							<h1>Error 404</h1>
+
+							<div class="breadcrumb">
+								<div class="container">
+
+									<ol>
+
+										<li class="item-home cyclone-hotel-home"><a class="bread-link bread-home" href="https://cyclonethemes.com">Home</a></li><li class="active">Error 404</li>
+									</ol>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- Banner Ends -->
+
+	
+	<section class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="about-intro">	
+						
+						<h1 class="error_number"> 4<span>0</span>4 </h1>
+				        <div class="main_title text-center">
+				            <h2>OOPS!! PAGE NOT FOUND</h2>
+				        </div>
+				        <div class="btn-white text-center">
+
+				            <a href="https://cyclonethemes.com" class="hvr-pop"><i class="fa fa-angle-left"></i> GO BACK TO HOME PAGE</a>
+				            
+				        </div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<footer>
+		<div class="top-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+
+						<div id="media_image-2" class="footer-menu widget widget_media_image"><img width="260" height="42" src="https://i1.wp.com/cyclonethemes.com/wp-content/uploads/2018/05/f-logo.png?fit=260%2C42&amp;ssl=1" class="image wp-image-127  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" /></div><div id="text-3" class="footer-menu widget widget_text">			<div class="textwidget"><p></br><br />
+Cyclone Themes is a team of expert WordPress developers. We provide Best Premium and Free Responsive WordPress Themes with incredible support &amp; many other services.<br />
+</br></p>
+</div>
+		</div>
+						<div class="footer-link">
+
+							<a href="https://www.facebook.com/cyclonetheme/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>							
+						</div>
+						
+					</div>
+					<div class="col-sm-8">
+						<div class="row">
+							<div class="col-sm-4">
+
+								<div id="nav_menu-3" class="footer-menu widget widget_nav_menu"><div class="widget-title"><h3 class="footer-title">Premium Themes</h3></div><div class="menu-premium-themes-container"><ul id="menu-premium-themes" class="menu"><li id="menu-item-2049" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-2049"><a href="https://cyclonethemes.com/downloads/cyclone-blog-plus/">Cyclone Blog Plus</a></li>
+<li id="menu-item-2050" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-2050"><a href="https://cyclonethemes.com/downloads/hotelica-pro/">Hotelica Pro</a></li>
+<li id="menu-item-2051" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-2051"><a href="https://cyclonethemes.com/downloads/news-unlimited-pro/">News Unlimited Pro</a></li>
+<li id="menu-item-2052" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-2052"><a href="https://cyclonethemes.com/downloads/fireblog-pro/">Fireblog Pro</a></li>
+</ul></div></div>
+							</div>
+
+							<div class="col-sm-4">
+
+								<div id="nav_menu-4" class="footer-menu widget widget_nav_menu"><div class="widget-title" ><h3 class="footer-title">Free Themes</h3></div><div class="menu-free-themes-container"><ul id="menu-free-themes" class="menu"><li id="menu-item-2053" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-2053"><a href="https://cyclonethemes.com/downloads/cyclone-blog-lite/">Cyclone Blog Lite</a></li>
+<li id="menu-item-2054" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-2054"><a href="https://cyclonethemes.com/downloads/hotelica-lite/">Hotelica Lite</a></li>
+<li id="menu-item-2055" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-2055"><a href="https://cyclonethemes.com/downloads/news-unlimited-lite/">News Unlimited Lite</a></li>
+<li id="menu-item-2056" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-2056"><a href="https://cyclonethemes.com/downloads/fireblog-lite/">Fireblog Lite</a></li>
+</ul></div></div>
+							</div>
+
+							<div class="col-sm-4">
+
+								<div id="nav_menu-2" class="footer-menu widget widget_nav_menu"><div class="widget-title" ><h3 class="footer-title">Useful Links</h3></div><div class="menu-useful-links-container"><ul id="menu-useful-links" class="menu"><li id="menu-item-2024" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2024"><a href="https://cyclonethemes.com/team/">Team</a></li>
+<li id="menu-item-2018" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2018"><a href="https://cyclonethemes.com/terms-and-conditions/">Terms and Conditions</a></li>
+<li id="menu-item-2017" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2017"><a href="https://cyclonethemes.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-2016" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2016"><a href="https://cyclonethemes.com/pre-sale-question/">Contact Us</a></li>
+<li id="menu-item-2015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2015"><a href="https://cyclonethemes.com/faq/">FAQ</a></li>
+</ul></div></div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="copyright">
+
+					<p>Copyright © 2019 Cyclone Themes | All Rights Reserved
+</p>
+
+				</div>
+			</div>
+		</div>
+	</footer><!-- Footer Ends -->
+	
+	<!-- back to top start -->
+	<div id="back-to-top">
+		<a href="#"></a>
+	</div>
+
+	
+	<!-- Popups v1.9.3.6 - https://wordpress.org/plugins/popups/ --><style type="text/css">
+#spu-4765 .spu-close{
+	font-size: 30px;
+	color:#666;
+	text-shadow: 0 1px 0 #fff;
+}
+#spu-4765 .spu-close:hover{
+	color:#000;
+}
+#spu-4765 {
+	background-color: #eeeeee;
+	background-color: rgba(238,238,238,1);
+	color: #333;
+	padding: 10px;
+		border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-box-shadow:  0px 0px 10px 1px #666;
+	-webkit-box-shadow:  0px 0px 10px 1px #666;
+	box-shadow:  0px 0px 10px 1px #666;
+	width: 500px;
+
+}
+#spu-bg-4765 {
+	opacity: 0.5;
+	background-color: #000;
+}
+/*
+		* Add custom CSS for this popup
+		* Be sure to start your rules with #spu-4765 { } and use !important when needed to override plugin rules
+		*/</style>
+<div class="spu-bg" id="spu-bg-4765"></div>
+<div class="spu-box  spu-centered spu-total- " id="spu-4765"
+ data-box-id="4765" data-trigger="seconds"
+ data-trigger-number="1"
+ data-spuanimation="fade" data-tconvert-cookie="h" data-tclose-cookie="h" data-dconvert-cookie="1" data-dclose-cookie="1" data-nconvert-cookie="spu_conversion_4765" data-nclose-cookie="spu_closing_4765" data-test-mode="0"
+ data-auto-hide="0" data-close-on-conversion="1" data-bgopa="0.5" data-total=""
+ style="left:-99999px !important;right:auto;" data-width="500" >
+	<div class="spu-content"><p><img class="alignnone wp-image-6568 size-large" src="https://cyclonethemes.com/wp-content/uploads/2019/08/salebanner02-03-1024x1024.jpg" alt="" width="640" height="640" /></p>
+</div>
+	<span class="spu-close spu-close-popup top_right"><i class="spu-icon spu-icon-close"></i></span>
+	<span class="spu-timer"></span>
+	</div>
+<!-- / Popups Box -->
+<div id="fb-root" class=" fb_reset"></div><div id='fb-root'></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class='fb-customerchat'
+    attribution="wordpress"
+    page_id='569333216767216'
+    theme_color='#67b868'
+  >
+</div><div class="edd-free-downloads-modal-wrapper edd-free-downloads"><span class="edd-loading"></span><div id="edd-free-downloads-modal" style="display:none"></div></div>	<div style="display:none">
+	</div>
+<script  src='https://cyclonethemes.com/wp-content/plugins/jetpack/modules/photon/photon.js'></script>
+<script  src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/cyclonethemes.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script  src='https://cyclonethemes.com/wp-content/plugins/contact-form-7/includes/js/scripts.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var edd_scripts = {"ajaxurl":"https:\/\/cyclonethemes.com\/wp-admin\/admin-ajax.php","position_in_cart":"-1","has_purchase_links":"","already_in_cart_message":"You have already added this item to your cart","empty_cart_message":"Your cart is empty","loading":"Loading","select_option":"Please select an option","is_checkout":"0","default_gateway":"paypal","redirect_to_checkout":"1","checkout_page":"https:\/\/cyclonethemes.com\/checkout\/","permalinks":"1","quantities_enabled":"","taxes_enabled":"0"};
+/* ]]> */
+</script>
+<script  src='https://cyclonethemes.com/wp-content/plugins/easy-digital-downloads/assets/js/edd-ajax.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/plugins/responsive-accordion-and-collapse/js/bootstrap.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/plugins/responsive-accordion-and-collapse/js/accordion.js'></script>
+<script  src='https://www.google.com/recaptcha/api.js?render=6LfKzKUUAAAAALrBaDjEDtTVm81ceoIK4Gajso2z'></script>
+<script  src='https://cyclonethemes.com/wp-content/plugins/edd-free-downloads/assets/js/isMobile.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var edd_free_downloads_vars = {"close_button":"box","user_registration":"false","require_name":"true","download_loading":"Please Wait... ","download_label":"Download Now","modal_download_label":"Download Now","has_ajax":"1","ajaxurl":"https:\/\/cyclonethemes.com\/wp-admin\/admin-ajax.php","mobile_url":"\/demo\/html\/suchana\/fonts\/fontawesome-webfont.ttf?v=4.6.3&edd-free-download=true","form_class":"edd_purchase_submit_wrapper","bypass_logged_in":"false","is_download":"false","edd_is_mobile":"","success_page":"https:\/\/cyclonethemes.com\/checkout\/purchase-confirmation\/","guest_checkout_disabled":"","email_verification":"1","on_complete_handler":"default","on_complete_delay":"2000"};
+/* ]]> */
+</script>
+<script  src='https://cyclonethemes.com/wp-content/plugins/edd-free-downloads/assets/js/edd-free-downloads.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var spuvar = {"is_admin":"","disable_style":"","ajax_mode":"","ajax_url":"https:\/\/cyclonethemes.com\/wp-admin\/admin-ajax.php","ajax_mode_url":"https:\/\/cyclonethemes.com\/?spu_action=spu_load","pid":"0","is_front_page":"","is_category":"","site_url":"https:\/\/cyclonethemes.com","is_archive":"","is_search":"","is_preview":"","seconds_confirmation_close":"5"};
+var spuvar_social = [];
+/* ]]> */
+</script>
+<script  src='https://cyclonethemes.com/wp-content/plugins/popups/public/assets/js/public.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/navigation.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/skip-link-focus-fix.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/jquery.min.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/bootstrap.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/images-grid.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/match-height.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/plugin.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/mixitup.min.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/slick.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/jquery.slicknav.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/jquery.validate.js'></script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/form.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var themes_object = {"ajax_url":"https:\/\/cyclonethemes.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script  src='https://cyclonethemes.com/wp-content/themes/cyclone-themes/js/custom.js'></script>
+<script  src='https://cyclonethemes.com/wp-includes/js/wp-embed.js'></script>
+<script type="text/javascript">
+( function( grecaptcha, sitekey, actions ) {
+
+	var wpcf7recaptcha = {
+
+		execute: function( action ) {
+			grecaptcha.execute(
+				sitekey,
+				{ action: action }
+			).then( function( token ) {
+				var forms = document.getElementsByTagName( 'form' );
+
+				for ( var i = 0; i < forms.length; i++ ) {
+					var fields = forms[ i ].getElementsByTagName( 'input' );
+
+					for ( var j = 0; j < fields.length; j++ ) {
+						var field = fields[ j ];
+
+						if ( 'g-recaptcha-response' === field.getAttribute( 'name' ) ) {
+							field.setAttribute( 'value', token );
+							break;
+						}
+					}
+				}
+			} );
+		},
+
+		executeOnHomepage: function() {
+			wpcf7recaptcha.execute( actions[ 'homepage' ] );
+		},
+
+		executeOnContactform: function() {
+			wpcf7recaptcha.execute( actions[ 'contactform' ] );
+		},
+
+	};
+
+	grecaptcha.ready(
+		wpcf7recaptcha.executeOnHomepage
+	);
+
+	document.addEventListener( 'change',
+		wpcf7recaptcha.executeOnContactform, false
+	);
+
+	document.addEventListener( 'wpcf7submit',
+		wpcf7recaptcha.executeOnHomepage, false
+	);
+
+} )(
+	grecaptcha,
+	'6LfKzKUUAAAAALrBaDjEDtTVm81ceoIK4Gajso2z',
+	{"homepage":"homepage","contactform":"contactform"}
+);
+</script>
+<script type='text/javascript' src='https://stats.wp.com/e-201947.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:7.9.1',blog:'148705305',post:'0',tz:'5.75',srv:'cyclonethemes.com'} ]);
+	_stq.push([ 'clickTrackerInit', '148705305', '0' ]);
+</script>
+
+</body>
+</html>
