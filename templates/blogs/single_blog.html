@@ -34,19 +34,7 @@
                     <!--*Blog Content Sec*-->
                     <div class="blog-detail-main cats-detail">
                         <div class="post_body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                        <blockquote>
-                            <p>Sed felis est, placerat a ornare vel, tempor id est. Phasellus ac urna vitae massa porttitor lacinia. Integer mollis, nulla pretium porttitor sagittis, urna nibh lobortis eros, ut lacinia elit velit nec diam.</p>
-                            <span>Arthur & Molly Weasley</span>
-                        </blockquote>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut
-                            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <img src="images/blog-listing/blog_06.jpg" alt=""></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut
-                            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat incidunt dicta eius corporis iste, nihil nam atque.
-                            Deserunt vel, velit cum aut error nam. Unde in ipsa quos earum. Atque.</p>
+                                {{ post.detail }}
                         </div>
                         <div class="follow_us">
                             <ul class="social_icons">
@@ -59,14 +47,9 @@
                         <div class="tag mar-top-30">
                             <div class="widget-tags-main">
                                 <h5 class="bg-orange">Tags:</h5>
-                                <a href="#" class="" >Beach</a>
-                                <a href="#" class="" >Dress</a>
-                                <a href="#" class="" >Food</a>
-                                <a href="#" class="" >Fashion</a>
-                                <a href="#" class="" >Gadget</a>
-                                <a href="#" class="" >Holiday</a>
-                                <a href="#" class="" >Nature</a>
-                                <a href="#" class="" >Photography</a>
+                                {% for tag in post.tags.all %}
+                                <a href="#" class="" >{{ tag }}</a> 
+                                {% endfor %}
                             </div>
                         </div>
 
@@ -180,168 +163,96 @@
                         <!--* End Blog Content Sec*-->
                     </div> 
                 </div>
-                <div class="col-md-3 width30">
-                    <div class="sidebar">
-
-                        <!-- widget author -->
-                        <div class="widget widget-author text-center">
-                            <div class="widget-image">
-                                <img src="images/blog/author.png" alt="...">
-                            </div>
-                            <div class="widget-author-content">
-                                <div class="widget-author mar-bottom-15">
-                                    <h3 class="mar-bottom-5">Blork Lewson</h3>
-                                    <span class="author-profession">Author Blogger</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                                <div class="follow_us mar-bottom-15">
-                                    <ul class="social_icons">
-                                        <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="widget-author-signature">
-                                    <img src="images/blog/signature.png" alt="...">
-                                </div>
-                            </div>
-                        </div>
-
+              
     {% include 'home/base/sidebar.html' %}
-    <!--*End Blog Main Sec*-->
+    
 
      <!--* Blog*-->
+
     <section id="mt_blog" class="light-bg pad-top-0">
         <div class="container">
             <div class="blog_post_sec blog_post_inner">
                 <div class="row">
+                    {% for post in r_post %}
+                    {% if forloop.first %}
                 	<div class="col-md-8 col-sm-12 mar-bottom-30">
                         <div class="blog-post_wrapper image-wrapper">
                             <div class="blog-post-image">
-                                <img src="images/blog-listing/blog_02.jpg" alt="image" class="img-responsive center-block post_img" />
+                                <img src="{{post.image_url }}" alt="image" class="img-responsive center-block post_img" />
                             </div>
                             <div class="post-content">
                                 <div class="post-category">
                                     <ul>
-                                        <li class="cat-yellow"><a href="#" class="white">Populor</a></li>
-                                        <li class="cat-pink"><a href="#" class="white">Fashion</a></li>
+                                        {% for cat in post.catagories.all %}
+                                        {% if forloop.counter|divisibleby:2 %}
+                                        <li class="cat-yellow"><a href="#" class="white">{{ cat }}</a></li>
+                                        {% else %}
+                                        <li class="cat-green mar-0"><a href="#" class="white">{{ cat }}</a></li>
+                                        {% endif %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                                 <div class="post-date">
-                                    <p><a href="#">15th August 2019</a></p>
+                                    <p><a href="#">{{post.created_at | timesince}} ago </a></p>
                                 </div>
                                 <h2 class="entry-title">
-                                    <a href="blog-details.html" class="white">I'm passionate about food, the tradition of it, cooking it, sharing it</a>
+                                    <a href="blog-details.html" class="white">{{post.title }}</a>
                                 </h2>
                                 <div class="item-meta white">
                                     <span>by</span>
-                                    <a class="author-name white" href="#">Patricia Jenkins</a>
+                                    <a class="author-name white" href="#">{{ post.author.author.username }}</a>
                                 </div>
 
                             </div>
                         </div>
                     </div>
+                    {% else %}
+
                     <div class="col-md-4 col-sm-12 mar-bottom-30">
                         <div class="blog-post_wrapper image-wrapper blog-wrapper-list">
                             <div class="blog-post-image">
-                                <img src="images/blog-listing/blog_101.jpg" alt="image" class="img-responsive center-block post_img" />
+                                <img src="{{post.image_url}}" alt="image" class="img-responsive center-block post_img" />
                                 <div class="post-category">
                                     <ul>
-                                        <li class="cat-green mar-0"><a href="#" class="white">Health</a></li>
+                                        {% for cat in post.catagories.all %}
+                                        {% if forloop.counter|divisibleby:2 %}
+                                        <li class="cat-yellow"><a href="#" class="white">{{ cat }}</a></li>
+                                        {% else %}
+                                        <li class="cat-green mar-0"><a href="#" class="white">{{ cat }}</a></li>
+                                        {% endif %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="post-content">
                                 <div class="post-date">
-                                    <p><a href="#">15th August 2019</a></p>
+                                    <p><a href="#">{{post.created_at| timesince}} ago</a></p>
                                 </div>
                                 <h2 class="entry-title">
-                                    <a href="blog-details.html" class="">I Thought My Glasses Made Me Unattractive</a>
+                                    <a href="blog-details.html" class="">{{post.title}}</a>
                                 </h2>
                                 
                                 <div class="item-meta">
                                     <span>by</span>
-                                    <a class="author-name" href="author.html">Admin Jackson</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 mar-bottom-30">                            
-                        <div class="blog-post_wrapper front-wrapper bg-orange">
-                            <div class="post-content">
-                                <div class="post-category">
-                                    <ul>
-                                        <li class="cat-blue"><a href="#" class="white">Technology</a></li>
-                                        <li class="cat-green"><a href="#" class="white">Health</a></li>
-                                    </ul>
-                                </div>
-                                <div class="post-date">
-                                    <p><a href="#">15th August 2019</a></p>
-                                </div>
-                                <h2 class="entry-title">
-                                    <a href="blog-details.html" class="white">The future of architecture is culture</a>
-                                </h2>
-                                <div class="item-meta white">
-                                    <span>by</span>
-                                    <a class="author-name white" href="#">Patricia Jenkins</a>
+                                    <a class="author-name" href="author.html">{{post.author.author.username }}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12 mar-bottom-30">                            
-                        <div class="blog-post_wrapper front-wrapper bg-gray">
-                            <div class="post-content">
-                                <div class="post-category">
-                                    <ul>
-                                        <li class="cat-pink"><a href="#" class="white">Fashion</a></li>
-                                        <li class="cat-green"><a href="#" class="white">Health</a></li>
-                                    </ul>
-                                </div>
-                                <div class="post-date">
-                                    <p><a href="#">15th August 2019</a></p>
-                                </div>
-                                <h2 class="entry-title">
-                                    <a href="blog-details.html">Architecture belongs to culture, not to civilization</a>
-                                </h2>
-                                <div class="item-meta">
-                                    <span>by</span>
-                                    <a class="author-name" href="#">Patricia Jenkins</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 mar-bottom-30">
-                        <div class="blog-post_wrapper image-wrapper">
-                            <div class="blog-post-image">
-                                <img src="images/blog-listing/blog_10.jpg" alt="image" class="img-responsive center-block post_img" />
-                            </div>
-                            <div class="post-content">
-                                <div class="post-category">
-                                    <ul>
-                                        <li class="cat-green"><a href="#" class="white">Health</a></li>
-                                    </ul>
-                                </div>
-                                <div class="post-date">
-                                    <p><a href="#">15th August 2019</a></p>
-                                </div>
-                                <h2 class="entry-title white">
-                                    <a href="blog-details.html" class="white">I think it's the responsibility of a designer to try to break rules and barriers</a>
-                                </h2>
-                                <div class="item-meta white">
-                                    <span>by</span>
-                                    <a class="author-name white" href="#">Patricia Jenkins</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    {% endif %}
+                    {% endfor %}
+    
+                           
+
                     
                 </div>    
             </div>
         </div>
     </section>
+
     <!--* End Blog*-->
 
     <div class="mt_instagram">

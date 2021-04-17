@@ -39,13 +39,24 @@ class HomeView(View):
 class SingleBlogView(View):
     def get(self,request,id,*args,**kwargs):
         post_obj = get_object_or_404(Blog, id=id)
-        #releted_post = Blog.objects.filter(catagories=post_obj.catagories).exclude(id=id)
+        releted_post = Blog.objects.filter(author=post_obj.author).exclude(id=id).order_by('-id')[:5]
 
         context ={
             'post':post_obj,
-            #'r_post':releted_post
+            'r_post':releted_post
         }
         return render(request,'blogs/single_blog.html', context)
+
+# Catagory View
+class CatagoryView(View):
+    def get(self,request,id,*args,**kwargs):
+        catagory_obj = get_object_or_404(Catagory, id=id)
+        post = catagory_obj.blog_set.all().order_by('-id')
+        context ={
+            'catagory':catagory_obj,
+            'post':post
+        }
+        return render(request,'home/category.html', context )
 
 
 
