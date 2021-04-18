@@ -1,8 +1,8 @@
 {% extends 'home/base/base.html' %}
 {% block body %}
 
-<form method="POST" style="margin-top: 300px;">
-    {% csrf_token %}
+<form method="POST" action="" style="margin-top: 300px;">
+   
 
         <div class="form-group col">
             <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Username" required>
@@ -11,7 +11,7 @@
             <input type="password" name="password" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Your password" required>
         </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <input type="submit">
 </form>
 
 {% endblock %}

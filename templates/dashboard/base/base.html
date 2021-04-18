@@ -72,7 +72,7 @@
                             <li><a href="#"><i class="sl sl-icon-settings"></i>Settings</a></li>
                             <li><a href="#"><i class="sl sl-icon-user"></i>Profile</a></li>
                             <li><a href="#"><i class="sl sl-icon-lock"></i>Change Password</a></li>
-                            <li><a href="#"><i class="sl sl-icon-power"></i>Logout</a></li>
+                            <li><a href="{% url 'logout' %}"><i class="sl sl-icon-power"></i>Logout</a></li>
                         </ul>
                     </div>
                     <div class="dropdown">
@@ -186,15 +186,14 @@
                         <li>
                             <a><i class="sl sl-icon-layers"></i> Post Listing</a>
                             <ul>
-                                <li><a href="dashboard-list.html">Active <span class="nav-tag green">6</span></a></li>
-                                <li><a href="dashboard-list.html">Pending <span class="nav-tag yellow">1</span></a></li>
-                                <li><a href="dashboard-list.html">Expired <span class="nav-tag red">2</span></a></li>
+                                <li><a href="{% url 'post_listing' %}">Active <span class="nav-tag green">{{post_active_count}}</span></a></li>
+                                <li><a href="dashboard-list.html">Pending <span class="nav-tag yellow">{{post_pending_count}}</span></a></li>
                             </ul>   
                         </li>
                         <li><a href="dashboard-booking.html"><i class="sl sl-icon-list"></i> Post List</a></li>
                         <li><a href="dashboard-history.html"><i class="sl sl-icon-folder"></i> History</a></li>
                         <li><a href="dashboard-reviews.html"><i class="sl sl-icon-star"></i> Reviews</a></li>
-                        <li><a href="index.html"><i class="sl sl-icon-power"></i> Logout</a></li>
+                        <li><a href="{% url 'logout' %}"><i class="sl sl-icon-power"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>

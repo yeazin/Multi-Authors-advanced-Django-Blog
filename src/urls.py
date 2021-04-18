@@ -23,6 +23,8 @@ from dashboard import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/',views.LoginView.as_view(),name='login'),
+    path('logout/', views.LogoutView.as_view(), name='logout'),
+    # app url configs
     path('',include('blog.urls')),
     path('dashboard/',include('dashboard.urls'))
 ]

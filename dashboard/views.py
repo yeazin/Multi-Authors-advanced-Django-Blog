@@ -6,6 +6,26 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login,logout
 from django.utils.decorators import method_decorator
 
+# Define Custom Variables
+def CustomVar(request):
+    user = request.user 
+    post = user.author.blog_set.all()
+    post_count = post.count()
+    post_active = user.author.blog_set.filter(status='active')
+    post_active_count = post_active.count()
+    post_pending = user.author.blog_set.filter(status='pending')
+    post_pending_count = post_pending.count()
+    context= {
+    'user':user,
+    'post':post,
+    'post_count':post_count,
+    'post_active':post_active,
+    'post_pending':post_pending,
+    'post_active_count':post_active_count,
+    'post_pending_count':post_pending_count
+
+    }
+
 # user dashboard views 
 class Dashboard(View):
     @method_decorator(login_required(login_url='login'))
@@ -47,3 +67,25 @@ class LoginView(View):
                 return redirect('dashboard')
             else:
                 return ('login') 
+
+# Logout View
+class LogoutView(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def get(self,request,*args,**kwargs):
+        logout(request)
+        return redirect('home')
+    
+# post listing View
+class PostListing(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def get(self,request,*args,**kwargs):
+        context={
+
+        }    
+        return render(request,'dashboard/post_listing.html',context)
