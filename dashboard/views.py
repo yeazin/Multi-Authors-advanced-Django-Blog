@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import View
 from blog.models import Blog
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login,logout
+from django.utils.decorators import method_decorator
 
 # user dashboard views 
 class Dashboard(View):
@@ -23,3 +27,22 @@ class Dashboard(View):
 
         }
         return render(request,'dashboard/dashboard.html',context)
+
+# login View
+class LoginView(View):
+    @method_decorator(login_required)
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+    
+    def get(self,request,*args,**kwargs):
+        return render(request,'dashboard/login.html')
+    
+    def post(self,request,*args,**kwargs):
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request,username=username, password=password)
+        if user is not None:
+            login(request,user)
+            return redirect('dashboard')
+        else:
+            return ('login')
