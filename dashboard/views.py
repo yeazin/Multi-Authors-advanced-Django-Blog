@@ -8,6 +8,10 @@ from django.utils.decorators import method_decorator
 
 # user dashboard views 
 class Dashboard(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
     def get(self,request,*args,**kwargs):
         user = request.user 
         post = user.author.blog_set.all()
@@ -29,20 +33,17 @@ class Dashboard(View):
         return render(request,'dashboard/dashboard.html',context)
 
 # login View
-class LoginView(View):
-    @method_decorator(login_required)
-    def dispatch(self,request,*args,**kwargs):
-        return super().dispatch(request,*args,**kwargs)
-    
+class LoginView(View):    
     def get(self,request,*args,**kwargs):
-        return render(request,'dashboard/login.html')
+        return render(request,'dashboard/log.html')
     
     def post(self,request,*args,**kwargs):
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request,username=username, password=password)
-        if user is not None:
-            login(request,user)
-            return redirect('dashboard')
-        else:
-            return ('login')
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request,username=username, password=password)
+            if user is not None:
+                login(request,user)
+                return redirect('dashboard')
+            else:
+                return ('login') 

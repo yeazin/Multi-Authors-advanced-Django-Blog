@@ -8,6 +8,6 @@ class BlogAdmin(admin.ModelAdmin):
         list_display=('author','title','status','created_at','featured')
         ordering = ['-created_at']
         search_fields = ('name','email')
-admin.site.register(Blog, BlogAdmin)
+admin.site.register(Blog,BlogAdmin)
 admin.site.register(Tag)
 admin.site.register(EmailSignUp)
