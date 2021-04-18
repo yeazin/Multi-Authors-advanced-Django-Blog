@@ -1,0 +1,83 @@
+{% extends 'dashboard/base/base.html' %}
+
+{% block body %}
+
+<section id="mt_blog" class="">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="blog_post_sec blog_post_inner">
+                <div class="row">
+                    {% if post_active %}
+                    {% for post in post_active %}
+                    {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-md-6 col-sm-12 mar-bottom-30">                            
+                        <div class="blog-post_wrapper front-wrapper bg-orange">
+                            <div class="post-content">
+                                <div class="post-category">
+                                    <ul>
+                                        {% for cat in post.catagories.all %}
+                                        {% if forloop.counter|divisibleby:2 %}
+                                        <li class="cat-yellow"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
+                                        {% else %}
+                                        <li class="cat-green mar-0"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="post-date">
+                                    <p><a href="#">{{post.created_at|timesince}}</a></p>
+                                </div>
+                                <h2 class="entry-title">
+                                    <a href="{% url 'single_blog' post.id %}" class="white">{{post.title}}</a>
+                                </h2>
+                                <div class="item-meta white">
+                                    <span>by</span>
+                                    <a class="author-name white" href="author.html">{{ post.author.author.username }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col-md-6 col-sm-12 mar-bottom-30">
+                        <div class="blog-post_wrapper image-wrapper">
+                            <div class="blog-post-image">
+                                <img src="{{ post.image_url }}" alt="image" class="img-responsive center-block post_img" />
+                            </div>
+                            <div class="post-content">
+                                <div class="post-category">
+                                    <ul>
+                                        {% for cat in post.catagories.all %}
+                                        {% if forloop.counter|divisibleby:2 %}
+                                        <li class="cat-yellow"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
+                                        {% else %}
+                                        <li class="cat-green mar-0"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="post-date">
+                                    <p><a href="#">{{post.created_at|timesince}}</a></p>
+                                </div>
+                                <h2 class="entry-title">
+                                    <a href="{% url 'single_blog' post.id %}" class="white">{{post.title}}</a>
+                                </h2>
+                                <div class="item-meta white">
+                                    <span>by</span>
+                                    <a class="author-name white" href="author.html">{{post.author.author.username}}</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                {% else %}
+                <h3 style="padding: 100px;"> Sorry! No Post in active  </h3>
+                {% endif %}
+                </div>    
+            </div>
+        </div>
+    </div>    
+</section>
+
+{% endblock %}

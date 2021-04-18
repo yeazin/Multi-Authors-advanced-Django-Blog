@@ -186,8 +186,8 @@
                         <li>
                             <a><i class="sl sl-icon-layers"></i> Post Listing</a>
                             <ul>
-                                <li><a href="{% url 'post_listing' %}">Active <span class="nav-tag green">{{post_active_count}}</span></a></li>
-                                <li><a href="dashboard-list.html">Pending <span class="nav-tag yellow">{{post_pending_count}}</span></a></li>
+                                <li><a href="{% url 'post_listing_active' %}">Active <span class="nav-tag green">{{post_active_count}}</span></a></li>
+                                <li><a href="{% url 'post_listing_pending' %}">Pending <span class="nav-tag yellow">{{post_pending_count}}</span></a></li>
                             </ul>   
                         </li>
                         <li><a href="dashboard-booking.html"><i class="sl sl-icon-list"></i> Post List</a></li>
