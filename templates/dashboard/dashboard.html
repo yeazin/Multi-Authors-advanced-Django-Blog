@@ -4,18 +4,18 @@
 
         <div class="col-lg-3 col-md-6 col-xs-6">
             <div class="dashboard-stat color-1">
-                <div class="dashboard-stat-content"><h4>{{post_pending}}</h4> <span>Pending List</span></div>
+                <div class="dashboard-stat-content"><h4>{{post_pending_count }}</h4> <span>Pending List</span></div>
                 <div class="dashboard-stat-icon"><i class="im im-icon-Map2"></i></div>
-                <div class="dashboard-stat-item"><p> You have {{post_pending}} Posts in Pending List </p></div>
+                <div class="dashboard-stat-item"><p> You have {{post_pending_count}} Posts in Pending List </p></div>
             </div>
         </div>
 
         
         <div class="col-lg-3 col-md-6 col-xs-6">
             <div class="dashboard-stat color-4">
-                <div class="dashboard-stat-content"><h4>{{post_active}}</h4> <span>Active Post</span></div>
+                <div class="dashboard-stat-content"><h4>{{post_active_count}}</h4> <span>Active Post</span></div>
                 <div class="dashboard-stat-icon"><i class="im im-icon-Heart"></i></div>
-                <div class="dashboard-stat-item"><p>You have {{ post_active }} posts in Active </p></div>
+                <div class="dashboard-stat-item"><p>You have {{ post_active_count }} posts in Active </p></div>
             </div>
         </div>
 
@@ -39,56 +39,71 @@
         </div>
 
     </div>
+
+    {% if post %}
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-xs-12 traffic">
+        <div class="col-lg-6 col-md-12 col-xs-12 traffic">
             <div class="dashboard-list-box">
-                <h4 class="gray">Recent Posts</h4>
+                <h4 class="gray">Pending Posts</h4>
+                {% if post_pending %}
                 <div class="table-box">
                     <table class="basic-table">
                         <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Post ID</th>
-                                <th>Title</th>
-                                <th>No of Post</th>
-                                <th>View</th>
+                                <th> Post Title</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>01/01/2017</td>
-                                <td class="t-id">C001</td>
-                                <td>Dubai</td>
-                                <td>5</td>
-                                <td>245</td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2017</td>
-                                <td class="t-id">C081</td>
-                                <td>Grece - Zakynthos</td>
-                                <td>5</td>
-                                <td>245</td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2017</td>
-                                <td class="t-id">C001</td>
-                                <td>Bulgary - Sunny Beach</td>
-                                <td>5</td>
-                                <td>245</td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2017</td>
-                                <td class="t-id">C001</td>
-                                <td>France - Paris</td>
-                                <td>5</td>
-                                <td>245</td>
-                            </tr>
+                            {% for post in post_active %}
+                                <tr>
+                                    <td>{{ post.created_at| date}}</td>
+                                    <td>{{ post.title}}</td>
+                                </tr>
+                                {% endfor %}
                         </tbody>
                     </table>
                 </div>
+                {% else %}
+                <h3 style="text-align: center; margin-top:20px;"> Congrats ! You have no Post in Pending </h3>
+                {% endif %}
+
+            </div>
+        </div>  
+
+        <div class="col-lg-6 col-md-12 col-xs-12 traffic">
+            <div class="dashboard-list-box">
+                <h4 class="gray">Active Posts</h4>
+                {% if post_active %}
+                <div class="table-box">
+                    <table class="basic-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th> Post Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for post in post_active %}
+                                <tr>
+                                    <td>{{ post.created_at| date}}</td>
+                                    <td>{{ post.title}}</td>
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <h3 style="text-align: center; margin-top:20px;"> Sorry ! You have no Post in Active </h3>
+                {% endif %}
             </div>
         </div>  
     </div>
+    {% else %}
+    <h2> Sorry no Post-stat to show </h2>
+    {% endif %}
+
+
     <div class="row">      
         <!-- Recent Activity -->
         <div class="col-lg-7 col-md-12 col-xs-12 traffic">
