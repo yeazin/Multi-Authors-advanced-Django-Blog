@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 
 class HomeView(View):
     def get(self,request,*args,**kwargs):
-        featured_post = Blog.objects.filter(featured=True).order_by('-id')
+        featured_post = Blog.objects.filter(featured=True, status='active').order_by('-id')
         catagories_obj  = Catagory.objects.all().order_by('-id')
         tags_obj = Tag.objects.all().order_by('-id')
         popular_post = Blog.objects.all().order_by('-id')[:3]
@@ -57,6 +57,19 @@ class CatagoryView(View):
             'post':post
         }
         return render(request,'home/category.html', context )
+
+# tag View
+class TagView(View):
+    def get(self,request,id,*args,**kwargs):
+        tag_obj = get_object_or_404(Tag, id=id)
+        post = tag_obj.blog_set.all().order_by('-id')
+        tag_count = post.count()
+        context={
+            'tag':tag_obj,
+            'post':post,
+            'tag_count':tag_count
+        }
+        return render(request,'home/tag.html',context)
 
 
 

@@ -1,16 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-
-
-# author model
-class Author(models.Model):
-    author = models.OneToOneField(User, on_delete= models.CASCADE)
-
-    class Meta:
-        verbose_name_plural = 'Author'
-
-    def __str__(self):
-        return self.author.username
+from dashboard.models import Author
 
 
 # Catagory model
@@ -32,11 +21,16 @@ class Tag(models.Model):
 
 # Blog model 
 class Blog(models.Model):
+    status = (
+        ('active','active'),
+        ('pending','pending')
+    )
     title  = models.CharField(max_length=200, null=True)
     detail = models.TextField(max_length=2000, null=True)
     image = models.ImageField(upload_to='images/media', null=True)
     catagories = models.ManyToManyField(Catagory)
     tags = models.ManyToManyField(Tag, blank=True)
+    status = models.CharField(max_length=20, choices=status, default='pending')
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     featured  = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -54,7 +48,7 @@ class Blog(models.Model):
             return self.image.url 
 
     def __str__(self):
-        return f" {self.title} | { self.author } "
+        return f" {self.title} | { self.author } | {self.featured} | {self.status} "
 
 # email marketing system 
 class EmailSignUp(models.Model):

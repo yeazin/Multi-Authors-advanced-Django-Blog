@@ -2,6 +2,61 @@
 
 {% block body %}
 
+    <!-- sliders -->
+    <section id="mt_banner" class="">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for post in featured %}
+
+                {% endfor %}
+
+                <div class="swiper-slide">
+                    <div class="slide-inner half-slide slide-overlay" style="background-image:url(images/fitness/sliders/bg1.jpg)">
+                        <div class="banner_caption_text">
+                            <div class="post-category">
+                                <ul>
+                                    <li class="cat-red"><a href="#" class="white">Workout</a></li>
+                                    <li class="cat-green"><a href="#" class="white">Zumba Dance</a></li>
+                                </ul>
+                            </div>
+                            <h1><a href="#">More you practice, more you can, more you want to, more you enjoy it.</a></h1>
+                        </div>
+                    </div>
+                    <div class="slide-inner pre-half-slide slide-overlay" style="background-image:url(images/fitness/sliders/bg4.jpg)">
+                        <div class="banner_caption_text">
+                            <div class="post-category">
+                                <ul>
+                                    <li class="cat-red"><a href="#" class="white">Workout</a></li>
+                                    <li class="cat-blue"><a href="#" class="white">Cardio</a></li>
+                                </ul>
+                            </div>
+                            <h1><a href="#">Five major types of training</a></h1>
+                        </div>
+                    </div> 
+
+                    <div class="slide-inner quarter-slide slide-overlay" style="background-image:url(images/fitness/sliders/bg3.jpg)">
+                        <div class="banner_caption_text">
+                            <div class="post-category">
+                                <ul>
+                                    <li class="cat-yellow"><a href="#" class="white">Gym</a></li>
+                                    <li class="cat-green"><a href="#" class="white">Zumba Dance</a></li>
+                                </ul>
+                            </div>
+                            <h1><a href="#">Stretch reduces your risk of injury</a></h1>
+                        </div>
+                    </div> 
+                </div>
+
+            </div>
+            <div class="swiper-button-next swiper-button-"></div>
+            <div class="swiper-button-prev swiper-button-"></div>
+        </div>      
+    </section>
+    <!-- End sliders --> 
+
+
+
+
     <!-- Slider -->
     <section id="mt_banner">
         <div class="swiper-container">
@@ -14,11 +69,15 @@
                         <div class="post-category">
                             <ul>
                                 {% for cat in post.catagories.all %}
-                                <li class="cat-yellow"><a href="#" class="white">{{ cat }}</a></li>
+                                {% if forloop.counter|divisibleby:2 %}
+                                <li class="cat-yellow"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
+                                {% else %}
+                                <li class="cat-green mar-0"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
+                                {% endif %}
                                 {% endfor %}
                             </ul>
                         </div>
-                        <h1><a href="{% url 'single_blog' post.id %}">{{ post.title }}</a></h1>
+                        <h1><a href=" {% url 'single_blog' post.id %} ">{{ post.title }}</a></h1>
                         <div class="item-meta">
                             <span>by</span>
                             <a href="author.html">{{ post.author.author.username }}</a>
@@ -54,7 +113,11 @@
                                         <div class="post-category">
                                             <ul>
                                                 {% for cat in post.catagories.all %}
-                                                <li class="cat-yellow"><a href="#" class="white">{{cat}}</a></li>
+                                                {% if forloop.counter|divisibleby:2 %}
+                                                <li class="cat-yellow"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
+                                                {% else %}
+                                                <li class="cat-green mar-0"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
+                                                {% endif %}
                                                 {% endfor %}
                                             </ul>
                                         </div>
@@ -62,7 +125,7 @@
                                             <p><a href="#">{{post.created_at | timesince}} ago </a></p>
                                         </div>
                                         <h2 class="entry-title">
-                                            <a href="blog-details.html" class="white">{{post.title}}</a>
+                                            <a href="{% url 'single_blog' post.id %}" class="white">{{post.title}}</a>
                                         </h2>
                                         <div class="item-meta white">
                                             <span>by</span>
@@ -81,7 +144,11 @@
                                         <div class="post-category">
                                             <ul>
                                                 {% for cat in post.catagories.all %}
-                                                <li class="cat-blue mar-0"><a href="#" class="white">{{cat}}</a></li>
+                                                {% if forloop.counter|divisibleby:2 %}
+                                                <li class="cat-yellow"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
+                                                {% else %}
+                                                <li class="cat-green mar-0"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
+                                                {% endif %}
                                                 {% endfor %}
                                             </ul>
                                         </div>
@@ -92,7 +159,7 @@
                                             <p><a href="#">{{post.created_at|timesince}} ago </a></p>
                                         </div>
                                         <h2 class="entry-title">
-                                            <a href="blog-details.html" class="">{{post.title}}</a>
+                                            <a href="{% url 'single_blog' post.id %}" class="">{{post.title}}</a>
                                         </h2>
                                         
                                         <div class="item-meta">

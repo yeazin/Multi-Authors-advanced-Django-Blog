@@ -10,7 +10,7 @@
                     <div class="post-category">
                         <ul>
                             {% for cat in post.catagories.all %}
-                            <li class="cat-yellow"><a href="#" class="white">{{ cat }}</a></li>
+                            <li class="cat-yellow"><a href="{% url 'catagory' cat.id %} " class="white">{{ cat }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -48,7 +48,7 @@
                             <div class="widget-tags-main">
                                 <h5 class="bg-orange">Tags:</h5>
                                 {% for tag in post.tags.all %}
-                                <a href="#" class="" >{{ tag }}</a> 
+                                <a href="{% url 'tag' tag.id %}" class="" >{{ tag }}</a> 
                                 {% endfor %}
                             </div>
                         </div>
@@ -185,9 +185,9 @@
                                     <ul>
                                         {% for cat in post.catagories.all %}
                                         {% if forloop.counter|divisibleby:2 %}
-                                        <li class="cat-yellow"><a href="#" class="white">{{ cat }}</a></li>
+                                        <li class="cat-yellow"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
                                         {% else %}
-                                        <li class="cat-green mar-0"><a href="#" class="white">{{ cat }}</a></li>
+                                        <li class="cat-green mar-0"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
                                         {% endif %}
                                         {% endfor %}
                                     </ul>
@@ -196,7 +196,7 @@
                                     <p><a href="#">{{post.created_at | timesince}} ago </a></p>
                                 </div>
                                 <h2 class="entry-title">
-                                    <a href="blog-details.html" class="white">{{post.title }}</a>
+                                    <a href=" " class="white">{{post.title }}</a>
                                 </h2>
                                 <div class="item-meta white">
                                     <span>by</span>
@@ -216,9 +216,9 @@
                                     <ul>
                                         {% for cat in post.catagories.all %}
                                         {% if forloop.counter|divisibleby:2 %}
-                                        <li class="cat-yellow"><a href="#" class="white">{{ cat }}</a></li>
+                                        <li class="cat-yellow"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
                                         {% else %}
-                                        <li class="cat-green mar-0"><a href="#" class="white">{{ cat }}</a></li>
+                                        <li class="cat-green mar-0"><a href="{% url 'catagory' cat.id %}" class="white">{{ cat }}</a></li>
                                         {% endif %}
                                         {% endfor %}
                                     </ul>
@@ -230,7 +230,7 @@
                                     <p><a href="#">{{post.created_at| timesince}} ago</a></p>
                                 </div>
                                 <h2 class="entry-title">
-                                    <a href="blog-details.html" class="">{{post.title}}</a>
+                                    <a href=" " class="">{{post.title}}</a>
                                 </h2>
                                 
                                 <div class="item-meta">
