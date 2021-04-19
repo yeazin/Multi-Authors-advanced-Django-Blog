@@ -87,3 +87,10 @@ class PostListingPending(View):
             'post_pending':post_pending
         }    
         return render(request,'dashboard/post_listing_pending.html',context)     
+
+
+
+# made by Nazrul Islam Yeasin 
+# Facebbok : facebook.com/yeariha.farsin
+# Github : github.com/yeazin
+# website : yeazin.github.io

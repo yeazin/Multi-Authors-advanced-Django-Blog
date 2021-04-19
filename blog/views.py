@@ -71,7 +71,7 @@ class TagView(View):
         }
         return render(request,'home/tag.html',context)
 
-
-
-
-
+# made by Nazrul Islam Yeasin 
+# Facebbok : facebook.com/yeariha.farsin
+# Github : github.com/yeazin
+# website : yeazin.github.io

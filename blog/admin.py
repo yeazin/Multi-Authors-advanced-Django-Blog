@@ -11,3 +11,8 @@ class BlogAdmin(admin.ModelAdmin):
 admin.site.register(Blog,BlogAdmin)
 admin.site.register(Tag)
 admin.site.register(EmailSignUp)
+
+# made by Nazrul Islam Yeasin 
+# Facebbok : facebook.com/yeariha.farsin
+# Github : github.com/yeazin
+# website : yeazin.github.io

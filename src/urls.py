@@ -31,3 +31,8 @@ urlpatterns = [
 
 urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# made by Nazrul Islam Yeasin 
+# Facebbok : facebook.com/yeariha.farsin
+# Github : github.com/yeazin
+# website : yeazin.github.io

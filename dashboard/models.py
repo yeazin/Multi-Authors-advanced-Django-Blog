@@ -12,3 +12,8 @@ class Author(models.Model):
 
     def __str__(self):
         return self.author.username
+
+# made by Nazrul Islam Yeasin 
+# Facebbok : facebook.com/yeariha.farsin
+# Github : github.com/yeazin
+# website : yeazin.github.io
