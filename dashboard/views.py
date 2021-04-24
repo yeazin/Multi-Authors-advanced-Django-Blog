@@ -1,6 +1,6 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.views import View
-from blog.models import Blog
+from blog.models import Blog, Catagory, Tag
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login,logout
@@ -88,8 +88,57 @@ class PostListingPending(View):
         }    
         return render(request,'dashboard/post_listing_pending.html',context)     
 
+# Category Views
+class CatagoryFunction(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
 
+    def get(self, request):
+        catagory_obj = Catagory.objects.all().order_by('-id')
+        context ={
+            'catagory':catagory_obj
+        }
+        return render(request,'dashboard/catagory/catagory.html', context)
 
+# add category
+class AddCatagory(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def get(self,request):
+        return render(request,'dashboard/catagory/catagory.html')
+
+    def post(self,request):
+        if request.method == 'POST':
+            catagory= request.POST.get('catagory')
+            obj = Catagory.objects.create(name=catagory)
+            obj.save()
+            return redirect('category')
+
+# Edit Category
+class UpdateCategory(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def post(self,request, id):
+        obj = get_object_or_404(Catagory, id=id)
+        obj.name = request.POST.get('category')
+        obj.save()
+        return redirect('category')
+
+# Delete Category
+class DeleteCategory(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def post(self, request, id):
+        obj = get_object_or_404(Catagory, id=id)
+        obj.delete() 
+        return redirect('category') 
 # made by Nazrul Islam Yeasin 
 # Facebook : facebook.com/yeariha.farsin
 # Github : github.com/yeazin
