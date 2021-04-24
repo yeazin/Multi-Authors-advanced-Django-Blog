@@ -8,6 +8,10 @@ urlpatterns = [
     # category
     path('category/', views.CatagoryFunction.as_view(), name='category'),
     path('edit-category/<str:id>/', views.UpdateCategory.as_view(), name='update_category'),
-    path('delete-category/<str:id>', views.DeleteCategory.as_view(), name='delete_category')
+    path('delete-category/<str:id>', views.DeleteCategory.as_view(), name='delete_category'),
+    # tag
+    path('tag/', views.AddTag.as_view(), name='tag'),
+    path('update-tag/', views.UpdateTag.as_view(), name='update_tag'),
+    path('delete-tag/', views.DeleteTag.as_view(), name='delete_tag'),
     
 ]

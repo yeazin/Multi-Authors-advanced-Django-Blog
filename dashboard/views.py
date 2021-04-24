@@ -139,6 +139,48 @@ class DeleteCategory(View):
         obj = get_object_or_404(Catagory, id=id)
         obj.delete() 
         return redirect('category') 
+
+# add Tags
+class AddTag(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def get(self,request):
+        return render(request,'dashboard/tag/tag.html')
+
+    def post(self,request):
+        if request.method == 'POST':
+            tag= request.POST.get('tag')
+            obj = Tag.objects.create(name=tag)
+            obj.save()
+            return redirect('tag')
+
+# update Tags
+class UpdateTag(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def post(self,request, id):
+        obj = get_object_or_404(Tag, id=id)
+        obj.name = request.POST.get('tag')
+        obj.save()
+        return redirect('tag')
+
+# Delete Tags
+class DeleteTag(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def post(self, request, id):
+        obj = get_object_or_404(Tag, id=id)
+        obj.delete() 
+        return redirect('tag') 
+
+
+
 # made by Nazrul Islam Yeasin 
 # Facebook : facebook.com/yeariha.farsin
 # Github : github.com/yeazin
