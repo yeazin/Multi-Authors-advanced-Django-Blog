@@ -60,11 +60,11 @@
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="profile-sec">
                                 <div class="dash-image">
-                                    <img src="images/comment.jpg" alt="">
+                                    <img src="{{user.author.author_image.url }}" alt="">
                                 </div>
                                 <div class="dash-content">
                                     <h4>{{ user.username }}</h4>
-                                    <span> {{ user.author.designation }} </span>
+                                    <span> {{ user.author.auth_status }} </span>
                                 </div>
                             </div>
                         </a>
