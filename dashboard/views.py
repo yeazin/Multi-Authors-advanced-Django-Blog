@@ -90,6 +90,7 @@ class LoginView(View):
                     login(request,user)
                     return redirect('dashboard')
                 else:
+                    messages.warning(request,'Username or Password didn`t match')
                     return ('login') 
 
 # Logout View
