@@ -76,18 +76,21 @@ class CreateAuthor(View):
 # login View
 class LoginView(View):    
     def get(self,request,*args,**kwargs):
-        return render(request,'dashboard/user/log.html')
+        return render(request,'dashboard/user/login.html')
     
     def post(self,request,*args,**kwargs):
-        if request.method == 'POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            user = authenticate(request,username=username, password=password)
-            if user is not None:
-                login(request,user)
-                return redirect('dashboard')
-            else:
-                return ('login') 
+        if request.user.is_authenticated:
+            return redirect('dashboard')
+        else:
+            if request.method == 'POST':
+                username = request.POST.get('username')
+                password = request.POST.get('password')
+                user = authenticate(request,username=username, password=password)
+                if user is not None:
+                    login(request,user)
+                    return redirect('dashboard')
+                else:
+                    return ('login') 
 
 # Logout View
 class LogoutView(View):
