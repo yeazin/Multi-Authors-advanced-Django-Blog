@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login,logout
 from django.utils.decorators import method_decorator
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 
@@ -35,10 +36,26 @@ class Dashboard(View):
         }
         return render(request,'dashboard/dashboard.html',context)
 
+# Create Author 
+class CreateAuthor(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'dashboard/user/create_user.html')
+
+    def post(self,request,*args,**kwargs):
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            email = request.POST.get('email')
+            password1 = request.POST.get('password1')
+            password2 = request.POST.get('password2')
+            username_obj = User.objects.filter(username=username)
+            if username_obj:
+                messages.warning(request,'Username Already Exits!')
+                return redirect ('create_user')
+                
 # login View
 class LoginView(View):    
     def get(self,request,*args,**kwargs):
-        return render(request,'dashboard/log.html')
+        return render(request,'dashboard/user/log.html')
     
     def post(self,request,*args,**kwargs):
         if request.method == 'POST':
