@@ -7,7 +7,7 @@ class Author(models.Model):
     author = models.OneToOneField(User, on_delete= models.CASCADE)
     email = models.EmailField(unique=True, blank=True, null=True)
     designation = models.CharField(max_length=10, null=True)
-    author_image = models.ImageField(upload_to='author/',verbose_name='Author Profile Image')
+    author_image = models.ImageField(upload_to='author/',verbose_name='Author Profile Image',blank=True, null=True)
     auth_status = models.CharField(max_length=100, null=True)
 
     class Meta:

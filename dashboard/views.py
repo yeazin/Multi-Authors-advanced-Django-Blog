@@ -1,12 +1,14 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views import View
 from blog.models import Blog, Catagory, Tag
+from .models import Author
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login,logout
 from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
 
 
 
@@ -47,11 +49,30 @@ class CreateAuthor(View):
             email = request.POST.get('email')
             password1 = request.POST.get('password1')
             password2 = request.POST.get('password2')
-            username_obj = User.objects.filter(username=username)
-            if username_obj:
+            user = User.objects.filter(username=username)
+            email_obj = Author.objects.filter(email=email)
+            if user:
                 messages.warning(request,'Username Already Exits!')
                 return redirect ('create_user')
-                
+            elif password1 != password2:
+                messages.warning(request,'Password Didn`t match')
+                return redirect('create_user')
+            else:
+                auth_info={
+                    'username':username,
+                    'password':make_password(password1)
+                }
+                user = User(**auth_info)
+                user.save()
+            if email_obj:
+                messages.warning(request,'Email Already Exits!')
+                return redirect('create_user')
+            else:
+                user_other_obj = Author(author=user, email=email)
+                user_other_obj.save(Author)
+                messages.success(request,'Thanks for Joining')
+                return redirect('dashboard')
+
 # login View
 class LoginView(View):    
     def get(self,request,*args,**kwargs):

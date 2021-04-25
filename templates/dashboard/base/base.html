@@ -60,7 +60,11 @@
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="profile-sec">
                                 <div class="dash-image">
+                                    {% if user.author.author_image %}
                                     <img src="{{user.author.author_image.url }}" alt="" style="background-size: cover; background-repeat: no-repeat;">
+                                    {% else %}
+                                    <img src="{% static 'author/user.png' %}" alt="" style="background-size: cover; background-repeat: no-repeat;">
+                                    {% endif %}
                                 </div>
                                 <div class="dash-content">
                                     <h4>{{ user.username }}</h4>

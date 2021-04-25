@@ -5,8 +5,10 @@
         <div class="alert alert-primary" {% if message.tags %}
              class="{{ message.tags }}"{% endif %}>{{ message }}</div>
     {% endfor %}
+{% endif %}
 
     <form action="" method="POST">
+        {% csrf_token %}
         <input type="text" placeholder="Your username " name='username'>
         <input type="email" name="email" placeholder="Your Email">
         <input type="password" name="password1" placeholder="Type your password">
