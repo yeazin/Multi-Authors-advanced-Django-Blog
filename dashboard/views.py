@@ -72,7 +72,7 @@ class PostListingActive(View):
         context={
             'post_active':post_active
         }    
-        return render(request,'dashboard/post_listing_active.html',context)
+        return render(request,'dashboard/post/post_listing_active.html',context)
 
 # post listing View Pending
 class PostListingPending(View):
@@ -86,7 +86,7 @@ class PostListingPending(View):
         context={
             'post_pending':post_pending
         }    
-        return render(request,'dashboard/post_listing_pending.html',context)     
+        return render(request,'dashboard/post/post_listing_pending.html',context)     
 
 # Category Views
 class CatagoryFunction(View):
@@ -140,6 +140,19 @@ class DeleteCategory(View):
         obj.delete() 
         return redirect('category') 
 
+# Tag functions
+class TagFunction(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def get(self, request):
+        tag_obj = Tag.objects.all().order_by('-id')
+        context = {
+            'tag':tag_obj
+        }   
+        return render (request,'dashboard/tag/tag.html', context)
+        
 # add Tags
 class AddTag(View):
     @method_decorator(login_required(login_url='login'))

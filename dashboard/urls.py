@@ -7,10 +7,12 @@ urlpatterns = [
     path('post_listing_pending/', views.PostListingPending.as_view(), name='post_listing_pending'),
     # category
     path('category/', views.CatagoryFunction.as_view(), name='category'),
+    path('add-category/', views.AddCatagory.as_view(), name='add_category'),
     path('edit-category/<str:id>/', views.UpdateCategory.as_view(), name='update_category'),
     path('delete-category/<str:id>', views.DeleteCategory.as_view(), name='delete_category'),
     # tag
     path('tag/', views.AddTag.as_view(), name='tag'),
+    path('add-tag/', views.AddTag.as_view(), name='add_tag'),
     path('update-tag/', views.UpdateTag.as_view(), name='update_tag'),
     path('delete-tag/', views.DeleteTag.as_view(), name='delete_tag'),
     

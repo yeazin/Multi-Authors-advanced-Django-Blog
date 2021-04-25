@@ -1,4 +1,13 @@
 {% extends 'dashboard/base/base.html' %}
 
 {% block body %}
+<form action="{% url 'add_category'%}" method="POST">
+    {% csrf_token %}
+    <input type="text" name='catagory'>
+    <input type="submit"  value="submit">
+</form>
+<form onsubmit="return false">
+    <input type="text" size="30" value="Focus here and press enter">
+    <input type="submit"  onclick="alert('click')">
+   </form>
 {% endblock %}
