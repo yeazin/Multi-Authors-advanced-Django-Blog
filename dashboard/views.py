@@ -70,8 +70,8 @@ class CreateAuthor(View):
             else:
                 user_other_obj = Author(author=user, email=email)
                 user_other_obj.save(Author)
-                messages.success(request,'Thanks for Joining')
-                return redirect('dashboard')
+                messages.success(request,'Thanks for Joining Please Log in')
+                return redirect('login')
 
 # login View
 class LoginView(View):    
