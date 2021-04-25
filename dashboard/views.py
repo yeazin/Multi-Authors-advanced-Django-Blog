@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login,logout
 from django.utils.decorators import method_decorator
+from django.contrib import messages
 
 
 
@@ -113,9 +114,14 @@ class AddCatagory(View):
     def post(self,request):
         if request.method == 'POST':
             catagory= request.POST.get('catagory')
-            obj = Catagory.objects.create(name=catagory)
-            obj.save()
-            return redirect('category')
+            cat_obj = Catagory.objects.filter(name=catagory)
+            if cat_obj:
+                messages.warning(request,'Sorry This category already in Databse')
+                return redirect('category')
+            else:  
+                obj = Catagory.objects.create(name=catagory)
+                obj.save()
+                return redirect('category')
 
 # Edit Category
 class UpdateCategory(View):
