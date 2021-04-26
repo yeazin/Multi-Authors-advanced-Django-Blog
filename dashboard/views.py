@@ -36,17 +36,21 @@ class Dashboard(View):
             'post_pending_count':post_pending_count
 
         }
-        return render(request,'dashboard/dashboard.html',context)
+        return render(request,'dashboard/dash/dashboard.html',context)
 
 # Create Author 
 class CreateAuthor(View):
     def get(self,request,*args,**kwargs):
+        if request.user.is_authenticated:
+            return redirect('dashboard')
         return render(request,'dashboard/user/create_user.html')
 
     def post(self,request,*args,**kwargs):
         if request.method == 'POST':
             username = request.POST.get('username')
             email = request.POST.get('email')
+            first_name = request.POST.get('fname')
+            last_name = request.POST.get('lname')
             password1 = request.POST.get('password1')
             password2 = request.POST.get('password2')
             user = User.objects.filter(username=username)
@@ -68,30 +72,33 @@ class CreateAuthor(View):
                 messages.warning(request,'Email Already Exits!')
                 return redirect('create_user')
             else:
-                user_other_obj = Author(author=user, email=email)
+                user_other_obj = Author(author=user, email=email, first_name=first_name, last_name= last_name)
                 user_other_obj.save(Author)
                 messages.success(request,'Thanks for Joining Please Log in')
                 return redirect('login')
 
+# Edit Author 
+class EditAuthor(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+    pass 
 # login View
-class LoginView(View):    
-    def get(self,request,*args,**kwargs):
-        return render(request,'dashboard/user/login.html')
-    
-    def post(self,request,*args,**kwargs):
+class LoginView(View):
+    def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect('dashboard')
+        return render(request, 'dashboard/user/login.html')
+    def post(self, request,*args,**kwargs):
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')
         else:
-            if request.method == 'POST':
-                username = request.POST.get('username')
-                password = request.POST.get('password')
-                user = authenticate(request,username=username, password=password)
-                if user is not None:
-                    login(request,user)
-                    return redirect('dashboard')
-                else:
-                    messages.warning(request,'Username or Password didn`t match')
-                    return ('login') 
+            messages.warning(request, 'username or password didn`t match')
+            return redirect('login')
 
 # Logout View
 class LogoutView(View):
@@ -101,7 +108,7 @@ class LogoutView(View):
 
     def get(self,request,*args,**kwargs):
         logout(request)
-        return redirect('home')
+        return redirect('login')
     
 # post listing View Active
 class PostListingActive(View):

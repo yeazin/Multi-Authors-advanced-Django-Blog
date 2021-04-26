@@ -38,9 +38,18 @@
                             <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
+                                    {% if messages %}
+                                    <div class="messages" >
+                                    {% for message in messages %}
+                                        <div class="alert alert-primary" {% if message.tags %}
+                                        class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                                        {% endfor %}
+                                        </div>
+                                    {% else %}
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
+                                    {% endif %}
                                     <form class="user" method="POST" >
                                         {% csrf_token %}
                                         <div class="form-group">
