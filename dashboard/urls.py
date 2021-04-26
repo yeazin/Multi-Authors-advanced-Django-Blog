@@ -6,6 +6,7 @@ urlpatterns = [
     path('post_listing_active/',views.PostListingActive.as_view(), name='post_listing_active'),
     path('post_listing_pending/', views.PostListingPending.as_view(), name='post_listing_pending'),
     # Author
+    path('profile/',views.AuthorProfile.as_view(), name='profile'),
     path('update-author/<str:id>', views.EditAuthor.as_view(), name='update_author' ),
     # category
     path('category/', views.CatagoryFunction.as_view(), name='category'),

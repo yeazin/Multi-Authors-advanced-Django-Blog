@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+    <style>{% block custom_css %} {% endblock%}</style>
 
 </head>
 
@@ -337,13 +338,13 @@
                                 <img class="img-profile rounded-circle"
                                     src="{{ user.author.author_image.url }}">
                                 {% else %}
-                                <img src="{% static 'author/user.png' %}" alt="">
+                                <img class="img-profile rounded-circle" src="https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user.png" alt="">
                                 {% endif %}
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{% url 'profile' %}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>

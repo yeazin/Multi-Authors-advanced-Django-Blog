@@ -1,0 +1,21 @@
+{% extends 'dashboard/base/base.html' %}
+{% block title %} {{ user.author.author.username }} | Edit Profile {% endblock%}
+{% block custom_css %} {% endblock %}
+
+{% block body %}
+{% if messages %}
+<div class="messages" >
+    {% for message in messages %}
+        <div class="alert alert-primary" {% if message.tags %}
+             class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="fname" id="" value="{{ user.author.first_name }}">
+        <input type="text" name="lname" id="" value="{{ user.author.last_name }}">
+        <input type="email" name="email" id="" value="{{ user.author.email }}">
+        <input type="submit" name="" id="">
+    </form>
+{% endblock %}

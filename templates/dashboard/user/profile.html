@@ -1,0 +1,48 @@
+{% extends 'dashboard/base/base.html' %}
+{% block title %} {{ user.author.author.username }} | Profile {% endblock%}
+{% block custom_css %}
+.p_image{
+    width:100%;
+    height:auto;
+    border-radius:20px;
+}
+.btn a{
+    color:white;
+}
+.main_wrapper{
+    height:100vh;
+}
+{% endblock %}
+{% block body%}
+
+
+
+<div class="col">
+    {% if messages %}
+<div class="messages" >
+{% for message in messages %}
+    <div class="alert alert-primary" {% if message.tags %}
+         class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+<div class="row main_wrapper">
+    <div class="col-6 col-md-4">
+        {% if user.author.author_image %}
+        <img  class="p_image" src="{{ user.author.author_image.url }}" alt="">
+        {% else %}
+        <img class="p_image" src="https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user.png" alt="">
+        {% endif %}
+    </div>
+    <div class="col-12 col-md-8">
+        <button class="btn btn-dark float-right btn-sm"><a href="{% url 'update_author' user.id %}"> <i class="far fa-edit"></i> Edit profile </a></button>
+        <h3>@{{ user.author.author.username }}</h3>
+        <h5>{{ user.author.first_name }} {{ user.author.last_name }}</h5>
+        <h5>{{ user.author.email }}</h5>
+
+    </div>
+    
+  </div>
+
+{% endblock %}

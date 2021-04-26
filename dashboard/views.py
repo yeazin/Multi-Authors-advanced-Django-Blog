@@ -77,12 +77,40 @@ class CreateAuthor(View):
                 messages.success(request,'Thanks for Joining Please Log in')
                 return redirect('login')
 
+# Author Profile
+class AuthorProfile(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def get(self, request):
+        author = request.user
+        context= {
+            'author':author
+        } 
+        return render(request,'dashboard/user/profile.html', context)
+
 # Edit Author 
 class EditAuthor(View):
     @method_decorator(login_required(login_url='login'))
     def dispatch(self,request,*args,**kwargs):
         return super().dispatch(request,*args,**kwargs)
-    pass 
+    def get(self,request,id):
+        return render(request,'dashboard/user/edit_profile.html')
+        
+    def post(self, request,id):
+        first_name = request.POST.get('fname')
+        last_name = request.POST.get('lname')
+        #email = request.POST.get('email')
+        #mail_obj = Author.objects.filter(email=email)
+        # if mail_obj:
+        #     messages.warning(request,'sorry Mail already used')
+        #     return redirect ('update_author' ,id=id)
+        # else:
+        obj = Author.objects.update(first_name=first_name, last_name=last_name)
+        messages.success(request,'Your profile has been updated Successfully')
+        return redirect('profile')
+
 # login View
 class LoginView(View):
     def get(self, request, *args, **kwargs):
