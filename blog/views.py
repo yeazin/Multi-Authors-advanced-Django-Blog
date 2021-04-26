@@ -6,28 +6,28 @@ from django.core.paginator import Paginator
 
 class HomeView(View):
     def get(self,request,*args,**kwargs):
-        featured_post = Blog.objects.filter(featured=True, status='active',show_hide='show').order_by('-id')
-        catagories_obj  = Catagory.objects.all().order_by('-id')
-        tags_obj = Tag.objects.all().order_by('-id')
-        blog_post  = Blog.objects.filter(status='active',show_hide='show').order_by('-id')
-        popular_post = blog_post[:3]
-        images_obj = blog_post.only('image').order_by('-id')[:6]
-        #all_post = Blog.objects.all().order_by('-id')
-        # pagination Logics
-        paginator = Paginator(all_post, 4)
-        page_number = request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
+        # featured_post = Blog.objects.filter(featured=True, status='active',show_hide='show').order_by('-id')
+        # catagories_obj  = Catagory.objects.all().order_by('-id')
+        # tags_obj = Tag.objects.all().order_by('-id')
+        # blog_post  = Blog.objects.filter(status='active',show_hide='show').order_by('-id')
+        # popular_post = blog_post[:3]
+        # images_obj = blog_post.only('image').order_by('-id')[:6]
+        # #all_post = Blog.objects.all().order_by('-id')
+        # # pagination Logics
+        # paginator = Paginator(all_post, 4)
+        # page_number = request.GET.get('page')
+        # page_obj = paginator.get_page(page_number)
 
-        context = {
-            'featured':featured_post,
-            'popular': popular_post,
-            'catagories':catagories_obj,
-            'tags':tags_obj,
-            'image':images_obj,
-            'post':page_obj
+        # context = {
+        #     'featured':featured_post,
+        #     'popular': popular_post,
+        #     'catagories':catagories_obj,
+        #     'tags':tags_obj,
+        #     'image':images_obj,
+        #     'post':page_obj
 
-        }
-        return render(request, 'home/index.html', context)
+        # }
+        return render(request, 'home/index.html')
 
     def post(self,request,*args,**kwargs):
         if request.method == 'POST':

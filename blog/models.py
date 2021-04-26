@@ -35,7 +35,7 @@ class Blog(models.Model):
     catagories = models.ManyToManyField(Catagory)
     tags = models.ManyToManyField(Tag, blank=True)
     status = models.CharField(max_length=20, choices=status, default='pending')
-    show_hide = models.CharField(max_length=5,choices=visibility, default='show')
+    #show_hide = models.CharField(max_length=5,choices=visibility, default='show')
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     featured  = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -53,7 +53,7 @@ class Blog(models.Model):
             return self.image.url 
 
     def __str__(self):
-        return f" {self.title} | { self.author } | {self.featured} | {self.status} "
+        return self.title
 
 # email marketing system 
 class EmailSignUp(models.Model):
