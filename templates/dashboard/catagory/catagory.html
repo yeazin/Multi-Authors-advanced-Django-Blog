@@ -1,13 +1,7 @@
 {% extends 'dashboard/base/base.html' %}
 
-{% if messages %}
-<div class="messages" >
-    {% for message in messages %}
-        <div class="alert alert-primary" {% if message.tags %}
-             class="{{ message.tags }}"{% endif %}>{{ message }}</div>
-    {% endfor %}
-</div>
-{% endif %}
+{% block body %}
+
 
 <!--
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -30,8 +24,73 @@
     
 </div>
 -->
+<div class="container-fluid">
+    {% if messages %}
+<div class="messages" >
+    {% for message in messages %}
+        <div class="alert alert-primary" {% if message.tags %}
+             class="{{ message.tags }}"{% endif %}>{{ message }}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
 
-<form action="" method="POST">
-    <input type="text" placeholder="Type Category">
-    <input type="submit" value="submit">
-</form>
+    {% endfor %}
+</div>
+{% endif %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Add Category</h6>
+        </div>
+
+    <form action="{% url 'add_category' %}" method="POST">
+        <div class="row">
+           
+            <div class="col">
+                <div class="form-group">
+                    {% csrf_token %}
+                <input type="text" class="form-control" placeholder="Add Category" name="catagory">
+                </div>
+            </div>
+            <div class="col">
+                <input type="submit" value="submit">
+            </div>
+        </div>
+    </form>
+
+
+</div>
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>SI No</th>
+                        <th>catagory Name</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for cat in catagory %}
+                    <tr>
+                        <td> {{ forloop.counter }}</td>
+                        <td>{{ cat }}</td>
+                        <td> Edit | Delete</td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

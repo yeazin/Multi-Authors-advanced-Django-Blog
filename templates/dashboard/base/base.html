@@ -331,7 +331,7 @@
                                 <img class="img-profile rounded-circle"
                                     src="{{ user.author.author_image.url }}">
                                 {% else %}
-                                <img class="img-profile rounded-circle" src="https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user.png" alt="">
+                                <img class="img-profile rounded-circle" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt="">
                                 {% endif %}
                             </a>
                             <!-- Dropdown - User Information -->
@@ -431,12 +431,13 @@
     <!-- Custom scripts for all pages-->
     <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
+
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="{% static 'js/demo/datatables-demo.js' %}"></script>
 
 </body>
 

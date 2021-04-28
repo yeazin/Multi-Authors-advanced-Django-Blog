@@ -172,8 +172,8 @@ class CatagoryFunction(View):
     def dispatch(self,request,*args,**kwargs):
         return super().dispatch(request,*args,**kwargs)
 
-    def get(self, request):
-        catagory_obj = Catagory.objects.all().order_by('-id')
+    def get(self, request,*args,**kwargs):
+        catagory_obj = Tag.objects.all().order_by('-id')
         context ={
             'catagory':catagory_obj
         }
@@ -198,6 +198,7 @@ class AddCatagory(View):
             else:  
                 obj = Catagory.objects.create(name=catagory)
                 obj.save()
+                messages.success(request,'Category successfully Added')
                 return redirect('category')
 
 # Edit Category
