@@ -1,0 +1,58 @@
+{% extends 'dashboard/base/base.html' %}
+{% block title %} Create Blog Post | Dashboard {% endblock %}
+{% block custom_css %} {% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    {% if messages %}
+<div class="messages" >
+    {% for message in messages %}
+        <div class="alert alert-primary" {% if message.tags %}
+             class="{{ message.tags }}"{% endif %}>{{ message }}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+
+    {% endfor %}
+</div>
+{% endif %}
+
+    <div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Add Blog Post</h6>
+    </div>
+    
+    <form action="{% url 'create_post' %}" method="POST">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Add Title </label>
+                <input type="text" id="title" class="form-control" placeholder="Add Blog Title" name="catagory">
+            </div>
+            <div class="form-group">
+                <label for="detail">Blog Details</label>
+                <textarea class="form-control" id="detail" rows="10" placeholder="Add Blog Details"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="customFile">Add Featured Image</label>
+                <input type="file" class="form-control" id="customFile"  name="image" />
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Add Category</label>
+                <select multiple class="form-control" id="exampleFormControlSelect2" name="category">
+                    {% for cat in category %}
+                  <option value={{ cat }}>{{ cat}}</option>
+                  {% endfor %}
+                </select>
+            </div>
+            
+                <input type="submit" value="submit">
+        </form>
+    
+
+
+
+</div>
+
+{% endblock %}

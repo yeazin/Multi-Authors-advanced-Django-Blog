@@ -276,6 +276,33 @@ class DeleteTag(View):
         obj.delete() 
         return redirect('tag') 
 
+# Post Lists 
+# Create Post
+class CreatePost(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+    
+    def get(self,request):
+        category = Tag.objects.all()
+        context = {
+            'category': category
+        }
+        return render(request,'dashboard/post/create_post.html', context)
+
+    def post(self,request):
+        title = request.POST.get('title')
+        detail = request.POST.get('detail')
+        image = request.POST.get('image')
+        tag = request.POST.get('category')
+        tag_obj = Tag.objects.get(name=tag)
+
+        post_obj = Blog(title=title, detail=detail,image=image,tags=tag_obj)
+        post_obj.save()
+        messages.success('created Post Successfully')
+        return redirect('dashboard')
+        
+
 
 
 # made by Nazrul Islam Yeasin 
