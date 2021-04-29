@@ -10,7 +10,7 @@ class Catagory(models.Model):
         verbose_name_plural = 'Catagory'
 
     def __str__(self):
-        return self.name 
+        return str(self.name) 
 
 # tags model
 class Tag(models.Model):

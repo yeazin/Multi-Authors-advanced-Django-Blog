@@ -1,0 +1,30 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">All Categories</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>SI No</th>
+                        <th>catagory Name</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for cat in catagory %}
+                    <tr>
+                        <td> {{ forloop.counter }}</td>
+                        <td>{{ cat }}</td>
+                        <td> <i class="far fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

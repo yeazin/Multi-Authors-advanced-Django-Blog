@@ -173,7 +173,7 @@ class CatagoryFunction(View):
         return super().dispatch(request,*args,**kwargs)
 
     def get(self, request,*args,**kwargs):
-        catagory_obj = Tag.objects.all().order_by('-id')
+        catagory_obj = Catagory.objects.all().order_by('-id')
         context ={
             'catagory':catagory_obj
         }

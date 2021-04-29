@@ -1,5 +1,26 @@
 {% extends 'dashboard/base/base.html' %}
 
+{% block custom_css %}
+.category_wrap{
+    display:flex;
+    flex-wrap:wrap;
+}
+.category{
+    border-radius:15px;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    height:auto;
+    background:white;
+    box-sizing: border-box;
+    padding: 15px;
+    margin:5px;
+}
+.category span{
+    width:1px;
+    height:1px;
+    color:black;
+}
+
+{% endblock %}
 {% block body %}
 
 
@@ -60,37 +81,14 @@
 
 
 </div>
-
-
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>SI No</th>
-                        <th>catagory Name</th>
-                        <th>Action</th>
-
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {% for cat in catagory %}
-                    <tr>
-                        <td> {{ forloop.counter }}</td>
-                        <td>{{ cat }}</td>
-                        <td> Edit | Delete</td>
-                    </tr>
-                    {% endfor %}
-
-                </tbody>
-            </table>
+    <div class="category_wrap">
+        {% for cat in catagory %}
+        <div class="category">
+            <h4>{{cat}}</h4>
         </div>
+        {% endfor %}
     </div>
-</div>
+
+
 </div>
 {% endblock %}
