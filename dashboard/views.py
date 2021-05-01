@@ -294,7 +294,7 @@ class CreatePost(View):
         author = request.user.author
         title = request.POST.get('title')
         detail = request.POST.get('detail')
-        image = request.POST.get('image')
+        image = request.FILES.get('image')
         #tag = request.POST.get('category')
         #tag_obj = Tag.objects.get(name=tag)
         category = request.POST.get('category')
