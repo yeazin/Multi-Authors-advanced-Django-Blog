@@ -28,11 +28,11 @@
         {% csrf_token %}
             <div class="form-group">
                 <label for="title">Add Title </label>
-                <input type="text" id="title" class="form-control" placeholder="Add Blog Title" name="catagory">
+                <input type="text" id="title" class="form-control" placeholder="Add Blog Title" name="title">
             </div>
             <div class="form-group">
                 <label for="detail">Blog Details</label>
-                <textarea class="form-control" id="detail" rows="10" placeholder="Add Blog Details"></textarea>
+                <textarea class="form-control" id="detail" name='detail' rows="10" placeholder="Add Blog Details"></textarea>
             </div>
             <div class="form-group">
                 <label class="form-label" for="customFile">Add Featured Image</label>
@@ -40,9 +40,9 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect2">Add Category</label>
-                <select multiple class="form-control" id="exampleFormControlSelect2" name="category">
+                <select multiple class="form-control" id="exampleFormControlSelect2" >
                     {% for cat in category %}
-                  <option value={{ cat }}>{{ cat}}</option>
+                  <option name="category">{{ cat}}</option>
                   {% endfor %}
                 </select>
             </div>

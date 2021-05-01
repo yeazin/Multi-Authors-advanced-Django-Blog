@@ -284,23 +284,26 @@ class CreatePost(View):
         return super().dispatch(request,*args,**kwargs)
     
     def get(self,request):
-        category = Tag.objects.all()
+        category = Catagory.objects.all()
         context = {
             'category': category
         }
         return render(request,'dashboard/post/create_post.html', context)
 
     def post(self,request):
+        author = request.user.author
         title = request.POST.get('title')
         detail = request.POST.get('detail')
         image = request.POST.get('image')
-        tag = request.POST.get('category')
-        tag_obj = Tag.objects.get(name=tag)
+        #tag = request.POST.get('category')
+        #tag_obj = Tag.objects.get(name=tag)
+        category = request.POST.get('category')
+        cat_obj = Catagory.objects.get(name=category)
 
-        post_obj = Blog(title=title, detail=detail,image=image,tags=tag_obj)
-        post_obj.save()
-        messages.success('created Post Successfully')
-        return redirect('dashboard')
+        post_obj = Blog(author=author,title=title, detail=detail,image=image,catagories=cat_obj)
+        post_obj.save(post_obj)
+        messages.success(request,'created Post Successfully')
+        return redirect('create_post')
         
 
 
