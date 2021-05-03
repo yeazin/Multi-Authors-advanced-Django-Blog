@@ -28,25 +28,24 @@
         {% csrf_token %}
             <div class="form-group">
                 <label for="title">Add Title </label>
-                <input type="text" id="title" class="form-control" placeholder="Add Blog Title" name="title">
+                <input type="text" id="title" class="form-control" placeholder="Add Blog Title" name="title" required>
             </div>
             <div class="form-group">
                 <label for="detail">Blog Details</label>
-                <textarea class="form-control" id="detail" name='detail' rows="10" placeholder="Add Blog Details"></textarea>
+                <textarea class="form-control" id="detail" name='detail' rows="10" placeholder="Add Blog Details" required></textarea>
             </div>
             <div class="form-group">
                 <label class="form-label" for="customFile">Add Featured Image</label>
                 <input type="file" class="form-control" id="customFile"  name="image" />
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Add Category</label>
-                <select multiple class="form-control" id="exampleFormControlSelect2" >
+                <label for="exampleFormControlSelect1">Example select</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="category">
                     {% for cat in category %}
-                  <option name="category">{{ cat}}</option>
-                  {% endfor %}
+                  <option>{{ cat }}</option>
+                    {% endfor %}
                 </select>
-            </div>
-            
+              </div>
                 <input type="submit" value="submit">
         </form>
     
@@ -55,4 +54,27 @@
 
 </div>
 
+{% endblock %}
+{% block script %}
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+  }
+</script>
 {% endblock %}

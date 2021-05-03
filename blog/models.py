@@ -33,7 +33,7 @@ class Blog(models.Model):
     detail = models.TextField(max_length=2000, null=True)
     image = models.ImageField(upload_to='images/media', null=True, blank=True)
     #catagories = models.ManyToManyField(Catagory)
-    catagories = models.ManyToManyField(Catagory, null=True)
+    catagories = models.ForeignKey(Catagory,on_delete=models.DO_NOTHING, null=True)
     tags = models.ManyToManyField(Tag, blank=True)
     status = models.CharField(max_length=20, choices=status, default='pending')
     #show_hide = models.CharField(max_length=5,choices=visibility, default='show')
