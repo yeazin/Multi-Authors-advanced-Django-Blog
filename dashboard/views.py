@@ -95,19 +95,25 @@ class EditAuthor(View):
     @method_decorator(login_required(login_url='login'))
     def dispatch(self,request,*args,**kwargs):
         return super().dispatch(request,*args,**kwargs)
-    def get(self,request,id):
+    def get(self,request):
         return render(request,'dashboard/user/edit_profile.html')
         
-    def post(self, request,id):
-        first_name = request.POST.get('fname')
-        last_name = request.POST.get('lname')
-        #email = request.POST.get('email')
-        #mail_obj = Author.objects.filter(email=email)
-        # if mail_obj:
+    def post(self, request):
+        obj = request.user.author
+        obj.author_image = request.POST.get('image')
+        obj.first_name = request.POST.get('fname')
+        obj.last_name = request.POST.get('lname')
+        obj.email = request.POST.get('email')
+        # mail_obj = Author.objects.filter(email=obj.email)
+        # if mail_obj == obj.email:
+        #     messages.success(request,'Your profile has been updated Successfully')
+        #     return redirect('profile')
+        # elif mail_obj:
         #     messages.warning(request,'sorry Mail already used')
-        #     return redirect ('update_author' ,id=id)
+        #     return redirect ('edit')
         # else:
-        obj = Author.objects.update(first_name=first_name, last_name=last_name)
+        obj.save()
+        #obj = Author.objects.update(first_name=first_name, last_name=last_name)
         messages.success(request,'Your profile has been updated Successfully')
         return redirect('profile')
 

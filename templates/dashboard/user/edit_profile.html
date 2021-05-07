@@ -13,6 +13,7 @@
 {% endif %}
     <form action="" method="POST">
         {% csrf_token %}
+        <input type="file" name="image" id="" value="{{user.author.author_image}}">
         <input type="text" name="fname" id="" value="{{ user.author.first_name }}">
         <input type="text" name="lname" id="" value="{{ user.author.last_name }}">
         <input type="email" name="email" id="" value="{{ user.author.email }}">

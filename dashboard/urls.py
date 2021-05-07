@@ -9,7 +9,8 @@ urlpatterns = [
     path('post_listing_pending/', views.PostListingPending.as_view(), name='post_listing_pending'),
     # Author
     path('profile/',views.AuthorProfile.as_view(), name='profile'),
-    path('update-author/<str:id>', views.EditAuthor.as_view(), name='update_author' ),
+    path('profile/edit/', views.EditAuthor.as_view(), name="edit"),
+    #path('update-author/<str:id>', views.EditAuthor.as_view(), name='update_author' ),
     # category
     path('category/', views.CatagoryFunction.as_view(), name='category'),
     path('add-category/', views.AddCatagory.as_view(), name='add_category'),

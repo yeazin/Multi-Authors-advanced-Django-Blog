@@ -36,7 +36,7 @@
         {% endif %}
     </div>
     <div class="col-12 col-md-8">
-        <button class="btn btn-dark float-right btn-sm"><a href="{% url 'update_author' user.id %}"> <i class="far fa-edit"></i> Edit profile </a></button>
+        <button class="btn btn-dark float-right btn-sm"><a href="{% url 'edit' %}"> <i class="far fa-edit"></i> Edit profile </a></button>
         <h3>@{{ user.author.author.username }}</h3>
         <h5>{{ user.author.first_name }} {{ user.author.last_name }}</h5>
         <h5>{{ user.author.email }}</h5>
