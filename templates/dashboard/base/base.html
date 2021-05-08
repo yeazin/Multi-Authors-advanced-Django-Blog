@@ -1,7 +1,7 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-
+    {% load static %}
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    {% load static %}
     <title> {% block title %} {% endblock %}</title>
 
     <!-- Custom fonts for this template-->
@@ -20,7 +20,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
-    <style>{% block custom_css %} {% endblock%}</style>
+    <style>{% block custom_css %} {% endblock %}</style>
 
 </head>
 
@@ -386,7 +386,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class="sticky-footer bg-white" style="bottom: 0;">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Your Website 2020</span>

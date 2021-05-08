@@ -1,0 +1,29 @@
+{% extends 'dashboard/base/base.html' %}
+{% block title %} {{ post.title }}| Dashboard {% endblock %}
+{% block custom_css %} 
+img{
+    width:80%;
+    margin:0 auto;
+    border-radius:10px;
+}
+{% endblock %}
+{% load static %}
+{% block body %}
+<div class="row">
+    <div class="col">
+        <div class="card shadow mb-4">
+            <div class="row " style="padding: 20px;">
+                <div class="col-10 mx-auto">
+                    <h3>{{ post.title }}</h3>
+                    <p> Post Under : {{ post.catagories }}</p>
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="">
+                    {% else %}
+                    <img src="" alt="">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

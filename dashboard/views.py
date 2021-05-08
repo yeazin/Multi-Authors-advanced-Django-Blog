@@ -311,6 +311,19 @@ class CreatePost(View):
         messages.success(request,'created Post Successfully')
         return redirect('create_post')
 
+# Post detail 
+class PostView(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self, request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+    
+    def get(self, request,id):
+        post_obj = get_object_or_404(Blog, id=id)
+        context={
+            'post':post_obj
+        }
+        return render(request,'dashboard/post/post_view.html', context)
+        
 # Edit Post
 class EditPost(View):
     @method_decorator(login_required(login_url='login'))   
@@ -338,7 +351,16 @@ class EditPost(View):
         messages.success(request,'Post has been Updated')
         return redirect('dashboard')
 
-
+# Delete Posts
+class DeletePost(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+    
+    def post(self, request,id):
+        obj = get_object_or_404(Blog, id=id)
+        obj.delete()
+        return redirect('dashboard')
 # made by Nazrul Islam Yeasin 
 # Facebook : facebook.com/yeariha.farsin
 # Github : github.com/yeazin

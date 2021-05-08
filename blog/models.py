@@ -66,6 +66,7 @@ class EmailSignUp(models.Model):
     def __str__(self):
         return self.email
 
+
 # made by Nazrul Islam Yeasin 
 # Facebook : facebook.com/yeariha.farsin
 # Github : github.com/yeazin
