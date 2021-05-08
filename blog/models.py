@@ -39,6 +39,7 @@ class Blog(models.Model):
     #show_hide = models.CharField(max_length=5,choices=visibility, default='show')
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     featured  = models.BooleanField(default=False)
+    visible = models.CharField(max_length=10, choices=visibility, default='show')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

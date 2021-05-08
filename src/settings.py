@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'api',
     # framework
     'rest_framework',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [
