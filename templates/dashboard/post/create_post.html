@@ -23,7 +23,8 @@
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Add Blog Post</h6>
     </div>
-    
+    <div class="row " style="padding: 20px;">
+      <div class="col-10 mx-auto">
     <form action="{% url 'create_post' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
             <div class="form-group">
@@ -41,6 +42,7 @@
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Example select</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="category">
+                  <option value=""> Select Category</option>
                     {% for cat in category %}
                   <option>{{ cat }}</option>
                     {% endfor %}
@@ -48,6 +50,8 @@
               </div>
                 <input type="submit" value="submit">
         </form>
+    </div>
+    </div>
     
 
 

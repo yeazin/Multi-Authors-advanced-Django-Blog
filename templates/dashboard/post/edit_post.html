@@ -19,7 +19,7 @@
 </div>
 {% endif %}
 
-
+{% if user.is_authenticated %}
 {% if user.id == user.author.id %}
 <div class="row">
     <div class="col">
@@ -55,6 +55,7 @@
                     <div class="form-group col">
                         <label for="exampleFormControlSelect1">Add Category </label>
                         <select class="form-control" id="exampleFormControlSelect1" name="category">
+                          <option value="{{ obj.catagories }}"> Your Category is : {{ obj.catagories }}</option>
                             {% for cat in cat %}
                           <option value="{{ cat}}">{{ cat }}</option>
                             {% endfor %}
@@ -81,6 +82,7 @@
     </div>
 </div>
 
+{% endif %}
 {% endif %}
   
 
