@@ -310,8 +310,33 @@ class CreatePost(View):
         post_obj.save(post_obj)
         messages.success(request,'created Post Successfully')
         return redirect('create_post')
-        
 
+# Edit Post
+class EditPost(View):
+    @method_decorator(login_required(login_url='login'))   
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+
+    def get(self, request,id):
+        obj = get_object_or_404(Blog, id=id)
+        cat_obj = Catagory.objects.all()
+        context= {
+            'obj':obj,
+            'cat':cat_obj
+        }
+        return render(request,'dashboard/post/edit_post.html', context)
+    
+    def post(self,request,id):
+        obj = get_object_or_404(Blog , id=id)
+        obj.title = request.POST.get('name')
+        obj.title = request.POST.get('title')
+        obj.detail = request.POST.get('detail')
+        obj.image = request.FILES.get('image')
+        category = request.POST.get('category')
+        obj.cat_obj = Catagory.objects.get(name=category)
+        obj.save()
+        messages.success(request,'Post has been Updated')
+        return redirect('dashboard')
 
 
 # made by Nazrul Islam Yeasin 

@@ -1,0 +1,110 @@
+{% extends 'dashboard/base/base.html' %}
+{% block title %} Edit Posts | Dashboard {% endblock %}
+{% block custom_css %} {% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    {% if messages %}
+<div class="messages" >
+    {% for message in messages %}
+        <div class="alert alert-primary" {% if message.tags %}
+             class="{{ message.tags }}"{% endif %}>{{ message }}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+
+    {% endfor %}
+</div>
+{% endif %}
+
+
+{% if user.id == user.author.id %}
+<div class="row">
+    <div class="col">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Edit : {{obj.title}}</h6>
+            </div>
+            <div class="row " style="padding: 20px;">
+            <div class="col-10 mx-auto">
+            <form action="{% url 'edit_post' obj.id %} " method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="title">Add Title </label>
+                        <input type="text" id="title" class="form-control" placeholder="Add Blog Title" name="title" value="{{obj.title}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="detail">Blog Details</label>
+                        <textarea class="form-control" id="detail" name='detail' rows="10" placeholder="Add Blog Details"  required> {{ obj.detail }}</textarea>
+                    </div>
+        
+                    <div class="row"> 
+        
+                    <div class="form-group col">
+                        <label class="form-label" for="customFile">Add Featured Image</label>
+                        {% if obj.image %}
+                        <input type="file" class="form-control" id="customFile"  name="image"  value="{{ obj.image.url }}" />
+                        {% else %}
+                        <input type="file" class="form-control" id="customFile"  name="image"  value=" " />
+                        {% endif %}
+                        {% load static %}
+                        
+                    </div>
+                    <div class="form-group col">
+                        <label for="exampleFormControlSelect1">Add Category </label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="category">
+                            {% for cat in cat %}
+                          <option value="{{ cat}}">{{ cat }}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                        <input type="submit" value="submit" class="btn btn-primary">
+                </form>
+
+            </div>
+        </div>
+            
+        
+        
+        
+        </div>
+    </div>
+</div>
+
+{% else %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+    <h3>Warning ! You are Not Allowed To come Here</h3>
+    </div>
+</div>
+
+{% endif %}
+  
+
+{% endblock %}
+{% block script %}
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+  }
+</script>
+{% endblock %}
