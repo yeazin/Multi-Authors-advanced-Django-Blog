@@ -28,14 +28,14 @@ h3{ padding:10px 0px; color:black; }
                         <p> Post Under : {{ post.catagories }}</p>
                         <p> Date : {{ post.created_at|naturaltime }}</p>
                         {% if post.status == 'active' %}
-                        <p> Status : <span style="color: green;"> {{ post.status }}</span> </p>
+                          <p> Status : <span style="color: green;"> {{ post.status }}</span> </p>
                         {% else %}
-                        <p> Status : <span style="color: red; background-color: rgb(70, 123, 172); padding: 5px; border-radius: 10px; "> {{ post.status }}</span> </p>
+                          <p> Status : <span style="color: red; background-color: rgb(70, 123, 172); padding: 5px; border-radius: 10px; "> {{ post.status }}</span> </p>
                         {% endif %}
                         {% if post.featured == True %}
-                        <p > Featured : <span style="color:green"> Post Featured</span> </p>
+                          <p > Featured : <span style="color:green"> Post Featured</span> </p>
                         {% else %}
-                        <p >  Featured : <span style="color:red"> Not Featured Yet</span></p>
+                          <p >  Featured : <span style="color:red"> Not Featured Yet</span></p>
                         {% endif %}
                     </div>
                     {% if post.image %}

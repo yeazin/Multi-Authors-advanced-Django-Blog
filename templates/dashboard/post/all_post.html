@@ -1,0 +1,71 @@
+{% extends 'dashboard/base/base.html' %}
+
+{% block title %} Blog Posts | Dashboard {% endblock %}
+{% block custom_css %}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+}
+table img{
+    width:15%;
+    height:auto;
+}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    {% if messages %}
+<div class="messages" >
+    {% for message in messages %}
+        <div class="alert alert-primary" {% if message.tags %}
+             class="{{ message.tags }}"{% endif %}>{{ message }}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+
+    {% endfor %}
+</div>
+{% endif %}
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <td> Date </td>
+                                            <td> Title </td>
+                                            <td> Category </td>
+                                            <td> Featured Image </td>
+                                            <td> Actions </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for p in post %}
+                                        <tr>
+                                            
+                                            <td> {{ p.created_at|timesince }} ago</td>
+                                            <td><img src="{{ p.image_url  }}" alt=""></td>
+                                            <td> {{ p.title }}</td>
+                                            
+                                            <td> {{ p.catagories }}</td>
+
+                                            <td><i class="far fa-edit"></i>
+                                                <i class="fas fa-eye"></i>
+                                                <i class="fas fa-eye-slash"></i>
+                                                <i class="far fa-trash-alt" ></i> 
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+{% endblock %}

@@ -309,7 +309,21 @@ class CreatePost(View):
         post_obj = Blog(author=author,title=title, detail=detail,image=image,catagories=cat_obj)
         post_obj.save(post_obj)
         messages.success(request,'created Post Successfully')
-        return redirect('create_post')
+        return redirect('post')
+
+# All Post show
+class AllPost(View):
+    @method_decorator(login_required(login_url='login'))
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+    
+    def get(self,request):
+        user = request.user.author
+        post = user.blog_set.all().order_by('-id')
+        context = {
+            'post':post
+        }
+        return render(request,'dashboard/post/all_post.html',context)
 
 # Post detail 
 class PostView(View):
