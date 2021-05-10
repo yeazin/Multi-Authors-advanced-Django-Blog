@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from django.http import HttpResponseRedirect
 from django.views import View
 from blog.models import Blog, Catagory, Tag
 from .models import Author
@@ -337,6 +338,7 @@ class PostView(View):
             'post':post_obj
         }
         return render(request,'dashboard/post/post_view.html', context)
+    
         
 # Edit Post
 class EditPost(View):
@@ -365,6 +367,34 @@ class EditPost(View):
         messages.success(request,'Post has been Updated')
         return redirect('dashboard')
 
+# Make VIsible
+class VisiblePost(View):
+    @method_decorator(login_required(login_url='login'))   
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+    
+    def post(self,request,id):
+        obj  = Blog.objects.get(id=id)
+        obj.visible = True
+        obj.save()
+        messages.success(request,'Post is Visible')
+        #return HttpResponseRedirect(self.request.path_info)
+        return redirect('home')
+
+# Make Hidden
+class HidePost(View):
+    @method_decorator(login_required(login_url='login'))   
+    def dispatch(self,request,*args,**kwargs):
+        return super().dispatch(request,*args,**kwargs)
+    
+    def post(self,request,id):
+        obj  = Blog.objects.get(id=id)
+        obj.visible = False
+        obj.save()
+        messages.success(request,'Post is Hidden')
+        return HttpResponseRedirect(self.request.path_info)
+
+
 # Delete Posts
 class DeletePost(View):
     @method_decorator(login_required(login_url='login'))
@@ -374,7 +404,8 @@ class DeletePost(View):
     def post(self, request,id):
         obj = get_object_or_404(Blog, id=id)
         obj.delete()
-        return redirect('dashboard')
+        return redirect('post')
+
 # made by Nazrul Islam Yeasin 
 # Facebook : facebook.com/yeariha.farsin
 # Github : github.com/yeazin

@@ -11,6 +11,8 @@ urlpatterns = [
     path('post/delete/<str:id>/', views.DeletePost.as_view(), name="delete_post"),
     path('post_listing_active/',views.PostListingActive.as_view(), name='post_listing_active'),
     path('post_listing_pending/', views.PostListingPending.as_view(), name='post_listing_pending'),
+    path('visible/post/<str:id>', views.VisiblePost.as_view(), name='visible'),
+    path('hidden/post/<str:id>', views.HidePost.as_view(),name='hidden'),
     # Author
     path('profile/',views.AuthorProfile.as_view(), name='profile'),
     path('profile/edit/', views.EditAuthor.as_view(), name="edit"),

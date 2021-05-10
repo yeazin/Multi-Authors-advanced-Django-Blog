@@ -25,10 +25,7 @@ class Blog(models.Model):
         ('active','active'),
         ('pending','pending')
     )
-    visibility = (
-        ('show','show'),
-        ('hide','hide')
-    )
+
     title  = models.CharField(max_length=200, null=True)
     detail = models.TextField(max_length=2000, null=True)
     image = models.ImageField(upload_to='images/media', null=True, blank=True)
@@ -39,7 +36,7 @@ class Blog(models.Model):
     #show_hide = models.CharField(max_length=5,choices=visibility, default='show')
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     featured  = models.BooleanField(default=False)
-    visible = models.CharField(max_length=10, choices=visibility, default='show')
+    visible = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

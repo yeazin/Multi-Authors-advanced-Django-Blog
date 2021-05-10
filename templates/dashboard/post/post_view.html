@@ -45,8 +45,8 @@ h3{ padding:10px 0px; color:black; }
                     {% endif %}
                     <h5> {{ post.detail }}</h5>
                     <div>
-                        <a href=" " class="btn btn-outline-dark"><i class="fas fa-eye"></i> Make Visible </a>
-                        <a href=" " class="btn btn-outline-dark"><i class="fas fa-eye-slash"></i>Hide Post </a>
+                        <a href=" {% url 'visible' post.id %}" class="btn btn-outline-dark"><i class="fas fa-eye"></i> Make Visible </a>
+                        <a href=" {% url 'hidden' post.id %}" class="btn btn-outline-dark"><i class="fas fa-eye-slash"></i>Hide Post </a>
                         <a href="{% url 'edit_post' post.id %}" class="btn btn-warning"><i class="far fa-edit"></i> Edit</a>
                         <a href=" " class="btn btn-danger" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt" ></i> Delete Post </a>
 
