@@ -18,6 +18,22 @@ h3{ padding:10px 0px; color:black; }
 {% load static %}
 {% block body %}
 {% load humanize %}
+
+<div class="container-fluid">
+  {% if messages %}
+<div class="messages" >
+  {% for message in messages %}
+      <div class="alert alert-primary" {% if message.tags %}
+           class="{{ message.tags }}"{% endif %}>{{ message }}
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+      </div>
+
+  {% endfor %}
+</div>
+{% endif %}
+
 <div class="row">
     <div class="col">
         <div class="card shadow mb-4">
@@ -45,10 +61,13 @@ h3{ padding:10px 0px; color:black; }
                     {% endif %}
                     <h5> {{ post.detail }}</h5>
                     <div>
-                        <a href=" {% url 'visible' post.id %}" class="btn btn-outline-dark"><i class="fas fa-eye"></i> Make Visible </a>
-                        <a href=" {% url 'hidden' post.id %}" class="btn btn-outline-dark"><i class="fas fa-eye-slash"></i>Hide Post </a>
-                        <a href="{% url 'edit_post' post.id %}" class="btn btn-warning"><i class="far fa-edit"></i> Edit</a>
-                        <a href=" " class="btn btn-danger" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt" ></i> Delete Post </a>
+                      {% if post.visible == False %}
+                        <a href=" {% url 'visible' post.id %}" class="btn btn-outline-dark btn-sm "><i class="fas fa-eye"></i> Make Visible </a>
+                      {% else %}
+                        <a href=" {% url 'hidden' post.id %}" class="btn btn-outline-dark btn-sm"><i class="fas fa-eye-slash"></i>Hide Post </a>
+                      {% endif %}
+                        <a href="{% url 'edit_post' post.id %}" class="btn btn-warning btn-sm"><i class="far fa-edit"></i> Edit</a>
+                        <a href=" " class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt" ></i> Delete Post </a>
 
                     </div>
                 </div>

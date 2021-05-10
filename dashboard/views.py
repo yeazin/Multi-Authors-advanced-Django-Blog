@@ -310,7 +310,7 @@ class CreatePost(View):
         post_obj = Blog(author=author,title=title, detail=detail,image=image,catagories=cat_obj)
         post_obj.save(post_obj)
         messages.success(request,'created Post Successfully')
-        return redirect('post')
+        return redirect('all_post')
 
 # All Post show
 class AllPost(View):
@@ -365,7 +365,7 @@ class EditPost(View):
         obj.cat_obj = Catagory.objects.get(name=category)
         obj.save()
         messages.success(request,'Post has been Updated')
-        return redirect('dashboard')
+        return redirect('all_post')
 
 # Make VIsible
 class VisiblePost(View):
@@ -373,13 +373,13 @@ class VisiblePost(View):
     def dispatch(self,request,*args,**kwargs):
         return super().dispatch(request,*args,**kwargs)
     
-    def post(self,request,id):
+    def get(self,request,id):
         obj  = Blog.objects.get(id=id)
         obj.visible = True
         obj.save()
         messages.success(request,'Post is Visible')
-        #return HttpResponseRedirect(self.request.path_info)
-        return redirect('home')
+        # Redirect To the Same Page
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 # Make Hidden
 class HidePost(View):
@@ -387,12 +387,14 @@ class HidePost(View):
     def dispatch(self,request,*args,**kwargs):
         return super().dispatch(request,*args,**kwargs)
     
-    def post(self,request,id):
+    def get(self,request,id):
         obj  = Blog.objects.get(id=id)
         obj.visible = False
         obj.save()
         messages.success(request,'Post is Hidden')
-        return HttpResponseRedirect(self.request.path_info)
+
+        # Redirect To the Same Page
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 # Delete Posts
@@ -401,10 +403,13 @@ class DeletePost(View):
     def dispatch(self,request,*args,**kwargs):
         return super().dispatch(request,*args,**kwargs)
     
+
     def post(self, request,id):
         obj = get_object_or_404(Blog, id=id)
         obj.delete()
-        return redirect('post')
+        messages.success(request,'Post Has Been Deleted')
+        # Redirect To the Same Page
+        return redirect('all_post')
 
 # made by Nazrul Islam Yeasin 
 # Facebook : facebook.com/yeariha.farsin

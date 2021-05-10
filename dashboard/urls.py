@@ -5,7 +5,7 @@ urlpatterns = [
     path('', views.Dashboard.as_view(), name='dashboard'),
     # Post 
     path('create-post/',views.CreatePost.as_view(), name="create_post"),
-    path('post/', views.AllPost.as_view(), name='post'),
+    path('post/', views.AllPost.as_view(), name='all_post'),
     path('post/view/<str:id>', views.PostView.as_view(), name='post'),
     path('post/edit/<str:id>/', views.EditPost.as_view(), name='edit_post'),
     path('post/delete/<str:id>/', views.DeletePost.as_view(), name="delete_post"),
