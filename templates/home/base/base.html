@@ -1,246 +1,159 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zxx">
-{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <title>NewsBlog a Blog Category Bootstrap Responsive Website Template | Home : W3layouts</title>
 
-<!-- suchana/index-4.html  22 Nov 2019 04:10:53 GMT -->
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Suchana is an online blog, news & magazine dedicated to different categories html template">
+    <link href="//fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
-    <title>Suchana - Blog, News & Magazine HTML Template</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'css/style-starter.css' %} ">
+  </head>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  {% block body %}
 
-    <!--Default CSS-->
-    <link href="{% static 'css/default.css' %}" rel="stylesheet" type="text/css">
+  {% endblock %}
 
-    <!--Custom CSS-->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
-
-    <!--Plugin CSS-->
-    <link href="{% static 'css/plugin.css' %}" rel="stylesheet" type="text/css">
-
-    <!--Font Icons-->
-    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" type="text/css">
-    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-</head>
-<body>
-    <!--PRELOADER-->
-    <div id="preloader">
-        <div id="status"></div>
-    </div>
-    <!--*Header*-->
-    <header id="inner-navigation">
-
-        <!-- navbar start -->
-        <nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function navbar-arrow">
-
-            <div class="container">
-
-                <div class="logo pull-left">
-                    <h1><a href="index.html"><img src="{% static 'images/logo.png' %}"></a></h1>
-                </div>
-                
-                <div id="navbar" class="navbar-nav-wrapper text-center">
-                    <ul class="nav navbar-nav navbar-right" id="responsive-menu">
-                        <li class="active"><a href="#">Home <i class="fa fa-angle-down"></i></a>
-                            <ul>
-                                <li><a href="index.html">Home Default</a></li>
-                                <li><a href="#">Home List View</a>
-                                    <ul>
-                                        <li><a href="index-1.html">Home RightSidebar</a></li>
-                                        <li><a href="index-2.html">Home Fullwidth</a></li>
-                                        <li><a href="index-3.html">Home LeftSidebar</a></li> 
-                                    </ul>
-                                </li> 
-                                <li><a href="#">Home Grid View</a>
-                                    <ul>
-                                        <li><a href="index-4.html">Home RightSidebar</a></li>
-                                        <li><a href="index.html">Home Fullwidth</a></li>
-                                        <li><a href="index-5.html">Home LeftSidebar</a></li> 
-                                    </ul>
-                                </li>   
-                                <li><a href="mag.html">Magazine</a>
-                                    <ul>
-                                        <li><a href="mag.html">Default Magazine</a></li>
-                                        <li><a href="mag-food.html">Food Magazine</a></li>
-                                        <li><a href="mag-fashion.html">Fashion Magazine</a></li>
-                                        <li><a href="mag-travel.html">Travel Magazine</a></li> 
-                                        <li><a href="mag-tech.html">Tech Magazine</a></li> 
-                                        <li><a href="mag-photo.html">Photography Magazine</a></li>
-                                        <li><a href="mag-fitness.html">Fitness Magazine</a></li>
-                                        <li><a href="mag-sports.html">Sports Magazine</a></li>
-                                    </ul>
-                                </li>       
-                            </ul>
-                        </li>
-
-                        <li><a href="#">Pages <i class="fa fa-angle-down"></i></a>
-                            <ul>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="error.html">Error Page</a></li>
-                                <li><a href="#">Detail Page</a>
-                                    <ul>
-                                        <li><a href="blog-details.html">Detail 1</a></li>
-                                        <li><a href="blog-details1.html">Detail 2</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="author.html">Author Page</a></li>
-                                <li><a href="#">Category</a>
-                                    <ul>
-                                        <li><a href="category.html">Category Lists</a></li>
-                                        <li><a href="category-detail.html">Category Detail</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Tags</a>
-                                    <ul>
-                                        <li><a href="tag.html">Tag Lists</a></li>
-                                        <li><a href="tag-detail.html">Tag Detail</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="faq.html">Faq</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
-                            </ul>
-                        </li> 
-
-                        <li>
-                            <a href="#">Dashboard  <i class="fa fa-angle-down"></i></a>
-                            <ul>
-                                <li><a href="dashboard.html">Dashboard</a></li>
-                                <li><a href="dashboard-my-profile.html">Dashboard Profile</a></li>
-                                <li><a href="dashboard-booking.html">Dashboard Bookings</a></li>
-                                <li><a href="dashboard-history.html">Dashboard History</a></li>
-                                <li><a href="dashboard-list.html">Dashboard Listing</a></li>
-                                <li><a href="dashboard-addtour.html">Dashboard Add Tour</a></li>
-                                <li><a href="dashboard-reviews.html">Dashboard Reviews</a></li>
-                            </ul>
-                        </li>   
-                        
-                        <li><a href="shop.html">Shop <i class="fa fa-angle-down"></i></a>
-                            <ul>
-                                <li><a href="shop.html">Shop List</a></li>
-                                <li><a href="shop-detail.html">Shop Detail</a></li>
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="login.html">Login Page</a></li>
-                                <li><a href="forgot-password.html">Forgot Password</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact-us.html">Contact Us</a></li>
-                        <li><a href="#search" class="mt_search"><i class="fa fa-search"></i></a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
+  <!-- footer-28 block -->
+<section class="app-footer">
+    <footer class="footer-28 py-5">
+      <div class="footer-bg-layer">
+        <div class="container py-lg-3">
+          <div class="row footer-top-28">
+            <div class="col-lg-4 footer-list-28 copy-right mb-lg-0 mb-sm-5 mt-sm-0 mt-4">
+              <a class="navbar-brand mb-3" href="index.html">
+                <span class="fa fa-newspaper-o"></span> NewsBlog</a>
+              <p class="copy-footer-28"> © 2020. All Rights Reserved. </p>
+              <h5 class="mt-2">Design by <a href="https://w3layouts.com/">W3Layouts</a></h5>
             </div>
-            
-            <div id="slicknav-mobile"></div>
-        </nav>
-        <!-- navbar end -->
-    </header>
-    <!--* End Header*-->
-
-    {% block body %}
-
-    {% endblock %}
-
-   <!--*Footer*-->
-   <footer id="mt_footer" class="mt_footer_style1">  
-    <div class="container"> 
-        <div class="mt_footer_col">
-            <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="mt_footer_about">
-                        <h2><a href="#">Suchana</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="mt_footer_list">
-                        <h3>Quick Links</h3>
-                        <ul class="footer-quick-links-4">
-                           <li><a href="#"><i class="fa fa-angle-right"></i> Placerat bibendum</a></li>
-                           <li><a href="#"><i class="fa fa-angle-right"></i> Ullamcorper odio nec turpis</a></li>
-                           <li><a href="#"><i class="fa fa-angle-right"></i> Aliquam porttitor vestibulum</a></li>
-                           <li><a href="#"><i class="fa fa-angle-right"></i> Lobortis enim nec nisi</a></li>
-                           <li><a href="#"><i class="fa fa-angle-right"></i> Placerat bibendum</a></li>
-                           <li><a href="#"><i class="fa fa-angle-right"></i> Lobortis enim nec nisi</a></li>
-                         </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="mt_footer_newsletter">
-                        <h3>Newsletter</h3>
-                        <div class="mailpoet_form">
-                            <form target="_self" method="POST" action=" " novalidate="">
-                            {% csrf_token %}
-                                <label>Email Address:</label>
-                                <input type="email" class="mailpoet_text" name="email" title="Email" placeholder="Please specify a valid email address.">
-                                <div class="blog-button">
-                                    <input type="submit" class="btn-blog" name="" id="" placeholder="Subscribe">
-                                </div>
-                                <input type="submit" name="" id="" placeholder="take">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="mt_footer_gallery">
-                        <h3>Amazing Gallery</h3>
-                        <div class="row">
-                            
-                            {% for image in image %}
-                            <div class="col-sm-4 col-xs-6"><a href="#"><img src="{{ image.image_url }}" alt="Image"></a></div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mt_footer_copy">
-            <div class="copy_txt pull-left">
-                <p class="mar-0"><a href="templateshub.net">Templateshub</a></p>
-            </div> 
-            <div class="follow_us pull-right">
-                <ul class="social_icons">
-                    <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <div class="col-lg-8 row">
+              <div class="col-sm-4 col-6 footer-list-28">
+                <h6 class="footer-title-28">Useful links</h6>
+                <ul>
+                  <li><a href="#categories">food blogs</a></li>
+                  <li><a href="#advertise">Advertise with us</a></li>
+                  <li><a href="#authors">Our Authors</a></li>
+                  <li><a href="contact.html">Get in touch</a></li>
                 </ul>
+              </div>
+              <div class="col-sm-4 col-6 footer-list-28">
+                <h6 class="footer-title-28">Categories</h6>
+                <ul>
+                  <li><a href="beauty.html">Beauty</a></li>
+                  <li><a href="fashion.html">Fashion and Style</a></li>
+                  <li><a href="#food"> Food and Wellness</a></li>
+                  <li><a href="#lifestyle">Lifestyle</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 col-6 footer-list-28 mt-sm-0 mt-4">
+                <h6 class="footer-title-28">Social Media</h6>
+                <ul class="social-icons">
+                  <li class="facebook">
+                    <a href="#facebook"><span class="fa fa-facebook"></span> Facebook</a></li>
+                  <li class="twitter"> <a href="#twitter"><span class="fa fa-twitter"></span> Twitter</a></li>
+                  <li class="linkedin"> <a href="#linkedin"><span class="fa fa-linkedin"></span> Linkedin</a></li>
+                  <li class="dribbble"><a href="#dribbble"><span class="fa fa-dribbble"></span> Dribbble</a></li>
+                </ul>
+  
+              </div>
             </div>
-                  
+          </div>
         </div>
-    </div>
-</footer>
-<!--* End Footer*-->
-
-<!-- back to top -->
-<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="" data-placement="left">
-    <span class="fa fa-arrow-up"></span>
-</a>
-
-<!-- search popup -->
-<div id="search">
-    <button type="button" class="close">×</button>
-    <form>
-        <input type="search" value="" placeholder="type keyword(s) here" />
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-</div>
-
-<!--*Scripts*-->
-<!-- Latest jquery --><script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-<!-- Plugin Jquery --><script src="{% static 'js/plugin.js' %}"></script>
-<!-- custom nav jquery --><script src="{% static 'js/custom-nav.js' %}"></script>
-<!-- main default Jquery --><script src="{% static 'js/main.js' %}"></script>
-</body>
-
-
-<!-- suchana/index-4.html  22 Nov 2019 04:10:54 GMT -->
-</html>
+      </div>
+      </div>
+    </footer>
+  
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+      <span class="fa fa-angle-up"></span>
+    </button>
+    <script>
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction()
+      };
+  
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("movetop").style.display = "block";
+        } else {
+          document.getElementById("movetop").style.display = "none";
+        }
+      }
+  
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    <!-- /move top -->
+  </section>
+  <!-- //footer-28 block -->
+  
+  <!-- disable body scroll which navbar is in active -->
+  <script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- disable body scroll which navbar is in active -->
+  
+  <!-- Template JavaScript -->
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  
+  <!-- theme changer js -->
+  <script src="{% static 'js/theme-change.js' %}"></script>
+  <!-- //theme changer js -->
+  
+  <!-- courses owlcarousel -->
+  <script src="{% static 'js/owl.carousel.js' %}"></script>
+  
+  <!-- script for testimonials -->
+  <script>
+    $(document).ready(function () {
+      $('.owl-testimonial').owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: true,
+        responsiveClass: true,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        autoplaySpeed: 1000,
+        autoplayHoverPause: false,
+        responsive: {
+          0: {
+            items: 1,
+            nav: false
+          },
+          480: {
+            items: 1,
+            nav: false
+          },
+          667: {
+            items: 1,
+            nav: true
+          },
+          1000: {
+            items: 1,
+            nav: true
+          }
+        }
+      })
+    })
+  </script>
+  <!-- //script for testimonials -->
+  
+  <!-- bootstrap -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  
+  </body>
+  
+  </html>
+  
