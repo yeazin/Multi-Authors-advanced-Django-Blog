@@ -1,3 +1,4 @@
+from django.core.checks import messages
 from django.db import models
 from dashboard.models import Author
 
@@ -5,6 +6,8 @@ from dashboard.models import Author
 # Catagory model
 class Catagory(models.Model):
     name = models.CharField(max_length=200, null=True)
+    image = models.CharField(max_length=300, null=True, blank=True )
+    description = models.CharField(max_length=500, null=True,blank=True, verbose_name='Description')
 
     class Meta:
         verbose_name_plural = 'Catagory'
@@ -36,6 +39,7 @@ class Blog(models.Model):
     #show_hide = models.CharField(max_length=5,choices=visibility, default='show')
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     featured  = models.BooleanField(default=False)
+    visit_count = models.IntegerField(default=0)
     visible = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -63,6 +67,15 @@ class EmailSignUp(models.Model):
 
     def __str__(self):
         return self.email
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100, null=True, verbose_name='Name')
+    email = models.EmailField(null=True)
+    messages = models.TextField()
+    subject = models.CharField(max_length=200, null=True, verbose_name='Subjects' )
+
+    def __str__(self):
+        return f"{ self.name } | { self.subject}" 
 
 
 # made by Nazrul Islam Yeasin 

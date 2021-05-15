@@ -40,6 +40,8 @@ class HomeView(View):
 class SingleBlogView(View):
     def get(self,request,id,*args,**kwargs):
         post_obj = get_object_or_404(Blog, id=id)
+        post_obj.visit_count = post_obj.visit_count + 1
+        post_obj.save()
         releted_post = Blog.objects.filter(author=post_obj.author).exclude(id=id).order_by('-id')[:5]
 
         context ={

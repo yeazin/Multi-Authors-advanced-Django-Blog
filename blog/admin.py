@@ -1,11 +1,12 @@
 from django.contrib import admin
-from .models import Author, Catagory, Blog, Tag, EmailSignUp
+from .models import Author, Catagory, Blog, Tag, EmailSignUp, Contact
 
 
 admin.site.register(Catagory)
 admin.site.register(Blog)
 admin.site.register(Tag)
 admin.site.register(EmailSignUp)
+admin.site.register(Contact)
 
 # made by Nazrul Islam Yeasin 
 # Facebook : facebook.com/yeariha.farsin
