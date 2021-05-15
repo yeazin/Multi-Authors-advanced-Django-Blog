@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 
 class HomeView(View):
     def get(self,request,*args,**kwargs):
+        '''
         # featured_post = Blog.objects.filter(featured=True, status='active',show_hide='show').order_by('-id')
         # catagories_obj  = Catagory.objects.all().order_by('-id')
         # tags_obj = Tag.objects.all().order_by('-id')
@@ -27,7 +28,12 @@ class HomeView(View):
         #     'post':page_obj
 
         # }
-        return render(request, 'home/index.html')
+        '''
+        post_obj = Blog.objects.all().filter(status='active', visible=True).order_by('catagories','created_at')
+        context={
+            'post':post_obj
+        }
+        return render(request, 'home/index.html',context)
 
     def post(self,request,*args,**kwargs):
         if request.method == 'POST':
@@ -73,6 +79,10 @@ class TagView(View):
             'tag_count':tag_count
         }
         return render(request,'home/tag.html',context)
+
+
+
+
 
 # made by Nazrul Islam Yeasin 
 # Facebook : facebook.com/yeariha.farsin

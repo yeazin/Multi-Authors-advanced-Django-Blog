@@ -1,159 +1,50 @@
-<!doctype html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% load static %}
-    <title>NewsBlog a Blog Category Bootstrap Responsive Website Template | Home : W3layouts</title>
+<head>
+<meta charset="utf-8"/>
+<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+<link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>{% block title %} {% endblock %}</title>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'/>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,600,700" rel="stylesheet">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!-- Main CSS -->
+<link href="{% static 'css/main.css' %}" rel="stylesheet"/>
+</head>
+<body>
+{% include 'home/base/header.html' %}
+    
+    
 
-    <link href="//fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+{% block body %}
 
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="{% static 'css/style-starter.css' %} ">
-  </head>
-
-  {% block body %}
-
-  {% endblock %}
-
-  <!-- footer-28 block -->
-<section class="app-footer">
-    <footer class="footer-28 py-5">
-      <div class="footer-bg-layer">
-        <div class="container py-lg-3">
-          <div class="row footer-top-28">
-            <div class="col-lg-4 footer-list-28 copy-right mb-lg-0 mb-sm-5 mt-sm-0 mt-4">
-              <a class="navbar-brand mb-3" href="index.html">
-                <span class="fa fa-newspaper-o"></span> NewsBlog</a>
-              <p class="copy-footer-28"> © 2020. All Rights Reserved. </p>
-              <h5 class="mt-2">Design by <a href="https://w3layouts.com/">W3Layouts</a></h5>
-            </div>
-            <div class="col-lg-8 row">
-              <div class="col-sm-4 col-6 footer-list-28">
-                <h6 class="footer-title-28">Useful links</h6>
-                <ul>
-                  <li><a href="#categories">food blogs</a></li>
-                  <li><a href="#advertise">Advertise with us</a></li>
-                  <li><a href="#authors">Our Authors</a></li>
-                  <li><a href="contact.html">Get in touch</a></li>
-                </ul>
-              </div>
-              <div class="col-sm-4 col-6 footer-list-28">
-                <h6 class="footer-title-28">Categories</h6>
-                <ul>
-                  <li><a href="beauty.html">Beauty</a></li>
-                  <li><a href="fashion.html">Fashion and Style</a></li>
-                  <li><a href="#food"> Food and Wellness</a></li>
-                  <li><a href="#lifestyle">Lifestyle</a></li>
-                </ul>
-              </div>
-              <div class="col-sm-4 col-6 footer-list-28 mt-sm-0 mt-4">
-                <h6 class="footer-title-28">Social Media</h6>
-                <ul class="social-icons">
-                  <li class="facebook">
-                    <a href="#facebook"><span class="fa fa-facebook"></span> Facebook</a></li>
-                  <li class="twitter"> <a href="#twitter"><span class="fa fa-twitter"></span> Twitter</a></li>
-                  <li class="linkedin"> <a href="#linkedin"><span class="fa fa-linkedin"></span> Linkedin</a></li>
-                  <li class="dribbble"><a href="#dribbble"><span class="fa fa-dribbble"></span> Dribbble</a></li>
-                </ul>
-  
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </footer>
-  
-    <!-- move top -->
-    <button onclick="topFunction()" id="movetop" title="Go to top">
-      <span class="fa fa-angle-up"></span>
-    </button>
-    <script>
-      // When the user scrolls down 20px from the top of the document, show the button
-      window.onscroll = function () {
-        scrollFunction()
-      };
-  
-      function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          document.getElementById("movetop").style.display = "block";
-        } else {
-          document.getElementById("movetop").style.display = "none";
-        }
-      }
-  
-      // When the user clicks on the button, scroll to the top of the document
-      function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
-    </script>
-    <!-- /move top -->
-  </section>
-  <!-- //footer-28 block -->
-  
-  <!-- disable body scroll which navbar is in active -->
-  <script>
-    $(function () {
-      $('.navbar-toggler').click(function () {
-        $('body').toggleClass('noscroll');
-      })
-    });
-  </script>
-  <!-- disable body scroll which navbar is in active -->
-  
-  <!-- Template JavaScript -->
-  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-  
-  <!-- theme changer js -->
-  <script src="{% static 'js/theme-change.js' %}"></script>
-  <!-- //theme changer js -->
-  
-  <!-- courses owlcarousel -->
-  <script src="{% static 'js/owl.carousel.js' %}"></script>
-  
-  <!-- script for testimonials -->
-  <script>
-    $(document).ready(function () {
-      $('.owl-testimonial').owlCarousel({
-        loop: true,
-        margin: 0,
-        nav: true,
-        responsiveClass: true,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        autoplaySpeed: 1000,
-        autoplayHoverPause: false,
-        responsive: {
-          0: {
-            items: 1,
-            nav: false
-          },
-          480: {
-            items: 1,
-            nav: false
-          },
-          667: {
-            items: 1,
-            nav: true
-          },
-          1000: {
-            items: 1,
-            nav: true
-          }
-        }
-      })
-    })
-  </script>
-  <!-- //script for testimonials -->
-  
-  <!-- bootstrap -->
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  
-  </body>
-  
-  </html>
-  
+{% endblock %}
+<div class="container mt-5">
+	<footer class="bg-white border-top p-3 text-muted small">
+	<div class="row align-items-center justify-content-between">
+		<div>
+            <span class="navbar-brand mr-2"><strong>Mundana</strong></span> Copyright &copy;
+			<script>document.write(new Date().getFullYear())</script>
+			 . All rights reserved.
+		</div>
+		<div>
+			Made with <a target="_blank" class="text-secondary font-weight-bold" href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Mundana Theme</a> by WowThemes.net.
+		</div>
+	</div>
+	</footer>
+</div>
+<!-- End Footer -->
+    
+<!--------------------------------------
+JAVASCRIPTS
+--------------------------------------->
+<script src="./assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+<script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
+<script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+<script src="./assets/js/functions.js" type="text/javascript"></script>
+</body>
+</html>
