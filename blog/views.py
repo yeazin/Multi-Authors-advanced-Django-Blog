@@ -1,3 +1,4 @@
+from django import views
 from django.shortcuts import render, redirect,get_object_or_404
 from django.views import View
 from .models import Blog, Catagory,Tag, EmailSignUp
@@ -29,9 +30,11 @@ class HomeView(View):
 
         # }
         '''
-        post_obj = Blog.objects.all().filter(status='active', visible=True).order_by('catagories','created_at')
+        featured_obj = Blog.objects.all().filter(status='active', visible=True, featured=True).order_by('catagories','-created_at')
+        post_obj = Blog.objects.all().filter(status='active', visible=True).order_by('catagories','-created_at')
         context={
-            'post':post_obj
+            'post':post_obj,
+            'f_post':featured_obj
         }
         return render(request, 'home/index.html',context)
 
