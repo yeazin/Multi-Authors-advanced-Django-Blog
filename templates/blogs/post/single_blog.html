@@ -1,0 +1,84 @@
+{% extends 'home/base/base.html' %}
+{% block title %} {{post.title }} | MultiBlogs {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row justify-content-between">
+				<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+						<a class="text-danger" href="{% url 'catagory' post.id %}">{{post.catagories}}</a>
+					</p>
+					<h1 class="display-4 secondfont mb-3 font-weight-bold">{{ post.title }}</h1>
+					<p class="mb-3">
+						 Analysts told CNBC that the currency could hit anywhere between $1.35-$1.40 if the deal gets passed through the U.K. parliament.
+					</p>
+					<div class="d-flex align-items-center">
+                    {% if p.author.author_image %}
+                        <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ p.author.author_image.url }}">
+                    {% else %}
+                        <img class="rounded-circle shadow" height="70" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
+                    {% endif %}
+						<small class="ml-2"> {{ post.author.author.username }} <span class="text-muted d-block">{{post.created_at | timesince }} ago ; {{post.visit_count }} views </span>
+						</small>
+					</div>
+				</div>
+				<div class="col-md-6 pr-0">
+					<img src="{{post.image_url }}">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container pt-4 pb-4">
+	<div class="row justify-content-center">
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top text-center">
+				<div class="text-muted">
+					Share this
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12 col-lg-8">
+			<article class="article-post">
+                <p>{{ post.detail }}</p>
+			</article>
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-5 mb-2 mb-md-0">
+						<h5 class="font-weight-bold secondfont">Become a member</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-7">
+                        <form action="{% url 'subscribe' %}" method="POST">
+						<div class="row">
+                            
+                                {% csrf_token %}
+							<div class="col-md-12">
+								<input type="email" name='subscribe' class="form-control" placeholder="Enter your e-mail address" required>
+							</div>
+							<div class="col-md-12 mt-2">
+								<button type="submit" class="btn btn-success btn-block">Subscribe</button>
+							</div>
+                        
+						</div>
+                    </form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

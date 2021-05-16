@@ -90,9 +90,9 @@
 					</p>
 					<div class="card-text text-muted small">
                         {% if p.author.author_image %}
-						    <img height="20" style="border-radius: 50%;" src="{{ p.author.author_image.url }}">
+						    <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ p.author.author_image.url }}">
                         {% else %}
-                            <img class="img-profile rounded-circle" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
+                            <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
                         {% endif %}
                         {{ p.author.author.username }} in <a class="text-dark" href="{% url 'single_blog' p.id %}">{{p.catagories }} </a>
                         

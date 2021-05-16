@@ -1,4 +1,6 @@
 from django import views
+from django.http import HttpResponseRedirect
+from django.db.models.fields import EmailField
 from django.shortcuts import render, redirect,get_object_or_404
 from django.views import View
 from .models import Blog, Catagory,Tag, EmailSignUp
@@ -57,7 +59,7 @@ class SingleBlogView(View):
             'post':post_obj,
             'r_post':releted_post
         }
-        return render(request,'blogs/single_blog.html', context)
+        return render(request,'blogs/post/single_blog.html', context)
 
 # Catagory View
 class CatagoryView(View):
@@ -82,6 +84,14 @@ class TagView(View):
             'tag_count':tag_count
         }
         return render(request,'home/tag.html',context)
+
+
+class SubsCribe(View):
+    def post(self, request,*args,**kwargs):
+        sub_obj = request.POST.get('subscribe')
+        subscribe = EmailSignUp.objects.create(email=sub_obj)
+        subscribe.save()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 

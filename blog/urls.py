@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic.base import View
 from . import views
 
 urlpatterns = [
@@ -6,5 +7,6 @@ urlpatterns = [
     path('blog/<int:id>/',views.SingleBlogView.as_view(), name='single_blog' ),
     path('catagory/<int:id>', views.CatagoryView.as_view(), name='catagory'),
     path('tag/<int:id>', views.TagView.as_view(),name='tag'),
+    path('subscribe/', views.SubsCribe.as_view(), name='subscribe'),
 
 ]
