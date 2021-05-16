@@ -53,7 +53,8 @@ class SingleBlogView(View):
         post_obj = get_object_or_404(Blog, id=id)
         post_obj.visit_count = post_obj.visit_count + 1
         post_obj.save()
-        releted_post = Blog.objects.filter(author=post_obj.author).exclude(id=id).order_by('-id')[:5]
+        releted_post = Blog.objects.filter(author=post_obj.author).exclude(id=id).order_by('-id')[:4]
+        
 
         context ={
             'post':post_obj,
