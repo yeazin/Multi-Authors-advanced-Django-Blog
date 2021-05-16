@@ -40,13 +40,6 @@ class HomeView(View):
         }
         return render(request, 'home/index.html',context)
 
-    def post(self,request,*args,**kwargs):
-        if request.method == 'POST':
-            email_obj = request.POST.get('email')
-            email = EmailSignUp(email=email_obj)
-            email.save()
-            return redirect('home')
-
 # single blog views
 class SingleBlogView(View):
     def get(self,request,id,*args,**kwargs):
