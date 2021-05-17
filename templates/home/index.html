@@ -3,55 +3,62 @@
 {% block title %} MultiBlogs {% endblock %}
 {% block body %}
 
-{% for p in f_post %}
-{% if forloop.counter == 1 %}
+
 <div class="container">
 	<div class="jumbotron jumbotron-fluid mb-3 pt-0 pb-0 bg-lightblue position-relative">
 		<div class="pl-4 pr-0 h-100 tofront">
 			<div class="row justify-content-between">
 				<div class="col-md-6 pt-6 pb-6 align-self-center">
-					<h1 class="secondfont mb-3 font-weight-bold">{{ p.title }}</h1>
+					<h1 class="secondfont mb-3 font-weight-bold">{{ first.title }}</h1>
 					<p class="mb-3">
-						{{p.detail |truncatechars:200 }}
+						{{first.detail |truncatechars:200 }}
 					</p>
                     
-					<a href="{% url 'single_blog' p.id %}" class="btn btn-dark">Read More</a>
+					<a href="{% url 'single_blog' first.id %}" class="btn btn-dark">Read More</a>
 				</div>
-				<div class="col-md-6 d-none d-md-block pr-0" ><img style="background-size: cover;" src="{{ p.image_url }}" alt="">	</div>
+				<div class="col-md-6 d-none d-md-block pr-0" ><img style="background-size: cover;" src="{{ first.image_url }}" alt="">	</div>
 			</div>
 		</div>
 	</div>
 </div>
-{% endif %}
+
 
     
-<div class="container pt-4 pb-4">
+<div class="container pt-4 pb-4 " style="margin-bottom: 70px;">
 	<div class="row">
         
 		<div class="col-lg-6">
-			<div class="card border-0 mb-4 box-shadow h-xl-300">       
-                {% if forloop.counter == 2 %} 
-                <div style="background-image: url(./assets/img/demo/1.jpg);"><img style=" height: 150px;    background-size: cover;    background-repeat: no-repeat;" src="{{ p.image_url }}" alt=""> </div>               
+			
+			<div class="card border-0 mb-4 box-shadow h-xl-300">
+				<div style="background-image: url(./assets/img/demo/3.jpg); ">
+					<img src="{{ first.image_url }}" style="height: 200px; background-size: cover; background-repeat: no-repeat; width: 100%;" alt="">
+				</div>
 				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 					<h2 class="h4 font-weight-bold">
-					<a class="text-dark" href="./article.html">{{ p.title }}</a>
+					<a class="text-dark" href="{% url 'single_blog' first.id %}"> {{ s_post.title}} </a>
 					</h2>
 					<p class="card-text">
-						 {{ p.detail |truncatechars:200 }}
+						{{s_post.detail|truncatechars:150}}
 					</p>
 					<div>
-						<small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
-						<small class="text-muted">Dec 12 &middot; 5 min read</small>
+						<small class="d-block">
+						{% if s_post.author.author_image %}
+						    <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ s_post.author.author_image.url }}">
+                        {% else %}
+                            <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
+                        {% endif %}
+						<a class="text-muted" href="./author.html">{{s_post.author.author.username}}</a></small>
+						<small class="text-muted">{{ s_post.created_at | timesince }} ago .  {{s_post.visit_count}} views</small>
 					</div>
 				</div>
-               
 			</div>
+			
 		</div>
         
 		<div class="col-lg-6">
-            {% else %}
+            
 			<div class="flex-md-row mb-4 box-shadow h-xl-300">
-                
+				{% for p in last_post %}
 				<div class="mb-3 d-flex align-items-center">
 					<img height="80" src="{{ p.image_url }}">
 					<div class="pl-3">
@@ -64,7 +71,7 @@
 						<small class="text-muted">Dec 12 &middot; 5 min read</small>
 					</div>
 				</div>
-                {% endif %}
+                {% endfor %}
 
 			</div>
 		</div>
@@ -72,7 +79,7 @@
 	</div>
 </div>
 
-{% endfor %}
+
     
 <div class="container">
 	<div class="row justify-content-between">
@@ -83,10 +90,10 @@
 			<div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="{% url 'single_blog' p.id %}">{{ p.title }}</a>
+					<a class="text-dark" href="{% url 'single_blog' p.id %}">{{ first.title }}</a>
 					</h2>
 					<p>
-						{{p.detail |truncatechars:100 }}
+						{{first.detail |truncatechars:100 }}
 					</p>
 					<div class="card-text text-muted small">
                         {% if p.author.author_image %}

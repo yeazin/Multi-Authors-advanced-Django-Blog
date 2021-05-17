@@ -32,11 +32,18 @@ class HomeView(View):
 
         # }
         '''
-        featured_obj = Blog.objects.all().filter(status='active', visible=True, featured=True).order_by('catagories','-created_at')
+        featured_obj = Blog.objects.all().filter(status='active', visible=True, featured=True).order_by('catagories','-created_at')[:5]
+        first_post = featured_obj.first()
+        s_post = featured_obj[1]
+        last_post = featured_obj[2:]
         post_obj = Blog.objects.all().filter(status='active', visible=True).order_by('catagories','-created_at')
         context={
             'post':post_obj,
-            'f_post':featured_obj
+            'f_post':featured_obj,
+            'first':first_post,
+            's_post':s_post,
+            'last_post':last_post
+            
         }
         return render(request, 'home/index.html',context)
 
@@ -47,6 +54,7 @@ class SingleBlogView(View):
         post_obj.visit_count = post_obj.visit_count + 1
         post_obj.save()
         releted_post = Blog.objects.filter(author=post_obj.author).exclude(id=id).order_by('-id')[:4]
+        # As per templates views 
         first_post = releted_post.first()
         last_post  = releted_post[1:]
         
