@@ -104,7 +104,7 @@
                         {{ p.author.author.username }} in <a class="text-dark" href="{% url 'catagory' p.id %}">{{ p.catagories }} </a>
                         
 					</div>
-					<small class="text-muted">{{p.created_at|timesince }} ; {{ p.visit_count}} views </small>
+					<small class="text-muted">{{p.created_at|timesince }} ago ; {{ p.visit_count}} views </small>
 				</div>
 				<img height="120" src="{{ p.image_url }}">
 			</div>

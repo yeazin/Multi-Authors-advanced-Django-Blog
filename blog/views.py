@@ -1,4 +1,5 @@
 from django import views
+from django.core import paginator
 from django.http import HttpResponseRedirect
 from django.db.models.fields import EmailField
 from django.shortcuts import render, redirect,get_object_or_404
@@ -7,6 +8,7 @@ from .models import Blog, Catagory,Tag, EmailSignUp
 from django.core.paginator import Paginator
 from django.db.models import Count 
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 
 class HomeView(View):
@@ -74,10 +76,13 @@ class CatagoryView(View):
     def get(self,request,id,*args,**kwargs):
         catagory_obj = get_object_or_404(Catagory, id=id)
         #post = catagory_obj.blog_set.all().order_by('-id')
-        post = Blog.objects.filter(catagories= catagory_obj)
+        post = Blog.objects.filter(catagories= catagory_obj).order_by('-id')
+        paginator = Paginator(post, 2)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
         context ={
             'catagory':catagory_obj,
-            'post':post
+            'post':page_obj
         }
         return render(request,'home/category.html', context )
 

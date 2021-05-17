@@ -1,1 +1,170 @@
-hey this is {{ catagory.name }}
+{% extends 'home/base/base.html' %}
+{% block title %} {{catagory.name}} | MultiBlogs {% endblock %}
+{% block body %}
+<div class="container mt-5 mb-5">
+	<div class="row">
+         
+		<div class="col-md-8">
+
+            {% if messages %}
+            <div class="messages" >
+                {% for message in messages %}
+                    <div class="alert alert-primary" {% if message.tags %}
+                         class="{{ message.tags }}"{% endif %}>{{ message }}
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                    </div>
+            
+                {% endfor %}
+            </div>
+            {% endif %}
+
+			<h5 class="font-weight-bold spanborder"><span>Featured in {{ catagory.name }}</span></h5>
+			<div class="card border-0 mb-5 box-shadow">
+				<div style="background-image: url(./assets/img/demo/1.jpg); height: 350px; background-size: cover; background-repeat: no-repeat;">
+				</div>
+				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+					<h2 class="h2 font-weight-bold">
+					<a class="text-dark" href="./article.html">Brain Stimulation Relieves Depression Symptoms</a>
+					</h2>
+					<p class="card-text">
+						 Researchers have found an effective target in the brain for electrical stimulation to improve mood in people suffering from depression.
+					</p>
+					<div>
+						<small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
+						<small class="text-muted">Dec 12 · 5 min read</small>
+					</div>
+				</div>
+			</div>
+			<h5 class="font-weight-bold spanborder"><span>Latest</span></h5>
+            {% for p in post %}
+			<div class="mb-3 d-flex justify-content-between">
+				<div class="pr-3">
+					<h2 class="mb-1 h4 font-weight-bold">
+					<a class="text-dark" href="{% url 'single_blog' p.id  %}"> {{ p.title }} </a>
+					</h2>
+					<p>
+                        {{ p.detail |truncatechars:100 }}
+					</p>
+					<div class="card-text text-muted small">
+                        {% if p.author.author_image %}
+                        <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ p.author.author_image.url }}">
+                        {% else %}
+                        <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
+                        {% endif %}
+                        {{ p.author.author.username }} in <a class="text-dark" href="{% url 'catagory' p.id %}">{{ p.catagories }} </a>
+					</div>
+					<small class="text-muted">{{p.created_at|timesince }} ago ; {{ p.visit_count}} views</small>
+				</div>
+				<img height="120" src="{{p.image_url}}">
+			</div>
+            {% endfor %}
+
+            <!-- Paginations -->
+            {% if post %}
+<!-- pagination -->
+            <br>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% if post.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ post.previous_page_number }}"><i class="fas fa-angle-left"></i></a></li>
+        {% endif %}
+
+        {% for i in post.paginator.page_range %}
+        {% if post.number == i %}
+        <li class="page-item"><a class="page-link" href="#">{{ i }}</a></li>
+        {% else %}
+        <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if post.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ post.next_page_number }}"><i class="fas fa-angle-right"></i></a></li>
+        {% endif %}
+    </ul>
+    </nav>
+        {% endif %}
+<!-- End paginations -->
+
+
+		</div>
+		<div class="col-md-4 pl-4">
+			<div class="sticky-top">
+				<h5 class="font-weight-bold spanborder"><span>Popular in Science</span></h5>
+				<ol class="list-featured">
+					<li>
+					<span>
+					<h6 class="font-weight-bold">
+					<a href="./article.html" class="text-dark">Did Supernovae Kill Off Large Ocean Animals?</a>
+					</h6>
+					<p class="text-muted">
+						 Jake Bittle in SCIENCE
+					</p>
+					</span>
+					</li>
+					<li>
+					<span>
+					<h6 class="font-weight-bold">
+					<a href="./article.html" class="text-dark">Humans Reversing Climate Clock: 50 Million Years</a>
+					</h6>
+					<p class="text-muted">
+						 Jake Bittle in SCIENCE
+					</p>
+					</span>
+					</li>
+					<li>
+					<span>
+					<h6 class="font-weight-bold">
+					<a href="./article.html" class="text-dark">Unprecedented Views of the Birth of Planets</a>
+					</h6>
+					<p class="text-muted">
+						 Jake Bittle in SCIENCE
+					</p>
+					</span>
+					</li>
+					<li>
+					<span>
+					<h6 class="font-weight-bold">
+					<a href="./article.html" class="text-dark">Effective New Target for Mood-Boosting Brain Stimulation Found</a>
+					</h6>
+					<p class="text-muted">
+						 Jake Bittle in SCIENCE
+					</p>
+					</span>
+					</li>
+				</ol>
+			</div>
+		</div>
+
+
+
+	</div>
+</div>
+
+
+    
+<div class="container pt-4 pb-4">
+	<div class="border p-5 bg-lightblue">
+		<div class="row justify-content-between">
+			<div class="col-md-6">
+				<h5 class="font-weight-bold secondfont">Become a member</h5>
+				 Get the latest news right in your inbox. It's free and you can unsubscribe at any time. We hate spam as much as we do, so we never spam!
+			</div>
+			<div class="col-md-6">
+                <form action="{% url 'subscribe' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <input type="email" name='subscribe' class="form-control" placeholder="Enter your e-mail address" required>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <button type="submit" class="btn btn-success btn-block">Subscribe</button>
+                        </div>
+                    </div>
+            </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
