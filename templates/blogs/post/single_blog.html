@@ -82,56 +82,73 @@
 	</div>
 </div>
 
-{% if r_post %}
+
 <div class="container pt-4 pb-4">
 	<h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
 	
 	<div class="row">
-		{% for p in r_post %}
+		
 		<div class="col-lg-6">
-			{% if forloop.counter == 1 %}
+			
 			<div class="card border-0 mb-4 box-shadow h-xl-300">
-				<div style="background-image: url(./assets/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
+				<div style="background-image: url(./assets/img/demo/3.jpg); ">
+					<img src="{{ first.image_url }}" style="height: 200px; background-size: cover; background-repeat: no-repeat; width: 100%;" alt="">
 				</div>
 				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 					<h2 class="h4 font-weight-bold">
-					<a class="text-dark" href="#">{{p.title }}</a>
+					<a class="text-dark" href="{% url 'single_blog' first.id %}"> {{ first.title}} </a>
 					</h2>
 					<p class="card-text">
-						 Researchers have found an effective target in the brain for electrical stimulation to improve mood in people suffering from depression.
+						{{first.detail|truncatechars:150}}
 					</p>
 					<div>
-						<small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
-						<small class="text-muted">Dec 12 · 5 min read</small>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-		{% endif %}
-		<div class="col-lg-6">
-			<div class="flex-md-row mb-4 box-shadow h-xl-300">
-				<div class="mb-3 d-flex align-items-center">
-					<img height="80" src="./assets/img/demo/blog4.jpg">
-					<div class="pl-3">
-						<h2 class="mb-2 h6 font-weight-bold">
-						<a class="text-dark" href="./article.html">{{p.title}}</a>
-						</h2>
-						<div class="card-text text-muted small">
-							 Jake Bittle in LOVE/HATE
-						</div>
-						<small class="text-muted">Dec 12 · 5 min read</small>
+						<small class="d-block">
+						{% if p.author.author_image %}
+						    <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ p.author.author_image.url }}">
+                        {% else %}
+                            <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
+                        {% endif %}
+						<a class="text-muted" href="./author.html">{{first.author.author.username}}</a></small>
+						<small class="text-muted">{{ first.created_at | timesince }} ago .  {{first.visit_count}} views</small>
 					</div>
 				</div>
 			</div>
 			
 		</div>
 		
-		{% endfor %}
+		<div class="col-lg-6">
+			
+			<div class="flex-md-row mb-4 box-shadow h-xl-300">
+				{% for p in last %}
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="{{p.image_url}}">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="{% url 'single_blog' p.id %}">{{p.title}}</a>
+						</h2>
+						<div class="card-text text-muted small">
+						{% if p.author.author_image %}
+						    <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ p.author.author_image.url }}">
+                        {% else %}
+                            <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
+                        {% endif %}
+                        {{ p.author.author.username }} in <a class="text-dark" href="{% url 'catagory' p.id %}">{{p.catagories }} </a>
+						
+						</div>
+						<small class="text-muted">{{ p.created_at | timesince }} ago .  {{p.visit_count}} views</small>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			
+			
+		</div>
+		
+		
 	</div>
 	
 </div>
 
-{% endif %}
+
 
 {% endblock %}
