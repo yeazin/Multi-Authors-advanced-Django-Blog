@@ -1,4 +1,5 @@
-from django.core.checks import messages
+
+import uuid
 from django.db import models
 from dashboard.models import Author
 
@@ -17,6 +18,7 @@ class Catagory(models.Model):
 
 # tags model
 class Tag(models.Model):
+    id = models.UUIDField(primary_key=True,editable=False,default=uuid.uuid4)
     name  = models.CharField(max_length=100, null=True)
 
     def __str__(self):

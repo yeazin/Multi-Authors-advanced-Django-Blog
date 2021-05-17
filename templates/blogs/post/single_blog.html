@@ -6,6 +6,22 @@
 		<div class="h-100 tofront">
 			<div class="row justify-content-between">
 				<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+
+								
+			{% if messages %}
+			<div class="messages" >
+				{% for message in messages %}
+					<div class="alert alert-primary" {% if message.tags %}
+						 class="{{ message.tags }}"{% endif %}>{{ message }}
+						 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </button>
+					</div>
+			
+				{% endfor %}
+			</div>
+			{% endif %}
+
 					<p class="text-uppercase font-weight-bold">
 						<a class="text-danger" href="{% url 'catagory' post.id %}">{{post.catagories}}</a>
 					</p>
@@ -149,6 +165,8 @@
 	
 </div>
 
+
+<!-- messages section -->
 
 
 {% endblock %}

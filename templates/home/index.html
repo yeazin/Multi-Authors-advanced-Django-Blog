@@ -90,10 +90,10 @@
 			<div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="{% url 'single_blog' p.id %}">{{ first.title }}</a>
+					<a class="text-dark" href="{% url 'single_blog' p.id %}">{{ p.title }}</a>
 					</h2>
 					<p>
-						{{first.detail |truncatechars:100 }}
+						{{ p.detail |truncatechars:100 }}
 					</p>
 					<div class="card-text text-muted small">
                         {% if p.author.author_image %}
@@ -101,7 +101,7 @@
                         {% else %}
                             <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
                         {% endif %}
-                        {{ p.author.author.username }} in <a class="text-dark" href="{% url 'single_blog' p.id %}">{{p.catagories }} </a>
+                        {{ p.author.author.username }} in <a class="text-dark" href="{% url 'catagory' p.id %}">{{ p.catagories }} </a>
                         
 					</div>
 					<small class="text-muted">{{p.created_at|timesince }} ; {{ p.visit_count}} views </small>

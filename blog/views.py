@@ -6,6 +6,7 @@ from django.views import View
 from .models import Blog, Catagory,Tag, EmailSignUp
 from django.core.paginator import Paginator
 from django.db.models import Count 
+from django.contrib import messages
 
 
 class HomeView(View):
@@ -72,7 +73,8 @@ class SingleBlogView(View):
 class CatagoryView(View):
     def get(self,request,id,*args,**kwargs):
         catagory_obj = get_object_or_404(Catagory, id=id)
-        post = catagory_obj.blog_set.all().order_by('-id')
+        #post = catagory_obj.blog_set.all().order_by('-id')
+        post = Blog.objects.filter(catagories= catagory_obj)
         context ={
             'catagory':catagory_obj,
             'post':post
@@ -96,9 +98,15 @@ class TagView(View):
 class SubsCribe(View):
     def post(self, request,*args,**kwargs):
         sub_obj = request.POST.get('subscribe')
-        subscribe = EmailSignUp.objects.create(email=sub_obj)
-        subscribe.save()
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        email = EmailSignUp.objects.filter(email=sub_obj)
+        if email :
+            messages.success(request,'You are already Subscribed , Thanks!')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        else:
+            subscribe = EmailSignUp.objects.create(email=sub_obj)
+            subscribe.save()
+            messages.success(request,'Thanks for Subscribing')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def test(request):
