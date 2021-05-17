@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from django.views import View
 from .models import Blog, Catagory,Tag, EmailSignUp
 from django.core.paginator import Paginator
+from django.db.models import Count 
 
 
 class HomeView(View):
@@ -33,10 +34,11 @@ class HomeView(View):
         # }
         '''
         featured_obj = Blog.objects.all().filter(status='active', visible=True, featured=True).order_by('catagories','-created_at')[:5]
+        post_obj = Blog.objects.all().filter(status='active', visible=True).order_by('catagories','-created_at')
+        # As per Templates Views
         first_post = featured_obj.first()
         s_post = featured_obj[1]
         last_post = featured_obj[2:]
-        post_obj = Blog.objects.all().filter(status='active', visible=True).order_by('catagories','-created_at')
         context={
             'post':post_obj,
             'f_post':featured_obj,
@@ -58,7 +60,6 @@ class SingleBlogView(View):
         first_post = releted_post.first()
         last_post  = releted_post[1:]
         
-
         context ={
             'post':post_obj,
             'r_post':releted_post,
@@ -99,6 +100,28 @@ class SubsCribe(View):
         subscribe.save()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
+def test(request):
+    catagory_obj = Catagory.objects.all()
+    cat = Catagory.objects.all().count()
+    lent = len(catagory_obj)
+    #post = Catagory.blog_set.count()
+    #post = Blog.objects.filter(catagories__icontains = catagory_obj).count()
+
+    # src = https://able.bio/rhett/how-to-order-by-count-of-a-foreignkey-field-in-django--26y1ug1
+    
+    post = Catagory.objects.all() \
+        .annotate(post_count=Count('blog'))\
+        .order_by('-post_count')
+    context = {
+        'catagory':catagory_obj,
+        'cat':cat,
+        'lent':lent,
+        'post':post
+        
+        
+    }
+    return render(request,'test.html', context)
 
 
 

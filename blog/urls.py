@@ -9,4 +9,7 @@ urlpatterns = [
     path('tag/<int:id>', views.TagView.as_view(),name='tag'),
     path('subscribe/', views.SubsCribe.as_view(), name='subscribe'),
 
+    # test
+    path('test/', views.test, name='test'),
+
 ]

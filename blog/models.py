@@ -56,7 +56,7 @@ class Blog(models.Model):
             return self.image.url 
 
     def __str__(self):
-        return f"{ self.title} | { self.author.author.username}"
+        return f"{ self.title} | { self.author.author.username} | { self.catagories}"
 
 # email marketing system 
 class EmailSignUp(models.Model):

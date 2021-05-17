@@ -9,27 +9,11 @@ NAVBAR
         </button>
         <div class="navbar-collapse collapse" id="navbarColor02" style="">
             <ul class="navbar-nav mr-auto d-flex align-items-center">
+                {% for cat in category %}
                 <li class="nav-item">
-                <a class="nav-link" href="./index.html">Intro <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'catagory' cat.id %}">{{ cat }}</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="./article.html">Culture</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="./article.html">Tech</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="./article.html">Politics</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="./article.html">Health</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="./article.html">Collections</a>
-                </li>            
-                <li class="nav-item">
-                <a class="nav-link" href="./about.html">About</a>
-                </li>
+                {% endfor %}
                 <li class="nav-item">
                 <a class="nav-link" href="./docs.html">Template <span class="badge badge-secondary">docs</span></a>
                 </li>

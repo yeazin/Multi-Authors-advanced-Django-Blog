@@ -1,26 +1,16 @@
 # for blog views  global varibale calls
-from .models import Blog,Catagory,Tag
+from .models import Catagory, Blog
+from  django.db.models import Count
 
+ 
+# src = https://able.bio/rhett/how-to-order-by-count-of-a-foreignkey-field-in-django--26y1ug1
 def globalVariable(request):
-    featured_post = Blog.objects.filter(featured=True, status='active').order_by('-id')
-    catagories_obj  = Catagory.objects.all().order_by('-id')
-    tags_obj = Tag.objects.all().order_by('-id')
-    popular_post = Blog.objects.all().order_by('-id')[:3]
-    images_obj = Blog.objects.only('image').order_by('-id')[:6]
-    all_post = Blog.objects.all().order_by('-id')
-        # pagination Logics
-    # paginator = Paginator(all_post, 4)
-    # page_number = request.GET.get('page')
-    # page_obj = paginator.get_page(page_number)
-
+    # showing The categories with most post under each category
+    category = Catagory.objects.all()\
+        .annotate(post_count=Count('blog'))\
+        .order_by('-post_count')[:5]
     context = {
-            'featured':featured_post,
-            'popular': popular_post,
-            'catagories':catagories_obj,
-            'tags':tags_obj,
-            'image':images_obj,
-            
-
+        'category':category
         }
     return context
     
