@@ -73,16 +73,28 @@ class SingleBlogView(View):
 
 # Catagory View
 class CatagoryView(View):
-    def get(self,request,id,*args,**kwargs):
-        catagory_obj = get_object_or_404(Catagory, id=id)
+    def get(self,request,slug,*args,**kwargs):
+        catagory_obj = get_object_or_404(Catagory, slug=slug)
         #post = catagory_obj.blog_set.all().order_by('-id')
-        post = Blog.objects.filter(catagories= catagory_obj).order_by('-id')
-        paginator = Paginator(post, 2)
+        post = Blog.objects.filter(catagories= catagory_obj,\
+            status='active',visible=True)\
+            .order_by('-created_at')
+        popular = Blog.objects.filter(catagories= catagory_obj,\
+            status='active',visible=True)\
+            .annotate(post_count=Count('visit_count'))\
+            .order_by('-visit_count')
+        # as Per templates views
+        featured_post = popular.first()
+        popular_post = popular[1:6]
+        # Pagination 
+        paginator = Paginator(post, 3)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
         context ={
             'catagory':catagory_obj,
-            'post':page_obj
+            'post':page_obj,
+            'pop':popular_post,
+            'f_post':featured_post,
         }
         return render(request,'home/category.html', context )
 

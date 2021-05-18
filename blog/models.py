@@ -7,6 +7,7 @@ from dashboard.models import Author
 # Catagory model
 class Catagory(models.Model):
     name = models.CharField(max_length=200, null=True)
+    slug = models.SlugField(null=True)
     image = models.CharField(max_length=300, null=True, blank=True )
     description = models.CharField(max_length=500, null=True,blank=True, verbose_name='Description')
 
@@ -58,7 +59,7 @@ class Blog(models.Model):
             return self.image.url 
 
     def __str__(self):
-        return f"{ self.title} | { self.author.author.username} | { self.catagories}"
+        return f"{ self.title} | { self.author.author.username} | { self.catagories} | { self.status}"
 
 # email marketing system 
 class EmailSignUp(models.Model):

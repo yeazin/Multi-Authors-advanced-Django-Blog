@@ -2,7 +2,10 @@ from django.contrib import admin
 from .models import Author, Catagory, Blog, Tag, EmailSignUp, Contact
 
 
-admin.site.register(Catagory)
+class CatAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug':('name',)}
+
+admin.site.register(Catagory,CatAdmin)
 admin.site.register(Blog)
 admin.site.register(Tag)
 admin.site.register(EmailSignUp)

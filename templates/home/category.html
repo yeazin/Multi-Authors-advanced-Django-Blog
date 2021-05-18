@@ -22,18 +22,24 @@
 
 			<h5 class="font-weight-bold spanborder"><span>Featured in {{ catagory.name }}</span></h5>
 			<div class="card border-0 mb-5 box-shadow">
-				<div style="background-image: url(./assets/img/demo/1.jpg); height: 350px; background-size: cover; background-repeat: no-repeat;">
+				<div style="background-image: url(./assets/img/demo/1.jpg); ">
+					<img src="{{ f_post.image_url }}" style="height: 350px; background-size: cover; background-repeat: no-repeat;" alt="">
 				</div>
 				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 					<h2 class="h2 font-weight-bold">
-					<a class="text-dark" href="./article.html">Brain Stimulation Relieves Depression Symptoms</a>
+					<a class="text-dark" href="{% url 'single_blog' f_post.id  %}">{{f_post.title}}</a>
 					</h2>
 					<p class="card-text">
-						 Researchers have found an effective target in the brain for electrical stimulation to improve mood in people suffering from depression.
+						{{ f_post.detail |truncatechars:100 }}
 					</p>
 					<div>
-						<small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
-						<small class="text-muted">Dec 12 · 5 min read</small>
+						{% if f_post.author.author_image %}
+						    <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ f_post.author.author_image.url }}">
+                        {% else %}
+                            <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
+                        {% endif %}
+                        {{ f_post.author.author.username }} <br>
+						<small class="text-muted">{{f_post.created_at|timesince }} ago ; {{ f_post.visit_count}} views </small>
 					</div>
 				</div>
 			</div>
@@ -90,48 +96,20 @@
 		</div>
 		<div class="col-md-4 pl-4">
 			<div class="sticky-top">
-				<h5 class="font-weight-bold spanborder"><span>Popular in Science</span></h5>
+				<h5 class="font-weight-bold spanborder"><span>Popular in {{ catagory.name }}</span></h5>
 				<ol class="list-featured">
-					<li>
-					<span>
-					<h6 class="font-weight-bold">
-					<a href="./article.html" class="text-dark">Did Supernovae Kill Off Large Ocean Animals?</a>
-					</h6>
-					<p class="text-muted">
-						 Jake Bittle in SCIENCE
-					</p>
-					</span>
-					</li>
-					<li>
-					<span>
-					<h6 class="font-weight-bold">
-					<a href="./article.html" class="text-dark">Humans Reversing Climate Clock: 50 Million Years</a>
-					</h6>
-					<p class="text-muted">
-						 Jake Bittle in SCIENCE
-					</p>
-					</span>
-					</li>
-					<li>
-					<span>
-					<h6 class="font-weight-bold">
-					<a href="./article.html" class="text-dark">Unprecedented Views of the Birth of Planets</a>
-					</h6>
-					<p class="text-muted">
-						 Jake Bittle in SCIENCE
-					</p>
-					</span>
-					</li>
-					<li>
-					<span>
-					<h6 class="font-weight-bold">
-					<a href="./article.html" class="text-dark">Effective New Target for Mood-Boosting Brain Stimulation Found</a>
-					</h6>
-					<p class="text-muted">
-						 Jake Bittle in SCIENCE
-					</p>
-					</span>
-					</li>
+					{% for p in pop %}
+						<li>
+						<span>
+						<h6 class="font-weight-bold">
+						<a href="./article.html" class="text-dark">{{ p.title }}</a>
+						</h6>
+						<p class="text-muted">
+							{{ p.author.author.username }} in <a class="text-dark" href="{% url 'catagory' p.id %}">{{ p.catagories }} </a>
+						</p>
+						</span>
+						</li>
+					{% endfor %}
 				</ol>
 			</div>
 		</div>
@@ -166,5 +144,7 @@
 		</div>
 	</div>
 </div>
+
+
 
 {% endblock %}
