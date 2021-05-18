@@ -7,21 +7,43 @@ NAVBAR
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+        <div class="navbar-collapse collapse" id="navbarColor02" >
             <ul class="navbar-nav mr-auto d-flex align-items-center">
                 {% for cat in category %}
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'catagory' cat.slug %}">{{ cat }}</a>
-                </li>
+                    
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'catagory' cat.slug %}">{{ cat }}</a>
+                    </li>
+                    
                 {% endfor %}
                 <li class="nav-item">
-                <a class="nav-link" href="./docs.html">Template <span class="badge badge-secondary">docs</span></a>
+                    {% if cat_count > 4 %}
+                <a class="nav-link" href="#"><span class="badge badge-secondary"> More Categories </span></a>
+                    {% endif %}
+                </li>
+                <li>
+                    <form class="form-inline form-control-sm" method="GET" action="{% url 'search' %}">
+                        <input class="form-control form-control-sm mr-sm-1" id="form1" value="{{ search }}" type="search" name='q' placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit"> <i class="fa fa-search"></i></button>
+                      </form>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto d-flex align-items-center">
-                <li class="nav-item highlight">
-                <a class="nav-link" href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Get this Theme</a>
+                {% if request.user.is_authenticated %}
+                <li>
+                    <a class="nav-link" href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt"></i> Dashboard </a> 
                 </li>
+                <li>
+                    <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i></a>
+                </li>
+                {% else %}
+                <li class="nav-item highlight">
+                    <a class="nav-link" href="{% url 'login' %}"> Login Now </a>
+                    
+                </li>
+ 
+
+                {% endif %}
             </ul>
         </div>
     </div>

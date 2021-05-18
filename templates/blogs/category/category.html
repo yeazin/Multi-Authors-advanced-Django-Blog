@@ -1,6 +1,8 @@
 {% extends 'home/base/base.html' %}
 {% block title %} {{catagory.name}} | MultiBlogs {% endblock %}
 {% block body %}
+
+{% if catagory %}
 <div class="container mt-5 mb-5">
 	<div class="row">
          
@@ -144,7 +146,9 @@
 		</div>
 	</div>
 </div>
-
+{% else %}
+<h2> Sorry , No Post Found Under the {{ catagory.name }}</h2>
+{% endif %}
 
 
 {% endblock %}

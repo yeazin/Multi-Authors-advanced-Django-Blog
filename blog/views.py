@@ -9,6 +9,7 @@ from django.core.paginator import Paginator
 from django.db.models import Count 
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 
 class HomeView(View):
@@ -96,7 +97,7 @@ class CatagoryView(View):
             'pop':popular_post,
             'f_post':featured_post,
         }
-        return render(request,'home/category.html', context )
+        return render(request,'blogs/category/category.html', context )
 
 # tag View
 class TagView(View):
@@ -111,7 +112,7 @@ class TagView(View):
         }
         return render(request,'home/tag.html',context)
 
-
+# Subscribe Views
 class SubsCribe(View):
     def post(self, request,*args,**kwargs):
         sub_obj = request.POST.get('subscribe')
@@ -125,6 +126,25 @@ class SubsCribe(View):
             messages.success(request,'Thanks for Subscribing')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+# search Views
+class SearchView(View):
+    def get(self,request,*args,**kwargs):
+        search = request.GET['q']
+        post = Blog.objects.filter(status='active',visible=True)
+        if len(search) > 100:
+            posts = post.none()
+        else:
+            posts = post.filter(
+                Q(title__icontains=search) |
+                Q(catagories__name__icontains=search) |
+                Q(detail__icontains = search)
+                
+            )
+        context ={
+            'post':posts,
+            'search':search
+        }
+        return render(request,'home/search.html', context)
 
 def test(request):
     catagory_obj = Catagory.objects.all()

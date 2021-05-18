@@ -1,0 +1,50 @@
+{% extends 'home/base/base.html' %}
+
+
+{% block body %}
+<div class="container pt-4 pb-4 " style="margin-bottom: 70px;">
+    {% if post %}
+    <h3> Showing Result of : <b>{{ search }}</b></h3>
+    <br>
+<div class="row">
+    
+{% for p in post %}
+
+    <div class="col-lg-3">
+
+<div class="card border-0 mb-4 box-shadow h-xl-300" style=" box-shadow: 1px 2px 5px 6px #ececec; padding: 10px;">
+
+    <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+        <h2 class="h4 font-weight-bold">
+        <a class="text-dark" href="{% url 'single_blog' p.id %}"> {{ p.title}} </a>
+        </h2>
+        <p class="card-text">
+            {{p.detail|truncatechars:100}}
+        </p>
+        <div>
+            <small class="d-block">
+            <a class="text-muted" href=" ">{{p.author.author.username}}</a> in {{ p.catagories}}</small>
+            <small class="text-muted">{{ p.created_at | timesince }} ago .  {{p.visit_count}} views</small>
+        </div>
+    </div>
+</div>
+</div>
+{% endfor %}
+</div>
+
+{% else %}
+<div class="col-lg-10 " style="margin:0 auto;">
+ <h3>Your search - <b>{{ search }}</b> - did not match any documents.</h3> 
+
+<h5> Suggestions: </h5>
+<ul>
+<li>  Make sure that all words are spelled correctly.</li>
+<li>  Try different keywords.</li>
+<li>  Try more general keywords.</li>
+<li>  Try fewer keywords.</li>
+</ul>
+
+</div>
+{% endif %}
+</div>
+{% endblock %}

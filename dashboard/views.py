@@ -10,6 +10,7 @@ from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
+from django.db.models import Count, Sum
 
 
 
@@ -27,6 +28,8 @@ class Dashboard(View):
         post_active_count = post_active.count()
         post_pending = user.author.blog_set.filter(status='pending')
         post_pending_count = post_pending.count()
+        # showing the sum of visit count of spacific users 
+        post_visit_count = post.aggregate(Sum('visit_count'))['visit_count__sum']
         context= {
             'user':user,
             'post':post,
@@ -34,7 +37,8 @@ class Dashboard(View):
             'post_active':post_active,
             'post_pending':post_pending,
             'post_active_count':post_active_count,
-            'post_pending_count':post_pending_count
+            'post_pending_count':post_pending_count,
+            'count':post_visit_count
 
         }
         return render(request,'dashboard/dash/dashboard.html',context)
@@ -143,7 +147,7 @@ class LogoutView(View):
 
     def get(self,request,*args,**kwargs):
         logout(request)
-        return redirect('login')
+        return redirect('home')
     
 # post listing View Active
 class PostListingActive(View):
