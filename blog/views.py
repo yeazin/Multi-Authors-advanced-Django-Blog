@@ -1,10 +1,11 @@
+import blog
 from django import views
 from django.core import paginator
 from django.http import HttpResponseRedirect
 from django.db.models.fields import EmailField
 from django.shortcuts import render, redirect,get_object_or_404
 from django.views import View
-from .models import Blog, Catagory,Tag, EmailSignUp
+from .models import Blog, Catagory,Tag, EmailSignUp,Comment
 from django.core.paginator import Paginator
 from django.db.models import Count 
 from django.contrib import messages
@@ -145,6 +146,16 @@ class SearchView(View):
             'search':search
         }
         return render(request,'home/search.html', context)
+
+# Comments View
+class CommentView(View):
+    def post(self,request,id, *args,**kwargs):
+        post = get_object_or_404(Blog,id=id)
+        name = request.POST.get('name')
+        body = request.POST.get('body')
+        comment_obj = Comment(post=post,name=name,body=body)
+        comment_obj.save()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def test(request):
     catagory_obj = Catagory.objects.all()

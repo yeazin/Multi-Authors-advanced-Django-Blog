@@ -94,9 +94,52 @@
 					</div>
 				</div>
 			</div>
+
+			<form style="margin-top:50px;" action="{% url 'comment' post.id  %}" method="POST">
+				{% csrf_token %}
+				<div class="row form-group">
+					<div class="col">
+						<input type="text" name='name' class="form-control" placeholder="Your Name">
+					</div>
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" name='body' id="exampleFormControlTextarea1" rows="4"></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary btn-round">Submit Comment </button>
+			</form>
+			<br>
+				{% for p in post.comments.all  reversed %}
+				{% if forloop.counter|divisibleby:2 %}
+				<div style="border-radius: 10px; margin: 5px;padding: 20px; background-color: #d4e0d9; ">
+					<strong><h6>{{ p.name }} {{ p.created_at }}</h6></strong>
+					<p>{{ p.body }}</p>
+				</div>
+				{% else %}
+				<div style="border-radius: 10px; margin: 5px;padding: 20px; background-color: #b3d3c0; ">
+					<strong><h6>{{ p.name }} {{ p.created_at }}</h6></strong>
+					<p>{{ p.body }}</p>
+				</div>
+				{% endif %}
+				{% endfor %}
+
+
+				{% for p in post.comments.all  reversed %}
+				{% if forloop.counter|divisibleby:2 %}
+				<div style="margin: 5px; ">
+					<p style="padding: 10px; border-radius: 10px; background-color: rgb(95, 160, 149); color: rgb(48, 40, 40);">{{ p.name }}</p> {{ p.created_at }}
+					<p style="padding: 20px; background-color: #d4e0d9;">{{ p.body }}</p>
+				</div>
+				{% else %}
+				<div style="border-radius: 10px; margin: 5px;padding: 20px; background-color: #b3d3c0; ">
+					<strong><h6>{{ p.name }} {{ p.created_at }}</h6></strong>
+					<p>{{ p.body }}</p>
+				</div>
+				{% endif %}
+				{% endfor %}
 		</div>
 	</div>
 </div>
+
 
 
 <div class="container pt-4 pb-4">
