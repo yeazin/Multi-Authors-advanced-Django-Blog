@@ -108,31 +108,18 @@
 				<button type="submit" class="btn btn-primary btn-round">Submit Comment </button>
 			</form>
 			<br>
-				{% for p in post.comments.all  reversed %}
-				{% if forloop.counter|divisibleby:2 %}
-				<div style="border-radius: 10px; margin: 5px;padding: 20px; background-color: #d4e0d9; ">
-					<strong><h6>{{ p.name }} {{ p.created_at }}</h6></strong>
-					<p>{{ p.body }}</p>
-				</div>
-				{% else %}
-				<div style="border-radius: 10px; margin: 5px;padding: 20px; background-color: #b3d3c0; ">
-					<strong><h6>{{ p.name }} {{ p.created_at }}</h6></strong>
-					<p>{{ p.body }}</p>
-				</div>
-				{% endif %}
-				{% endfor %}
 
 
 				{% for p in post.comments.all  reversed %}
 				{% if forloop.counter|divisibleby:2 %}
-				<div style="margin: 5px; ">
-					<p style="padding: 10px; border-radius: 10px; background-color: rgb(95, 160, 149); color: rgb(48, 40, 40);">{{ p.name }}</p> {{ p.created_at }}
-					<p style="padding: 20px; background-color: #d4e0d9;">{{ p.body }}</p>
+				<div style="border-radius: 10px; margin: 5px; padding: 25px; background-color: #d8d8d8; ">
+					<p><strong>{{ p.name }}</strong> at {{ p.created_at }}</p>
+					<p style="padding: 20px; background-color: #f1f1f1; border-radius: 7px; border:0.5px solid #c5c5c5">{{ p.body }}</p>
 				</div>
 				{% else %}
-				<div style="border-radius: 10px; margin: 5px;padding: 20px; background-color: #b3d3c0; ">
-					<strong><h6>{{ p.name }} {{ p.created_at }}</h6></strong>
-					<p>{{ p.body }}</p>
+				<div style="border-radius: 10px; margin: 5px; padding: 25px; background-color: #b3d3c0;">
+					<p><strong>{{ p.name }}</strong> at {{ p.created_at }}</p>
+					<p style="padding: 20px; background-color: #c5e6d3; border-radius: 7px; border:0.5px solid #c5c5c5">{{ p.body }}</p>
 				</div>
 				{% endif %}
 				{% endfor %}
