@@ -71,6 +71,16 @@ class Comment(models.Model):
     def __str__(self):
         return f"{self.post.title} | {self.name } "
 
+# Reply Class
+class Reply(models.Model):
+    comment = models.ForeignKey(Comment,on_delete=models.CASCADE, related_name='reply')
+    name = models.CharField(max_length=200, null=True, blank=False)
+    body = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.comment} | { self.name } |{ self.created_at }"
+
 
 # email marketing system 
 class EmailSignUp(models.Model):
