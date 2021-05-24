@@ -66,7 +66,7 @@
 7. Releted posts by users.
 8. Search Facility .
 9. Dedicated Single Category page by ( featured, popular, recently added).
-10. Social Shares System.
+10. Social Shares System & More.
 
 ### Project Images 
 
