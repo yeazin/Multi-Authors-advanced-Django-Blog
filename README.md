@@ -1,5 +1,5 @@
 ##  Multi Authors Blog Projects in Django/Python
-##### Navigation : [Technology](#Technology-Used) [Features](#Projects-Features) [Projects Images](#title)
+##### Navigation : [Technology](#Technology-Used)-[Features](#Projects-Features)-[Projects Images](#title)-[Run code](#title)-[Ower Info ](#title) 
   
 
 ### Technology Used : -
@@ -55,6 +55,14 @@
 ![Register User Frontend](images/readme/register.png "Frontend User Register Page")
 #### Users Login Page
 ![Login User Frontend](images/readme/login.png "Frontend User Login Page")
+
+### Repository Owner Info 
+
+__Md. Nazrul Islam Yeasin__ <br>
+__Email :__ [ naz.yeasin@gmail.com ](mailto:naz.yeasin@gmail.com) <br>
+__Github :__ [yeazin](https://github.com/yeazin)<br>
+__FaceBook :__ [Yea Sin](https://facebook.com/yeariha.farsin) <br>
+__Linkedin :__ [Yea Sin](https://www.linkedin.com/in/yeazin/)
 
 
 
