@@ -23,7 +23,7 @@ NAVBAR
                 </li>
                 <li>
                     <form class="form-inline form-control-sm" method="GET" action="{% url 'search' %}">
-                        <input class="form-control form-control-sm mr-sm-1" id="form1" value="{{ search }}" type="search" name='q' placeholder="Search" aria-label="Search">
+                        <input class="form-control form-control-sm mr-sm-1" id="form1" value="{{ search }}" type="search" name='q' placeholder="Search" aria-label="Search" required>
                         <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit"> <i class="fa fa-search"></i></button>
                       </form>
                 </li>

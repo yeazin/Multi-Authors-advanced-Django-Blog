@@ -1,5 +1,5 @@
 ##  Multi Authors Blog Projects in Django/Python
-#### Navigation : [Technology](#technology-used---)-[Project Features](#projects-features---)-[Project Images](#projects-images)-[Ower Info ](#repository-owner-info) 
+#### Navigation : [Technology](#technology-used---)-[Project Features](#projects-features---)-[Project Images](#projects-images)-[Issues](#issues)-[Ower Info ](#repository-owner-info) 
   
 
 ### Technology Used : -
@@ -18,7 +18,7 @@
 ### Projects Features : -
 
 1. Dedicated Users Frontend Admin Panel.
-2. Frontend Login/ Register System.
+2. Frontend __Login/ Register__ System.
 3. User`s Sides (Frontend) -
     * Users can register
     * Users can login/logout
@@ -43,10 +43,10 @@
     * Each Post has Visit Count.
     * Post can be featured or popular by most views counts and comments.
     * Each post has comment features.
-6. Has Subscription System to collect Emails for further email marketing .
+6. Has __Subscription System__ to collect Emails for further email marketing .
 7. Releted posts by users.
 8. Search Facility .
-9. Dedicated Single Category page by ( featured, popular, recent added).
+9. Dedicated Single Category page by ( featured, popular, recently added).
 10. Social Shares System.
 
 ### Projects Images 
@@ -55,7 +55,15 @@
 ![Register User Frontend](images/readme/register.png "Frontend User Register Page")
 #### Users Login Page
 ![Login User Frontend](images/readme/login.png "Frontend User Login Page")
+#### Search Result Page
+![search result](images/readme/search.png "search result")
 
+![without search result](images/readme/without_search.png " without search result")
+### Issues & Questions
+This project is scaleble.Anyone can contribute here.Anyone can use it as it is Under __MIT License__ .<br>
+If anyone wants to contribute to the project then first make an [Issues](https://github.com/yeazin/Multi-Authors-advanced-Django-Blog/issues) here.<br>
+For further information anyone can knock me at __Email__ & __Facebook__ which is given in the [Owner Info](#repository-owner-info). <br>
+Thanks !!!<br>
 ### Repository Owner Info 
 
 __Md. Nazrul Islam Yeasin__ <br>
