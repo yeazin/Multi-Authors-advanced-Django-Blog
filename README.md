@@ -74,6 +74,10 @@
 ![Register User Frontend](images/readme/register.png "Frontend User Register Page")
 #### Users Login Page
 ![Login User Frontend](images/readme/login.png "Frontend User Login Page")
+#### Category Page
+![category](images/readme/category.png "category page")
+#### Single Blog Post Page
+![single](images/readme/single.png "single blog page")
 #### Search Result Page
 ![search result](images/readme/search.png "search result")
 
