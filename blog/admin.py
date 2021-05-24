@@ -14,6 +14,7 @@ admin.site.register(Tag)
 admin.site.register(EmailSignUp)
 admin.site.register(Contact)
 
+
 # made by Nazrul Islam Yeasin 
 # Facebook : facebook.com/yeariha.farsin
 # Github : github.com/yeazin
