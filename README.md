@@ -1,5 +1,4 @@
 ##  Multi Authors Blog Projects in Django/Python
-<<<<<<< HEAD
 #### Navigation : [Technology](#technology-used---)-[Setup Local](#local)-[Project Features](#projects-features---)-[Project Images](#projects-images)-[Issues](#issues)-[Ower Info ](#repository-owner-info) 
 
   
@@ -18,8 +17,23 @@
 2. Frontend User Admin Panel [ SB Admin 2 ](https://startbootstrap.com/theme/sb-admin-2).
 
 ### How to SETup in Windows/MAC/Linux
-1. Clone this Project <pre> https://github.com/yeazin/Multi-Authors-advanced-Django-Blog.git </pre>
-
+1. Clone this Project <pre><code>git clone https://github.com/yeazin/Multi-Authors-advanced-Django-Blog.git </code></pre>
+2. Go to Project Directory <pre><code>cd Multi-Authors-advanced-Django-Blog </code></pre>
+3. Create a Virtual Environment :-
+    * for Windows <pre></code>python -m venv env </code></pre>
+    * for Linux/Mac <pre></code>python3 -m venv env </code></pre>
+4. Activate Virtual Environment <pre></code>source env/bin/activate </code></pre>
+5. Install Requirment Packages <pre></code>pip install -r requirements.txt</code></pre>
+6. Migrate Database :-
+    * For Windows <pre></code>py manage.py migrate</code></pre>
+    * For Linux/Mac <pre></code>python3 manage.py migrate</code></pre>
+7. Create SuperUser :-
+    * For Windows <pre></code>py manage.py createsuperuser</code></pre>
+    * For Linux/Mac <pre></code>python3 manage.py createsuperuser</code></pre>
+8. Finally Run the Projects :-
+    * For Windows <pre></code>py manage.py runserver</code></pre>
+    * For Linux/Mac <pre></code>python3 manage.py runserver</code></pre>
+<br>
 ### Projects Features : -
 
 1. Dedicated Users Frontend Admin Panel.
