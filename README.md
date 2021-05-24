@@ -1,5 +1,5 @@
-##  Multi Authors Blog Projects in Django/Python
-#### Navigation : [Technology](#technology-used---)-[Setup Local](#how-to-setup-in-windowsmaclinux)-[Project Features](#projects-features---)-[Project Images](#projects-images)-[Issues](#issues)-[Ower Info ](#repository-owner-info) 
+##  MultiBlogs - Multi Authors Blog Project in Django/Python
+#### Navigation : [Technology](#technology-used---)--[Setup Local](#how-to-setup-in-windowsmaclinux)--[Project Features](#project-features---)--[Project Images](#project-images)--[Issues](#issues--questions)--[Ower Info ](#repository-owner-info) 
 
   
 
@@ -34,7 +34,7 @@
     * For Windows <pre></code>py manage.py runserver</code></pre>
     * For Linux/Mac <pre></code>python3 manage.py runserver</code></pre>
 
-### Projects Features : -
+### Project Features : -
 
 1. Dedicated Users Frontend Admin Panel.
 2. Frontend __Login/ Register__ System.
@@ -68,7 +68,7 @@
 9. Dedicated Single Category page by ( featured, popular, recently added).
 10. Social Shares System.
 
-### Projects Images 
+### Project Images 
 
 #### User Register page
 ![Register User Frontend](images/readme/register.png "Frontend User Register Page")
