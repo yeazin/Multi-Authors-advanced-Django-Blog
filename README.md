@@ -1,5 +1,5 @@
 ##  Multi Authors Blog Projects in Django/Python
-#### Navigation : [Technology](#technology-used---)-[Project Features](#projects-features---)-[Project Images](#projects-images)-[Issues](#issues)-[Ower Info ](#repository-owner-info) 
+#### Navigation : [Technology](#technology-used---)-[Setup Local](#local)-[Project Features](#projects-features---)-[Project Images](#projects-images)-[Issues](#issues)-[Ower Info ](#repository-owner-info) 
   
 
 ### Technology Used : -
@@ -14,6 +14,9 @@
 #### Download both templates from below : -
 1. Frontend Templates [ Mundana Bootstrap Blog ](https://www.wowthemes.net/mundana-free-html-bootstrap-template/).
 2. Frontend User Admin Panel [ SB Admin 2 ](https://startbootstrap.com/theme/sb-admin-2).
+
+### How to SETup in Windows/MAC/Linux
+1. Clone this Project <pre> <code>https://github.com/yeazin/Multi-Authors-advanced-Django-Blog.git</code> </pre>
 
 ### Projects Features : -
 
