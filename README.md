@@ -1,5 +1,5 @@
 ##  Multi Authors Blog Projects in Django/Python
-#### Navigation : [Technology](#technology-used---)-[Setup Local](#local)-[Project Features](#projects-features---)-[Project Images](#projects-images)-[Issues](#issues)-[Ower Info ](#repository-owner-info) 
+#### Navigation : [Technology](#technology-used---)-[Setup Local](#how-to-setup-in-windowsmaclinux)-[Project Features](#projects-features---)-[Project Images](#projects-images)-[Issues](#issues)-[Ower Info ](#repository-owner-info) 
 
   
 
@@ -33,7 +33,7 @@
 8. Finally Run the Projects :-
     * For Windows <pre></code>py manage.py runserver</code></pre>
     * For Linux/Mac <pre></code>python3 manage.py runserver</code></pre>
-<br>
+
 ### Projects Features : -
 
 1. Dedicated Users Frontend Admin Panel.
