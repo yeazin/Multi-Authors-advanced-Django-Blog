@@ -1,5 +1,5 @@
 ##  Multi Authors Blog Projects in Django/Python
-#### Navigation : [Technology](#technology-used---)-[Project Features](#projects-features---)-[Project Images](#projects-images)-[Issues](#issues)-[Ower Info ](#repository-owner-info) 
+#### Navigation : [Technology](#technology-used---)-[Project Features](#projects-features---)-[Project Images](#projects-images)-[Issues](#issues--questions)-[Ower Info ](#repository-owner-info) 
   
 
 ### Technology Used : -
