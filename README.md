@@ -18,7 +18,7 @@
 2. Frontend User Admin Panel [ SB Admin 2 ](https://startbootstrap.com/theme/sb-admin-2).
 
 ### How to SETup in Windows/MAC/Linux
-1. Clone this Project <pre> <code>https://github.com/yeazin/Multi-Authors-advanced-Django-Blog.git</code> </pre>
+1. Clone this Project <pre> https://github.com/yeazin/Multi-Authors-advanced-Django-Blog.git </pre>
 
 ### Projects Features : -
 
