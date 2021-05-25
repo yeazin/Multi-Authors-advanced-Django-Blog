@@ -5,7 +5,7 @@
 
 ### Technology Used : -
 1. Python Web Framework Django as Backend
-2. HTML, CSS & Framework BootsTrap
+2. HTML, CSS & Framework BootsTrap  
 3. JS
 
 ### Tempaletes Used : -
