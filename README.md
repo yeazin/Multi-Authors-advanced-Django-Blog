@@ -97,7 +97,7 @@ __Linkedin :__ [Yea Sin](https://www.linkedin.com/in/yeazin/)
 <br>
 <br>
 
-[Go To Top ↑ ](#multi-authors-blog-projects-in-djangopython)  
+[Go To Top ↑ ](#multiblogs---multi-authors-blog-project-in-djangopython)  
 
 
 
