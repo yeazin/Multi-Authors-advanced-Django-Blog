@@ -136,6 +136,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
 
 
 # made by Nazrul Islam Yeasin 
-# Facebook : facebook.com/yeariha.farsin
-# Github : github.com/yeazin
+# Facebook : https://facebook.com/yeazin.io
+# Twitter : https://twitter.com/_yeazin
+# Github : https://github.com/yeazin
+# linked In : https://www.linkedin.com/in/yeazin/
 # website : yeazin.github.io
