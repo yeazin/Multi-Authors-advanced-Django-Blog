@@ -83,7 +83,7 @@
 
 ![without search result](images/readme/without_search.png " without search result")
 ### Issues & Questions
-This project is scalable.Anyone can contribute here.Anyone can use it as it is Under __MIT License__ .<br>
+This project is scalable. Anyone can contribute here. Anyone can use it as it is Under __MIT License__ .<br>
 If anyone wants to contribute to the project then first make an [Issues](https://github.com/yeazin/Multi-Authors-advanced-Django-Blog/issues) here.<br>
 For further information anyone can knock me at __Email__ & __Facebook__ which is given in the [Owner Info](#repository-owner-info). <br>
 Thanks !!!<br>
