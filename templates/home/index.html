@@ -100,7 +100,7 @@
                         {% else %}
                             <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
                         {% endif %}
-                        {{ p.author.author.username }} in <a class="text-dark" href="">{{ p.catagories.name }} </a>
+                        {{ p.author.author.username }} in <a class="text-dark" href="{% url 'catagory' p.catagories.slug %}">{{ p.catagories.name }} </a>
                         
 					</div>
 					<small class="text-muted">{{p.created_at|timesince }} ago ; {{ p.visit_count}} views </small>
