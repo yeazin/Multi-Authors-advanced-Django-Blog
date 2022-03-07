@@ -92,7 +92,7 @@ Thanks !!!<br>
 __Md. Nazrul Islam Yeasin__ <br>
 __Email :__ [ naz.yeasin@gmail.com ](mailto:naz.yeasin@gmail.com) <br>
 __Github :__ [yeazin](https://github.com/yeazin)<br>
-__FaceBook :__ [Yea Sin](https://facebook.com/yeariha.farsin) <br>
+__FaceBook :__ [Yea Sin](https://facebook.com/yeazin.io) <br>
 __Linkedin :__ [Yea Sin](https://www.linkedin.com/in/yeazin/)
 <br>
 <br>
