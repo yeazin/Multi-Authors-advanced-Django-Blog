@@ -605,6 +605,12 @@ h5, .h5 {
 h6, .h6 {
   font-size: 1rem; }
 
+.featured-img{
+  height: 350px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .lead {
   font-size: 1.25rem;
   font-weight: 300; }
@@ -4153,7 +4159,7 @@ input[type="button"].btn-block {
   color: #212529;
   background-color: #09ebaf; }
   .badge-info[href]:hover, .badge-info[href]:focus {
-    color: #212529;
+    color: #212529!important;
     text-decoration: none;
     background-color: #07ba8a; }
 

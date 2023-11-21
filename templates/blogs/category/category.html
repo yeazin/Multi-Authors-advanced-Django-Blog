@@ -25,7 +25,7 @@
 			<h5 class="font-weight-bold spanborder"><span>Featured in {{ catagory.name }}</span></h5>
 			<div class="card border-0 mb-5 box-shadow">
 				<div style="background-image: url(./assets/img/demo/1.jpg); ">
-					<img src="{{ f_post.image_url }}" style="height: 350px; background-size: cover; background-repeat: no-repeat;" alt="">
+					<img src="{{ f_post.image_url }}" class="featured-img rounded" alt="">
 				</div>
 				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 					<h2 class="h2 font-weight-bold">
@@ -36,9 +36,9 @@
 					</p>
 					<div>
 						{% if f_post.author.author_image %}
-						    <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ f_post.author.author_image.url }}">
+						    <img height="30" width="30" class="rounded-circle shadow mr-2" style="border-radius: 50%;" src="{{ f_post.author.author_image.url }}">
                         {% else %}
-                            <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
+                            <img class="rounded-circle shadow mr-2" height="30" width="30" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
                         {% endif %}
                         {{ f_post.author.author.username }} <br>
 						<small class="text-muted">{{f_post.created_at|timesince }} ago ; {{ f_post.visit_count}} views </small>
@@ -55,17 +55,17 @@
 					<p>
                         {{ p.detail |truncatechars:100 }}
 					</p>
-					<div class="card-text text-muted small">
+					<div class="card-text text-muted small text-capitalize">
                         {% if p.author.author_image %}
-                        <img height="20" class="rounded-circle shadow" style="border-radius: 50%;" src="{{ p.author.author_image.url }}">
+                        <img height="30" width="30" class="rounded-circle shadow mr-2" style="border-radius: 50%;background-size:cover;" src="{{ p.author.author_image.url }}">
                         {% else %}
-                        <img class="rounded-circle shadow" height="20" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
+                        <img class="rounded-circle shadow mr-2" height="30" width="30" src="https://www.pngarts.com/files/11/Avatar-PNG-Transparent-Image.png" alt=""> 
                         {% endif %}
                         {{ p.author.author.username }} in <a class="text-dark" href="{% url 'catagory' p.id %}">{{ p.catagories }} </a>
 					</div>
-					<small class="text-muted">{{p.created_at|timesince }} ago ; {{ p.visit_count}} views</small>
+					<small class="text-muted">{{p.created_at|timesince }} ago | {{ p.visit_count}} views</small>
 				</div>
-				<img height="120" src="{{p.image_url}}">
+				<img height="120" alt="{{p.title}}" src="{{p.image_url}}" class="rounded">
 			</div>
             {% endfor %}
 
@@ -106,7 +106,7 @@
 						<h6 class="font-weight-bold">
 						<a href="./article.html" class="text-dark">{{ p.title }}</a>
 						</h6>
-						<p class="text-muted">
+						<p class="text-muted text-capitalize">
 							{{ p.author.author.username }} in <a class="text-dark" href="{% url 'catagory' p.id %}">{{ p.catagories }} </a>
 						</p>
 						</span>
